@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+
+*{
+    margin: 0;
+    
+    text-decoration: none;
+    list-style: none;
+    font-family: "Aboreto", sans-serif;
+    
+}
+html{
+    scroll-behavior: smooth;
+}
+
+.background {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    background-image: url(bg.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll; overflow-x: hidden;
+   
+}
+
+nav{
+    width: 100%;
+    margin-top: 20px;
+    display: inline-flex;
+    cursor: pointer;
+    max-width: 100%;
+    align-items: center;
+    padding-top: 2rem;
+    border: 10px;
+}
+
+nav a{
+    color: white;
+    font-size: 22px;
+    padding-left:70px
+
+}
+
+nav a:hover{
+    color:aqua;
+    transition: 0.5s;
+    
+}
+
+button{
+    color: aqua;
+    background: transparent;
+    border: solid 1px aqua;
+    padding: 5px;
+    border-radius: 15px;
+    font-style:strong;
+    font-size: 15px;
+    width: 150px;
+    cursor: pointer;
+
+}
+button:hover{
+    background-color:  aqua;
+    color:black;
+    transition: 0.8s;
+    transform: scale(1.2);
+    transform: rotate(360deg);
+    
+}
+.conteiner-sobre{
+    width: 100%;
+    height: 100vh;
+    padding: 190px 0 0 300px;
+
+}
+.textsm{
+    font-size: 17px;
+    color: white;
+}
+.botaosobre{
+    margin-top: 15px;
+}
+
+.textsm h3{
+    margin-top: 20px;
+}
+.textsm h1{
+    font-size: 32px;
+   margin-top: 20px;
+   color: aqua;
+}
+.conteiner-text{
+    width: 100%;
+    height: 100%;
+    display:flex;
+}
+.text{
+padding: 300px 20px 0 250px;
+}
+.conteiner-text img{
+    padding-left:200px;
+    height:800px;
+}
+.text h3{
+    color:white ;
+    fonte-size 18px;
+
+}
+.text h1{
+    color: white;
+    margin-top: 20px;
+}
+.text span{
+    color: aqua
+}
+.text p
+{
+    color: white;
+    font-size: 17px;
+    font-weight: 300;
+    margin-top: 15px;
+}
+.redes{
+    display: flex;
+    font-size: 27px;
+    margin-top: 25px;
+    width: 30%;
+    
+}
+.redes a{
+    color: aqua;
+    padding: 20px;
+    margin-top: 20px;
+}
+.downicon{
+    font-size: 50px;
+    margin-top: 50px;
+    
+}
+.downicon a{
+    color: aqua;
+}
+.downicon a:hover{
+    color: rgb(60, 255, 0);
+    
+}
+.busto img:hover{
+    transition: 1s;
+    transform: scale(1.2)
+}
+.downicon i{
+    transform: rotate(180deg);
+}
+.downicon i:hover{
+    transition: 1s;
+    transform: scale(1.4)
+}
+section{
+    min-height: 100vh;
+}
+.contrucao{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+footer{
+    height: 30px;
+    background: rgb(255, 255, 255);
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 5px;
+}
+
+@media screen and (max-width: 480px) {
+   
+    .conteiner-text img{
+       display: none;
+    }
+    .contrucao{
+    width: 100%;
+    padding-left: 280px;
+    padding-top: 200px;
+}
+.conteiner-text{
+    width: 100%;
+    height: 100vh;
+    padding: 80px 0 0 200px;
+}
+.redes {
+font-size: 60px;
+display: flex;
+width: 200%;
+}
+header{
+    width: 120vh;
+}
+nav{
+    width: 100%;
+    margin-top: 30px;
+    display: inline-flex;
+    cursor: pointer;
+    max-width: 100%;
+    padding-left: 25px;
+    justify-content: space-around;
+    padding-top: 2rem;
+    border: 10px;
+
+}
+nav a{
+    font-size: 50px;
+}
+.botao{
+    display: none;
+}
+footer{
+    width: 120vh;
+}
+.text{
+    padding-left: 10px;
+}
+.text h1,h3,p,i{
+    width: 100%;
+}
+.conteiner-sobre{
+    width: 100%;
+    height: 100vh;
+    padding: 190px 0 0 300px;
+    
+}}
+@media (min-width: 480px){
+    .bustocel{
+        display: none;
+    }
+
+ 
+
+}
+   
+
