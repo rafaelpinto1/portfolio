@@ -2,1204 +2,267 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rafael Pinto | Tecnologia & Dados</title>
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Font Awesome Icons -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Portfólio de Rafael Pinto, Analista de Dados Júnior. Projetos, formação e experiência em análise de dados.">
+    <meta name="author" content="Rafael Pinto">
+    <meta name="robots" content="index, follow">
+    <title>Rafael Pinto | Portfólio de Dados</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts - Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <!-- ===== HEADER / NAVBAR ===== -->
-    <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <a href="#" class="logo">
-                    <span class="logo-text">Portfólio Profissional</span>
-                </a>
-                
-                <ul class="nav-menu">
-                    <li><a href="#home" class="nav-link active">Início</a></li>
-                    <li><a href="#about" class="nav-link">Sobre</a></li>
-                    <li><a href="#skills" class="nav-link">Competências</a></li>
-                    <li><a href="#projects" class="nav-link">Soluções</a></li>
-                    <li><a href="#services" class="nav-link">Serviços</a></li>
-                    <li><a href="#architecture" class="nav-link">Arquitetura</a></li>
-                    <li><a href="#blog" class="nav-link">Insights</a></li>
-                    <li><a href="#contact" class="nav-link">Contato</a></li>
+    <!-- Barra de progresso de leitura -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Cabeçalho com menu e dark mode toggle -->
+    <header class="header" aria-label="Cabeçalho principal">
+        <div class="container header-container">
+            <div class="logo">
+                <span class="logo-text">Portfólio Profissional </span>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
+            <nav class="nav-menu" id="navMenu" aria-label="Menu principal">
+                <ul class="nav-list">
+                    <li><a href="#inicio" class="nav-link active">Início</a></li>
+                    <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                    <li><a href="#formacao" class="nav-link">Formação</a></li>
+                    <li><a href="#experiencia" class="nav-link">Experiência</a></li>
+                    <li><a href="#projetos" class="nav-link">Projetos</a></li>
+                    <li><a href="#contato" class="nav-link">Contato</a></li>
                 </ul>
-                
-                <div class="nav-actions">
-                    <button class="theme-toggle" id="themeToggle">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                    
-                    <button class="hamburger" id="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                </div>
             </nav>
+            <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Alternar modo escuro/claro">🌙</button>
         </div>
     </header>
 
-    <!-- ===== HERO SECTION ===== -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text" data-aos="fade-up">
-                    <h1 class="hero-title">
-                        Rafael Pinto<br>
-                        <span class="gradient-text">Analista de Dados</span>
-                    </h1>
-                    <p class="hero-description">
-                        Integrando Análise de Dados, conhecimento de negócios e infraestrutura,
-                        para criar ecossistemas tecnológicos escaláveis e orientados a dados. 
-                        Transformo desafios complexos em oportunidades de inovação.
-                    </p>
-                    
-                    <div class="hero-stats">
-                        <div class="stat">
-                            <span class="stat-number">5+</span>
-                            <span class="stat-label">Anos em Tech</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">60+</span>
-                            <span class="stat-label">Soluções Entregues</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">20+</span>
-                            <span class="stat-label">Empresas Impactadas</span>
+    <main>
+        <!-- Seção Início -->
+        <section id="inicio" class="section hero fullscreen">
+            <div class="container hero-container">
+                <div class="hero-image-wrapper">
+                    <div class="hero-image">
+                        <img src="perfil.jpg" alt="Rafael Pinto" class="profile-photo">
+                        <!-- Ícones flutuantes estilo tech stack -->
+                        <div class="floating-icons">
+                            <i class="fab fa-python tech-icon" style="top: -15px; left: 10%;"></i>
+                            <i class="fas fa-chart-line tech-icon" style="top: 0; right: -20px;"></i>
+                            <i class="fas fa-database tech-icon" style="bottom: -10px; right: 15%;"></i>
+                            <i class="fas fa-chart-bar tech-icon" style="bottom: 5px; left: 0;"></i>
+                            <i class="fab fa-microsoft tech-icon" style="top: 30%; left: -25px;"></i>
+                            <i class="fas fa-table tech-icon" style="top: 70%; right: -15px;"></i>
                         </div>
                     </div>
-                    
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary">
-                            <i class="fas fa-cubes"></i>
-                            Explorar Soluções
-                        </a>
-                        <a href="#contact" class="btn btn-outline">
-                            <i class="fas fa-rocket"></i>
-                            Iniciar Projeto
-                        </a>
-                    </div>
-                    
                 </div>
-                
-<div class="hero-visual" data-aos="fade-left">
-    
-    <div class="tech-stack">
-        <div class="tech-icon"><i class="fab fa-microsoft"></i></div>
-        <div class="tech-icon"><i class="fas fa-chart-bar"></i></div>
-        <div class="tech-icon"><i class="fab fa-python"></i></div>
-        <div class="tech-icon"><i class="fas fa-database"></i></div>
-        <div class="tech-icon"><i class="fas fa-table"></i></div>
-        <div class="tech-icon"><i class="fas fa-chart-line"></i></div>
+                <div class="hero-content">
+                   <h3> Olá, eu sou </h3>
+                    <h1 class="hero-title">Rafael Pinto</h1>
+                    <div class="hero-subtitle">
+                        <span class="typewriter-text" id="typewriter"></span>
+                        <span class="cursor">|</span>
+                    </div>
+                    <p class="hero-tagline">Transformo dados em decisões estratégicas com impacto e ética.</p>
+                    <a href="#projetos" class="cta-button" aria-label="Ver projetos">Ver projetos →</a>
+                </div>
+            </div>
+        </section>
 
-         <div class="hero-profile">
-            <img src="perfil.jpg" alt="Rafael Pinto" class="profile-image">
+        <!-- Seção Sobre -->
+        <section id="sobre" class="section about fullscreen">
+            <div class="container">
+                <h2 class="section-title">Sobre</h2>
+                <div class="about-text">
+                    <p>Olá! Sou Rafael Pinto, tenho 29 anos e sou um profissional com paixão por transformar dados em narrativas claras e acionáveis. 
+                    Possuo habilidades em Python, Power BI, SQL, Microsoft fabric e outros. Busco sempre soluções baseadas em evidências e respeito à privacidade (LGPD).</p>
+                    <p>Atualmente aprimoro conhecimentos em machine learning e engenharia de dados, colaborando em projetos e cases de negócio. Minha abordagem alia pensamento crítico, comunicação transparente e entrega de valor.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Formação -->
+        <section id="formacao" class="section formation fullscreen">
+            <div class="container">
+                <h2 class="section-title">Formação</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-icon">🎓</div>
+                        <h3>Graduação em Análise e Desenvolvimento de Sistemas</h3>
+                        <p>Centro Universitário Augusto Motta <br>(Concluído, 2022–2025)</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">📊</div>
+                        <h3>Pós Graduação em Ciência de Dados e Inteligência Artificial</h3>
+                        <p>Centro Universitário Augusto Motta  <br>(Concluído, 2026)</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">📈</div>
+                        <h3>Certificação Microsoft AZ-900</h3>
+                        <p>Microsoft corporation <br> (Concluído, 2026) </p>
+                    </div>
+                        <div class="card">
+                        <div class="card-icon">⛃</div>
+                        <h3>Certificação Oracle Data Platform Foundations Associate (1Z0-1195)</h3>
+                        <p>Oracle<br> (Concluído, 2025) </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Experiência -->
+         <section id="experiencia" class="section experience fullscreen">
+    <div class="container">
+        <h2 class="section-title">Experiência</h2>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Analista de Dados</h3>
+                    <span class="timeline-date">Fevereiro 2023 – Atual</span>
+                    <p>
+                        Gestão e desenvolvimento de soluções de dados no ecossistema Microsoft (Fabric, Power BI e Azure), com foco em governança, integração, monitoramento e alta disponibilidade.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Técnico de Suporte de TI</h3>
+                    <span class="timeline-date">Dezembro 2017 – Janeiro 2023</span>
+                    <p>
+                        Suporte técnico a operações de loja, com atuação em troubleshooting de sistemas de PDV, análise de chamados e garantia da continuidade dos serviços de TI.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Auxiliar Administrativo</h3>
+                    <span class="timeline-date">Agosto 2015 – Dezembro 2017</span>
+                    <p>
+                        Controle de inventário e emissão de relatórios em sistema ERP, com apoio na manutenção de ativos e suporte básico de TI.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Jovem Aprendiz</h3>
+                    <span class="timeline-date">Junho, 2011 - Agosto 2015</span>
+                    <p>
+                        Atuação em rotinas administrativas no varejo, com organização de processos, apoio operacional e suporte às atividades diárias.
+                    </p>
+                </div>
+            </div>
+
         </div>
+
+        <!-- Botão de download do currículo PDF -->
+            <div class="resume-download">
+            <a href="Rafael%20A.%20S.%20Pinto.pdf" download="Rafael_Pinto_Curriculo.pdf" class="btn-resume">
+                <i class="fas fa-file-pdf"></i> Baixar Currículo (PDF)
+             </a>
+            <a href="http://lattes.cnpq.br/2078391939625415" target="_blank" class="btn-lattes">
+                <i class="fas fa-graduation-cap"></i> Currículo Lattes CNPq
+                        </a>
+        </div>
+
     </div>
-    <div class="hero-shape"></div>
+</section>
+
+        <!-- Seção Projetos -->
+        <section id="projetos" class="section projects fullscreen">
+            <div class="container">
+                <h2 class="section-title">Projetos</h2>
+                <p class="lgpd-notice">⚠️ Todos os projetos utilizam dados sintéticos e anonimizados em conformidade com a LGPD.</p>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://via.placeholder.com/400x200?text=Dashboard+Vendas" alt="Dashboard de Vendas">
+                        </div>
+                        <h3>Dashboard de Vendas Interativo</h3>
+                        <p>Power BI e SQL – Visualização de KPIs com dados simulados, segmentação de clientes e previsão de demanda.</p>
+                        <a href="#" class="project-link" aria-label="Ver detalhes do projeto Dashboard de Vendas">Ver mais →</a>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://via.placeholder.com/400x200?text=Análise+Churn" alt="Análise de Churn">
+                        </div>
+                        <h3>Análise de Churn com Python</h3>
+                        <p>Pandas, Matplotlib e Scikit-learn – Modelo preditivo para identificação de evasão de clientes, utilizando dataset sintético.</p>
+                        <a href="#" class="project-link" aria-label="Ver detalhes do projeto Análise de Churn">Ver mais →</a>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://via.placeholder.com/400x200?text=ETL+Pipeline" alt="ETL Pipeline">
+                        </div>
+                        <h3>ETL Pipeline para Logs</h3>
+                        <p>Python + SQLite – Automação de extração, transformação e carga de dados, com foco em performance e rastreabilidade.</p>
+                        <a href="#" class="project-link" aria-label="Ver detalhes do projeto ETL Pipeline">Ver mais →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Contato -->
+        <section id="contato" class="section contact fullscreen">
+            <div class="container">
+                <h2 class="section-title">Contato</h2>
+<div class="contact-buttons">
+
+    <!-- Telefone -->
+    <a href="tel:+5521985900023" class="contact-btn" aria-label="Telefone">
+        <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Telefone">
+        <span>21 98590-0023</span>
+    </a>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/5521985900023?text=Olá%2C%20vim%20pelo%20seu%20portfólio!" 
+       target="_blank" rel="noopener noreferrer" 
+       class="contact-btn" aria-label="WhatsApp">
+        <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp">
+        <span>Falar no WhatsApp</span>
+    </a>
+
+    <!-- Email -->
+    <a href="mailto:rafael-pinto@outlook.com.br" class="contact-btn" aria-label="E-mail">
+        <img src="https://img.icons8.com/ios-filled/50/000000/new-post.png" alt="Email">
+        <span>rafael-pinto@outlook.com.br</span>
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/rafaelpinto1/" 
+       target="_blank" rel="noopener noreferrer" 
+       class="contact-btn" aria-label="LinkedIn">
+        <img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn">
+        <span>linkedin</span>
+    </a>
+
 </div>
+                <!-- Link adicional para Lattes -->
+                <div class="lattes-link">
+                    <a href="http://lattes.cnpq.br/2078391939625415" target="_blank" class="lattes-btn">
+                        <i class="fas fa-graduation-cap"></i> Acesse meu Currículo Lattes CNPq
+                    </a>
+                </div>
             </div>
-        </div>
-        
-        <div class="hero-scroll">
-            <a href="#about">
-                <span>Explorar</span>
-                <i class="fas fa-arrow-down"></i>
-            </a>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- ===== ABOUT SECTION ===== -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Quem sou eu ?
-                </h2>
-                <p class="section-description">
-                    Unindo tecnologia, dados e negócios para criar soluções completas e inovadoras
-                </p>
-            </div>
-            
-            <div class="about-bio" data-aos="fade-up">
-                <div class="bio-content">
-                    <h3>Minha Jornada</h3>
-                    <p>
-                       Minha trajetória em tecnologia começou na infraestrutura de TI e, aos poucos, foi se aproximando do universo dos dados, área que hoje me move. Sou graduado em Análise e Desenvolvimento de Sistemas e pós-graduado em Ciência de Dados e Inteligência Artificial.                   </p>
-                    <p>
-                        Acredito que a tecnologia faz mais sentido quando usada para resolver problemas reais. Por isso, busco unir olhar analítico, curiosidade e vontade de aprender para construir soluções que realmente gerem impacto
-                    </p>
-                    
-                    <div class="bio-highlights">
-                        <div class="bio-highlight">
-                            <i class="fas fa-award"></i>
-                            <span>Microsoft AZ-900 Certified</span>
-                        </div>
-                        <div class="bio-highlight">
-                            <i class="fas fa-award"></i>
-                            <span>Pós em Dados E inteligencia Artificial</span>
-                        </div>
-                        <div class="bio-highlight">
-                            <i class="fas fa-award"></i>
-                            <span>Graduado em Analise e Desenvolvimento de Sistemas</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== SKILLS SECTION ===== -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-subtitle">Stack Tecnológica</span>
-                <h2 class="section-title">Competências Técnicas</h2>
-                <p class="section-description">
-                    Domínio multidisciplinar em dados, engenharia e arquitetura
-                </p>
-            </div>
-            
-            <div class="skills-tabs" data-aos="fade-up">
-                <button class="tab-btn active" data-tab="data-science">Ciência de Dados</button>
-                <button class="tab-btn" data-tab="data-engineering">Engenharia de Dados</button>
-                <button class="tab-btn" data-tab="architecture">Arquitetura</button>
-                <button class="tab-btn" data-tab="cloud">Cloud & DevOps</button>
-            </div>
-            
-            <div class="skills-panels">
-                <!-- Data Science Panel -->
-                <div class="skills-panel active" id="data-science">
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h3><i class="fas fa-code"></i> Linguagens</h3>
-                            <div class="skill-items">
-                                <div class="skill-item">
-                                    <span>Python</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 98%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>R</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 85%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>SQL</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 95%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Julia</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 75%"></div></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h3><i class="fas fa-brain"></i> Machine Learning</h3>
-                            <div class="skill-items">
-                                <div class="skill-item">
-                                    <span>Scikit-learn</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 95%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>TensorFlow/Keras</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 88%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>PyTorch</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 82%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>XGBoost/LightGBM</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 92%"></div></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h3><i class="fas fa-chart-line"></i> Visualização</h3>
-                            <div class="skill-items">
-                                <div class="skill-item">
-                                    <span>Matplotlib/Seaborn</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 95%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Plotly/Dash</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 90%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Power BI</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 88%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Tableau</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 85%"></div></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h3><i class="fas fa-calculator"></i> Estatística</h3>
-                            <div class="skill-items">
-                                <div class="skill-item">
-                                    <span>Análise Estatística</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 95%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Testes A/B</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 90%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Séries Temporais</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 88%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Otimização</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 85%"></div></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Data Engineering Panel -->
-                <div class="skills-panel" id="data-engineering">
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h3><i class="fas fa-database"></i> Bancos de Dados</h3>
-                            <div class="skill-items">
-                                <div class="skill-item">
-                                    <span>PostgreSQL</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 95%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>MySQL</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 92%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>MongoDB</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 88%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Cassandra</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 80%"></div></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h3><i class="fas fa-stream"></i> Processamento</h3>
-                            <div class="skill-items">
-                                <div class="skill-item">
-                                    <span>Apache Spark</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 90%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Apache Flink</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 75%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Apache Kafka</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 85%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Airflow</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 88%"></div></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h3><i class="fas fa-warehouse"></i> Data Warehousing</h3>
-                            <div class="skill-items">
-                                <div class="skill-item">
-                                    <span>Snowflake</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 85%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>BigQuery</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 92%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Redshift</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 88%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Databricks</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 90%"></div></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h3><i class="fas fa-code-branch"></i> ETL/ELT</h3>
-                            <div class="skill-items">
-                                <div class="skill-item">
-                                    <span>dbt</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 88%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Apache NiFi</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 80%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Glue (AWS)</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 85%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Dataflow (GCP)</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 82%"></div></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Architecture Panel -->
-                <div class="skills-panel" id="architecture">
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h3><i class="fas fa-cubes"></i> Arquitetura de Software</h3>
-                            <div class="skill-items">
-                                <div class="skill-item">
-                                    <span>Microsserviços</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 92%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Event-Driven</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 88%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Arquitetura Hexagonal</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 85%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Domain-Driven Design</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 82%"></div></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h3><i class="fas fa-network-wired"></i> Arquitetura de Dados</h3>
-                            <div class="skill-items">
-                                <div class="skill-item">
-                                    <span>Data Mesh</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 80%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Data Lakehouse</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 85%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Medallion Architecture</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 90%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Lambda/Kappa</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 88%"></div></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h3><i class="fas fa-shield-alt"></i> Segurança & Governança</h3>
-                            <div class="skill-items">
-                                <div class="skill-item">
-                                    <span>IAM/RBAC</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 90%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>GDPR/LGPD</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 88%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Data Catalog</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 85%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Data Lineage</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 82%"></div></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h3><i class="fas fa-diagram-project"></i> Padrões & Práticas</h3>
-                            <div class="skill-items">
-                                <div class="skill-item">
-                                    <span>SOLID</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 95%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Design Patterns</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 92%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Clean Architecture</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 88%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>12 Factor App</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 90%"></div></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Cloud & DevOps Panel -->
-                <div class="skills-panel" id="cloud">
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h3><i class="fab fa-aws"></i> AWS</h3>
-                            <div class="skill-items">
-                                <div class="skill-item">
-                                    <span>EC2/S3/Lambda</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 95%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>EMR/Glue/Athena</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 92%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Kinesis/MSK</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 88%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>SageMaker</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 85%"></div></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h3><i class="fab fa-google"></i> GCP</h3>
-                            <div class="skill-items">
-                                <div class="skill-item">
-                                    <span>BigQuery</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 92%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Dataflow</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 85%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Dataproc</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 82%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Vertex AI</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 80%"></div></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h3><i class="fab fa-microsoft"></i> Azure</h3>
-                            <div class="skill-items">
-                                <div class="skill-item">
-                                    <span>Synapse</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 85%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Data Factory</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 88%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Databricks</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 90%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>ML Studio</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 82%"></div></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h3><i class="fas fa-tools"></i> DevOps/MLOps</h3>
-                            <div class="skill-items">
-                                <div class="skill-item">
-                                    <span>Docker/Kubernetes</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 92%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>Terraform</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 88%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>CI/CD (GitHub Actions)</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 90%"></div></div>
-                                </div>
-                                <div class="skill-item">
-                                    <span>MLflow/Kubeflow</span>
-                                    <div class="progress-bar"><div class="progress" style="width: 85%"></div></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== SOLUTIONS/PROJECTS SECTION ===== -->
-    <section id="projects" class="solutions">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-subtitle">Portfólio de Soluções</span>
-                <h2 class="section-title">Projetos & Entregas</h2>
-                <p class="section-description">
-                    Soluções completas que integram dados, engenharia e arquitetura
-                </p>
-            </div>
-            
-            <div class="solutions-filter" data-aos="fade-up">
-                <button class="filter-btn active" data-filter="all">Todas</button>
-                <button class="filter-btn" data-filter="data-science">Ciência de Dados</button>
-                <button class="filter-btn" data-filter="data-eng">Engenharia de Dados</button>
-                <button class="filter-btn" data-filter="architecture">Arquitetura</button>
-                <button class="filter-btn" data-filter="mlops">MLOps</button>
-            </div>
-            
-            <div class="solutions-grid">
-                <!-- Solução 1 - Ciência de Dados -->
-                <div class="solution-card" data-category="data-science" data-aos="fade-up">
-                    <div class="solution-header">
-                        <div class="solution-icon">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <span class="solution-category">Ciência de Dados</span>
-                    </div>
-                    
-                    <h3>Sistema de Recomendação em Tempo Real</h3>
-                    <p>Motor de recomendação baseado em comportamento do usuário para e-commerce, processando milhões de eventos em tempo real.</p>
-                    
-                    <div class="solution-tech">
-                        <span>Python</span>
-                        <span>TensorFlow</span>
-                        <span>Kafka</span>
-                        <span>Redis</span>
-                        <span>FastAPI</span>
-                    </div>
-                    
-                    <div class="solution-metrics">
-                        <div class="metric">
-                            <span class="metric-value">+35%</span>
-                            <span class="metric-label">Conversão</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">100ms</span>
-                            <span class="metric-label">Latência</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">10M+</span>
-                            <span class="metric-label">Usuários</span>
-                        </div>
-                    </div>
-                    
-                    <div class="solution-links">
-                        <a href="#" class="btn btn-sm"><i class="fab fa-github"></i> Código</a>
-                        <a href="#" class="btn btn-sm btn-outline"><i class="fas fa-external-link"></i> Estudo de Caso</a>
-                    </div>
-                </div>
-                
-                <!-- Solução 2 - Engenharia de Dados -->
-                <div class="solution-card" data-category="data-eng" data-aos="fade-up" data-aos-delay="100">
-                    <div class="solution-header">
-                        <div class="solution-icon">
-                            <i class="fas fa-stream"></i>
-                        </div>
-                        <span class="solution-category">Engenharia de Dados</span>
-                    </div>
-                    
-                    <h3>Data Lakehouse em Escala</h3>
-                    <p>Arquitetura de dados unificada utilizando Delta Lake, processando 5TB+ diários com baixa latência.</p>
-                    
-                    <div class="solution-tech">
-                        <span>Spark</span>
-                        <span>Delta Lake</span>
-                        <span>Databricks</span>
-                        <span>Airflow</span>
-                        <span>AWS S3</span>
-                    </div>
-                    
-                    <div class="solution-metrics">
-                        <div class="metric">
-                            <span class="metric-value">5TB/dia</span>
-                            <span class="metric-label">Volume</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">-60%</span>
-                            <span class="metric-label">Custos</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">15min</span>
-                            <span class="metric-label">Latência</span>
-                        </div>
-                    </div>
-                    
-                    <div class="solution-links">
-                        <a href="#" class="btn btn-sm"><i class="fab fa-github"></i> Código</a>
-                        <a href="#" class="btn btn-sm btn-outline"><i class="fas fa-external-link"></i> Estudo de Caso</a>
-                    </div>
-                </div>
-                
-                <!-- Solução 3 - Arquitetura -->
-                <div class="solution-card" data-category="architecture" data-aos="fade-up" data-aos-delay="200">
-                    <div class="solution-header">
-                        <div class="solution-icon">
-                            <i class="fas fa-cloud-upload-alt"></i>
-                        </div>
-                        <span class="solution-category">Arquitetura Cloud</span>
-                    </div>
-                    
-                    <h3>Plataforma de Analytics Serverless</h3>
-                    <p>Arquitetura 100% serverless na AWS para análise de dados em tempo real com custo otimizado.</p>
-                    
-                    <div class="solution-tech">
-                        <span>AWS Lambda</span>
-                        <span>Kinesis</span>
-                        <span>Athena</span>
-                        <span>QuickSight</span>
-                        <span>Terraform</span>
-                    </div>
-                    
-                    <div class="solution-metrics">
-                        <div class="metric">
-                            <span class="metric-value">Zero</span>
-                            <span class="metric-label">Servidores</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">-70%</span>
-                            <span class="metric-label">Custo</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">Auto</span>
-                            <span class="metric-label">Escala</span>
-                        </div>
-                    </div>
-                    
-                    <div class="solution-links">
-                        <a href="#" class="btn btn-sm"><i class="fab fa-github"></i> Terraform</a>
-                        <a href="#" class="btn btn-sm btn-outline"><i class="fas fa-external-link"></i> Diagrama</a>
-                    </div>
-                </div>
-                
-                <!-- Solução 4 - MLOps -->
-                <div class="solution-card" data-category="mlops" data-aos="fade-up" data-aos-delay="300">
-                    <div class="solution-header">
-                        <div class="solution-icon">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <span class="solution-category">MLOps</span>
-                    </div>
-                    
-                    <h3>Pipeline de ML Automatizado</h3>
-                    <p>Plataforma completa de MLOps com CI/CD para modelos, versionamento e deploy contínuo.</p>
-                    
-                    <div class="solution-tech">
-                        <span>Kubeflow</span>
-                        <span>MLflow</span>
-                        <span>Docker</span>
-                        <span>Kubernetes</span>
-                        <span>GitHub Actions</span>
-                    </div>
-                    
-                    <div class="solution-metrics">
-                        <div class="metric">
-                            <span class="metric-value">-80%</span>
-                            <span class="metric-label">Tempo Deploy</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">50+</span>
-                            <span class="metric-label">Modelos</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">A/B</span>
-                            <span class="metric-label">Testing</span>
-                        </div>
-                    </div>
-                    
-                    <div class="solution-links">
-                        <a href="#" class="btn btn-sm"><i class="fab fa-github"></i> Código</a>
-                        <a href="#" class="btn btn-sm btn-outline"><i class="fas fa-external-link"></i> Arquitetura</a>
-                    </div>
-                </div>
-                
-                <!-- Solução 5 - Ciência de Dados -->
-                <div class="solution-card" data-category="data-science" data-aos="fade-up" data-aos-delay="400">
-                    <div class="solution-header">
-                        <div class="solution-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <span class="solution-category">Previsão</span>
-                    </div>
-                    
-                    <h3>Modelo de Previsão de Demanda</h3>
-                    <p>Modelo preditivo para varejo utilizando séries temporais e deep learning, integrado ao ERP da empresa.</p>
-                    
-                    <div class="solution-tech">
-                        <span>Prophet</span>
-                        <span>LSTM</span>
-                        <span>Python</span>
-                        <span>PostgreSQL</span>
-                        <span>FastAPI</span>
-                    </div>
-                    
-                    <div class="solution-metrics">
-                        <div class="metric">
-                            <span class="metric-value">95%</span>
-                            <span class="metric-label">Acurácia</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">-25%</span>
-                            <span class="metric-label">Estoque</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">R$5M</span>
-                            <span class="metric-label">Economia</span>
-                        </div>
-                    </div>
-                    
-                    <div class="solution-links">
-                        <a href="#" class="btn btn-sm"><i class="fab fa-github"></i> Código</a>
-                        <a href="#" class="btn btn-sm btn-outline"><i class="fas fa-external-link"></i> API</a>
-                    </div>
-                </div>
-                
-                <!-- Solução 6 - Engenharia de Dados -->
-                <div class="solution-card" data-category="data-eng" data-aos="fade-up" data-aos-delay="500">
-                    <div class="solution-header">
-                        <div class="solution-icon">
-                            <i class="fas fa-exchange-alt"></i>
-                        </div>
-                        <span class="solution-category">Integração</span>
-                    </div>
-                    
-                    <h3>Plataforma de Streaming em Tempo Real</h3>
-                    <p>Arquitetura event-driven para processamento de dados em tempo real utilizando Kafka e Spark Streaming.</p>
-                    
-                    <div class="solution-tech">
-                        <span>Kafka</span>
-                        <span>Spark Streaming</span>
-                        <span>Cassandra</span>
-                        <span>Elasticsearch</span>
-                        <span>Kibana</span>
-                    </div>
-                    
-                    <div class="solution-metrics">
-                        <div class="metric">
-                            <span class="metric-value">1M/s</span>
-                            <span class="metric-label">Eventos</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">100ms</span>
-                            <span class="metric-label">Latência</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">99.99%</span>
-                            <span class="metric-label">Disponibilidade</span>
-                        </div>
-                    </div>
-                    
-                    <div class="solution-links">
-                        <a href="#" class="btn btn-sm"><i class="fab fa-github"></i> Código</a>
-                        <a href="#" class="btn btn-sm btn-outline"><i class="fas fa-external-link"></i> Arquitetura</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="solutions-more" data-aos="fade-up">
-                <a href="#" class="btn btn-outline">
-                    <i class="fab fa-github"></i>
-                    Ver Todos no GitHub
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== SERVICES SECTION ===== -->
-    <section id="services" class="services">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-subtitle">Consultoria & Serviços</span>
-                <h2 class="section-title">Como Posso Ajudar</h2>
-                <p class="section-description">
-                    Soluções personalizadas para cada desafio tecnológico
-                </p>
-            </div>
-            
-            <div class="services-grid">
-                <div class="service-card" data-aos="flip-left">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
-                    <h3>Estratégia de Dados</h3>
-                    <p>Definição de roadmap, governança e cultura data-driven para sua empresa.</p>
-                    <a href="#" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
-                </div>
-                
-                <div class="service-card" data-aos="flip-left" data-aos-delay="100">
-                    <div class="service-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>Inteligência Artificial</h3>
-                    <p>Desenvolvimento e implementação de soluções de IA e ML sob medida.</p>
-                    <a href="#" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
-                </div>
-                
-                <div class="service-card" data-aos="flip-left" data-aos-delay="200">
-                    <div class="service-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3>Arquitetura de Soluções</h3>
-                    <p>Desenho de arquiteturas escaláveis, seguras e de alta performance.</p>
-                    <a href="#" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
-                </div>
-                
-                <div class="service-card" data-aos="flip-left" data-aos-delay="300">
-                    <div class="service-icon">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <h3>Migração para Cloud</h3>
-                    <p>Estratégias e execução de migração de workloads para AWS, GCP ou Azure.</p>
-                    <a href="#" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
-                </div>
-                
-                <div class="service-card" data-aos="flip-left" data-aos-delay="400">
-                    <div class="service-icon">
-                        <i class="fas fa-tachometer-alt"></i>
-                    </div>
-                    <h3>Otimização de Performance</h3>
-                    <p>Análise e otimização de pipelines, queries e custos de infraestrutura.</p>
-                    <a href="#" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
-                </div>
-                
-                <div class="service-card" data-aos="flip-left" data-aos-delay="500">
-                    <div class="service-icon">
-                        <i class="fas fa-chalkboard-teacher"></i>
-                    </div>
-                    <h3>Treinamentos & Mentoria</h3>
-                    <p>Capacitação de times em dados, arquitetura e melhores práticas.</p>
-                    <a href="#" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== ARCHITECTURE SECTION ===== -->
-    <section id="architecture" class="architecture">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-subtitle">Arquitetura de Referência</span>
-                <h2 class="section-title">Modelos Arquiteturais</h2>
-                <p class="section-description">
-                    Padrões e boas práticas que aplico em projetos reais
-                </p>
-            </div>
-            
-            <div class="architecture-grid">
-                <div class="arch-card" data-aos="fade-right">
-                    <div class="arch-header">
-                        <i class="fas fa-lake"></i>
-                        <h3>Data Lakehouse Moderno</h3>
-                    </div>
-                    <div class="arch-diagram">
-                        <div class="arch-layer">Ingestão <i class="fas fa-arrow-right"></i></div>
-                        <div class="arch-layer">Camada Bronze <i class="fas fa-arrow-right"></i></div>
-                        <div class="arch-layer">Camada Prata <i class="fas fa-arrow-right"></i></div>
-                        <div class="arch-layer">Camada Ouro <i class="fas fa-arrow-right"></i></div>
-                        <div class="arch-layer">Consumo</div>
-                    </div>
-                    <ul class="arch-tech">
-                        <li><i class="fas fa-check"></i> Delta Lake / Iceberg</li>
-                        <li><i class="fas fa-check"></i> Spark / Flink</li>
-                        <li><i class="fas fa-check"></i> dbt / Airflow</li>
-                    </ul>
-                </div>
-                
-                <div class="arch-card" data-aos="fade-up">
-                    <div class="arch-header">
-                        <i class="fas fa-bolt"></i>
-                        <h3>Streaming em Tempo Real</h3>
-                    </div>
-                    <div class="arch-diagram">
-                        <div class="arch-layer">Fontes <i class="fas fa-arrow-right"></i></div>
-                        <div class="arch-layer">Kafka <i class="fas fa-arrow-right"></i></div>
-                        <div class="arch-layer">Spark Streaming <i class="fas fa-arrow-right"></i></div>
-                        <div class="arch-layer">Sinks</div>
-                    </div>
-                    <ul class="arch-tech">
-                        <li><i class="fas fa-check"></i> Apache Kafka</li>
-                        <li><i class="fas fa-check"></i> Spark / Flink</li>
-                        <li><i class="fas fa-check"></i> Cassandra / Redis</li>
-                    </ul>
-                </div>
-                
-                <div class="arch-card" data-aos="fade-left">
-                    <div class="arch-header">
-                        <i class="fas fa-microchip"></i>
-                        <h3>MLOps Pipeline</h3>
-                    </div>
-                    <div class="arch-diagram">
-                        <div class="arch-layer">Experimentação <i class="fas fa-arrow-right"></i></div>
-                        <div class="arch-layer">Versionamento <i class="fas fa-arrow-right"></i></div>
-                        <div class="arch-layer">CI/CD <i class="fas fa-arrow-right"></i></div>
-                        <div class="arch-layer">Deploy <i class="fas fa-arrow-right"></i></div>
-                        <div class="arch-layer">Monitoramento</div>
-                    </div>
-                    <ul class="arch-tech">
-                        <li><i class="fas fa-check"></i> MLflow / Kubeflow</li>
-                        <li><i class="fas fa-check"></i> Docker / K8s</li>
-                        <li><i class="fas fa-check"></i> GitHub Actions</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== BLOG/INSIGHTS SECTION ===== -->
-    <section id="blog" class="blog">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-subtitle">Insights Técnicos</span>
-                <h2 class="section-title">Artigos & Conteúdos</h2>
-                <p class="section-description">
-                    Compartilhando conhecimento e experiências em tecnologia e dados
-                </p>
-            </div>
-            
-            <div class="blog-grid">
-                <article class="blog-card" data-aos="fade-right">
-                    <div class="blog-image">
-                        <img src="https://via.placeholder.com/600x400" alt="Blog Post">
-                        <span class="blog-category">Arquitetura</span>
-                    </div>
-                    
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span><i class="far fa-calendar"></i> 15 Mar 2024</span>
-                            <span><i class="far fa-clock"></i> 10 min</span>
-                        </div>
-                        
-                        <h3>Data Mesh: Implementando na Prática</h3>
-                        <p>Um guia prático para implementar Data Mesh em organizações de grande porte.</p>
-                        
-                        <a href="#" class="blog-read-more">
-                            Ler Artigo <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-                
-                <article class="blog-card" data-aos="fade-up">
-                    <div class="blog-image">
-                        <img src="https://via.placeholder.com/600x400" alt="Blog Post">
-                        <span class="blog-category">MLOps</span>
-                    </div>
-                    
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span><i class="far fa-calendar"></i> 28 Fev 2024</span>
-                            <span><i class="far fa-clock"></i> 8 min</span>
-                        </div>
-                        
-                        <h3>Pipeline de ML com Kubeflow</h3>
-                        <p>Como construir pipelines escaláveis de machine learning no Kubernetes.</p>
-                        
-                        <a href="#" class="blog-read-more">
-                            Ler Artigo <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-                
-                <article class="blog-card" data-aos="fade-left">
-                    <div class="blog-image">
-                        <img src="https://via.placeholder.com/600x400" alt="Blog Post">
-                        <span class="blog-category">Cloud</span>
-                    </div>
-                    
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span><i class="far fa-calendar"></i> 10 Fev 2024</span>
-                            <span><i class="far fa-clock"></i> 12 min</span>
-                        </div>
-                        
-                        <h3>Serverless Data Architecture na AWS</h3>
-                        <p>Construindo plataformas de dados escaláveis com custo otimizado.</p>
-                        
-                        <a href="#" class="blog-read-more">
-                            Ler Artigo <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-            </div>
-            
-            <div class="blog-more" data-aos="fade-up">
-                <a href="#" class="btn btn-outline">
-                    <i class="fab fa-medium"></i>
-                    Ver Todos no Medium
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== CONTACT SECTION ===== -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-subtitle">Vamos Conversar</span>
-                <h2 class="section-title">Transforme Seu Negócio</h2>
-                <p class="section-description">
-                    Estou disponível para novos projetos, parcerias e oportunidades
-                </p>
-            </div>
-            
-            <div class="contact-content">
-                <div class="contact-info" data-aos="fade-right">
-                    <div class="contact-card">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h3>Email</h3>
-                            <p>rafael.pinto@email.com</p>
-                            <p>contato@rafaelpinto.dev</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <i class="fas fa-phone-alt"></i>
-                        <div>
-                            <h3>Telefone</h3>
-                            <p>+55 (11) 99999-9999</p>
-                            <p>Disponível no WhatsApp</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h3>Localização</h3>
-                            <p>São Paulo, SP - Brasil</p>
-                            <p>Remoto (Global)</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-social">
-                        <h3>Redes Profissionais</h3>
-                        <div class="social-links">
-                            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-kaggle"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-aws"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-medium"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-dev"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <form class="contact-form" id="contactForm" data-aos="fade-left">
-                    <div class="form-row">
-                        <input type="text" placeholder="Nome" required>
-                        <input type="email" placeholder="Email" required>
-                    </div>
-                    <input type="text" placeholder="Empresa" required>
-                    <select required>
-                        <option value="" disabled selected>Tipo de Projeto</option>
-                        <option>Ciência de Dados</option>
-                        <option>Engenharia de Dados</option>
-                        <option>Arquitetura de Soluções</option>
-                        <option>Consultoria</option>
-                        <option>Treinamento</option>
-                        <option>Outro</option>
-                    </select>
-                    <textarea rows="5" placeholder="Conte sobre seu projeto..." required></textarea>
-                    <button type="submit" class="btn btn-primary btn-block">
-                        <i class="fas fa-paper-plane"></i>
-                        Enviar Mensagem
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <a href="#" class="footer-logo">{RP}</a>
-                    <p>Especialista em Tecnologia & Dados · Arquiteto de Soluções · Inovador</p>
-                    <div class="footer-social">
-                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-aws"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-medium"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-links">
-                    <h3>Navegação</h3>
-                    <ul>
-                        <li><a href="#home">Início</a></li>
-                        <li><a href="#about">Sobre</a></li>
-                        <li><a href="#skills">Competências</a></li>
-                        <li><a href="#projects">Soluções</a></li>
-                        <li><a href="#services">Serviços</a></li>
-                        <li><a href="#blog">Insights</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h3>Serviços</h3>
-                    <ul>
-                        <li><a href="#">Estratégia de Dados</a></li>
-                        <li><a href="#">Inteligência Artificial</a></li>
-                        <li><a href="#">Arquitetura Cloud</a></li>
-                        <li><a href="#">Engenharia de Dados</a></li>
-                        <li><a href="#">MLOps</a></li>
-                        <li><a href="#">Treinamentos</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-newsletter">
-                    <h3>Newsletter</h3>
-                    <p>Insights semanais sobre tecnologia e dados</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Seu email">
-                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                    </form>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 Rafael Pinto - Especialista em Tecnologia & Dados. Todos os direitos reservados.</p>
-                <div class="footer-bottom-links">
-                    <a href="#">Política de Privacidade</a>
-                    <a href="#">Termos de Uso</a>
-                </div>
-            </div>
+            <p>&copy; 2026 Rafael Pinto – Portfólio de dados. Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <!-- ===== BACK TO TOP ===== -->
-    <button class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
