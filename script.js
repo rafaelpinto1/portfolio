@@ -310,13 +310,15 @@ document.addEventListener('DOMContentLoaded', () => {
         projectModal.classList.add('open');
         projectModal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
+        if (chatWidget) chatWidget.style.display = 'none';
     }
 
     function closeProjectModal() {
         projectModal.classList.remove('open');
         projectModal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
-        setTimeout(() => { projectModalIframe.src = ''; }, 300);
+        if (chatWidget) chatWidget.style.display = '';
+        setTimeout(() => { projectModalIframe.src = ''; }, 350);
     }
 
     document.querySelectorAll('.project-link').forEach(link => {
