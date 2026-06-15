@@ -165,23 +165,23 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         // --- IA / AI Agents / Automação ---
         {
-            k: ['inteligencia artificial', 'machine learning', 'agente', 'agentes', 'agent', 'agents', 'prompt', 'llm', 'gpt', 'generativa', 'openai', 'nlp', 'n8n', 'automacao', 'automatiza', 'webhook', 'api rest'],
-            r: '🤖 <strong>IA aplicada a dados — diferencial competitivo:</strong><br><br>• Engenharia de prompts para automação de análises<br>• Criação de <strong>AI Agents</strong> que consultam bases de dados diretamente<br>• Automação de pipelines ETL com <strong>n8n</strong> (webhooks + APIs REST)<br>• Integrações via <strong>Microsoft Graph API</strong><br>• Mestrando em Ciência da Computação (CEFET/RJ) com foco em dados'
+            k: ['inteligencia artificial', 'machine learning', 'agente', 'agentes', 'agent', 'agents', 'prompt', 'llm', 'llms', 'rag', 'retrieval', 'gpt', 'generativa', 'openai', 'nlp', 'n8n', 'automacao', 'automatiza', 'webhook', 'api rest', 'visao computacional', 'visao', 'robotica'],
+            r: '🤖 <strong>IA aplicada a dados — diferencial competitivo:</strong><br><br>• Desenvolvimento com <strong>LLMs</strong>, <strong>IA Generativa</strong> e <strong>RAG</strong> (Retrieval-Augmented Generation)<br>• Criação de <strong>AI Agents</strong> para consulta autônoma a dados<br>• Engenharia de prompts e automação de pipelines ETL com <strong>n8n</strong> (webhooks + APIs REST)<br>• Integrações via <strong>Microsoft Graph API</strong><br>• Mestrando em CEFET/RJ — Visão Computacional aplicada à Robótica'
         },
         // --- Experiência profissional ---
         {
             k: ['experiencia', 'experiencias', 'trabalha', 'empresa', 'cargo', 'emprego', 'multipla', 'atuacao', 'trabalhou', 'historico', 'carreira'],
-            r: '🏢 <strong>Multipla Tecnologia da Informação Ltda</strong> — Analista de Dados (fev/2023 – atual)<br><br>• <strong>Fabric:</strong> Capacities, Lakehouses, Pipelines Gen2, Semantic Models, Direct Lake<br>• <strong>IA:</strong> AI Agents, engenharia de prompts, ETL com n8n<br>• <strong>Power BI:</strong> DAX avançado, RLS, XMLA, Power Query M<br>• <strong>Observabilidade:</strong> Zabbix + Grafana<br>• <strong>Integrações:</strong> Graph API, VPN Gateway para SQL Server e Oracle on-premises<br><br>Anterior: Técnico de TI (5 anos) — LMG Bonfim'
+            r: '🏢 <strong>Multipla Tecnologia da Informação Ltda</strong> — Analista de Dados (fev/2023 – atual)<br><br>• <strong>Fabric:</strong> Capacities, Lakehouses, Pipelines Gen2, Semantic Models, Direct Lake<br>• <strong>IA:</strong> LLMs, RAG, AI Agents, engenharia de prompts, ETL com n8n<br>• <strong>Dev:</strong> Python, Git/GitHub, Azure DevOps, Azure Functions, Selenium<br>• <strong>Power BI:</strong> DAX avançado, RLS, XMLA, Power Query M<br>• <strong>Observabilidade:</strong> Zabbix + Grafana<br>• <strong>Integrações:</strong> Graph API, VPN Gateway para SQL Server e Oracle on-premises<br><br>Anterior: Técnico de TI (5 anos) — LMG Bonfim'
         },
         // --- Stack / habilidades ---
         {
             k: ['skill', 'ferramentas', 'tecnologia', 'tecnologias', 'stack', 'habilidade', 'habilidades', 'conhece', 'domina', 'utiliza', 'usa'],
-            r: '🛠️ <strong>Stack completo:</strong><br><br>⚡ <strong>Fabric & BI:</strong> Microsoft Fabric · Power BI · DAX · Power Query M · Direct Lake · Lakehouse<br>🤖 <strong>IA & Auto:</strong> AI Agents · Eng. Prompts · n8n · Graph API<br>🗄️ <strong>Dados:</strong> Python · SQL Server · Oracle · ETL · Pipelines<br>☁️ <strong>Cloud:</strong> Azure AZ-900 · VPN Gateway<br>📡 <strong>Obs:</strong> Zabbix · Grafana<br>🌐 <strong>Extra:</strong> Inglês B1 · Storytelling · Stakeholders'
+            r: '🛠️ <strong>Stack completo:</strong><br><br>🤖 <strong>IA & Engenharia de IA:</strong> LLMs · IA Generativa · RAG · AI Agents · Eng. de Prompts · Visão Computacional · OCR<br>📊 <strong>Dados & Analytics:</strong> Microsoft Fabric · Power BI · DAX · Power Query M · Direct Lake · Lakehouse · ETL/ELT · SQL · Python<br>💻 <strong>Dev & Integração:</strong> APIs REST · Graph API · Git/GitHub · Azure DevOps · Azure Functions · Selenium · Azure AZ-900<br>⚙️ <strong>Automação & Processos:</strong> n8n · Webhooks · Zabbix · Grafana<br>🌐 <strong>Idioma:</strong> Inglês B1'
         },
         // --- Formação ---
         {
             k: ['formacao', 'faculdade', 'estudo', 'graduacao', 'mestrado', 'pos', 'cefet', 'unisuam', 'academico', 'escolaridade', 'certificacao', 'certificacoes'],
-            r: '🎓 <strong>Formação acadêmica:</strong><br><br>• <strong>Mestrado em Ciência da Computação</strong> — CEFET/RJ (cursando · prev. 2028)<br>• Pós-graduação em Ciência de Dados & IA — UNISUAM (Dez/2025)<br>• Graduação em ADS — UNISUAM (Dez/2024)<br><br>🏅 <strong>Certificações:</strong><br>• Microsoft Azure AZ-900<br>• Oracle Data Platform Foundations (1Z0-1195)'
+            r: '🎓 <strong>Formação acadêmica:</strong><br><br>• <strong>Mestrado em Ciência da Computação</strong> — CEFET/RJ (cursando · prev. 2028)<br>&nbsp;&nbsp;Linha de pesquisa: Visão Computacional aplicada à Robótica<br>• Pós-graduação em Ciência de Dados & IA — UNISUAM (Dez/2025)<br>• Graduação em ADS — UNISUAM (Dez/2024)<br><br>🏅 <strong>Certificações:</strong><br>• Microsoft Azure AZ-900<br>• Oracle AI Foundations Associate (1Z0-1195)'
         },
         // --- Disponibilidade / vagas ---
         {
