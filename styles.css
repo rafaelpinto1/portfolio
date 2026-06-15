@@ -822,6 +822,10 @@ body {
     background: linear-gradient(135deg, #78350f, #d97706, #b91c1c);
 }
 
+.project-thumbnail--git {
+    background: linear-gradient(135deg, #1a1a2e, #f05032, #c0392b);
+}
+
 .project-body {
     padding: 1.5rem;
 }

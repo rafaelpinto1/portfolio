@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- Projetos ---
         {
             k: ['projeto', 'projetos', 'portfolio', 'github', 'case', 'cases', 'trabalho feito', 'construiu', 'desenvolveu'],
-            r: '📊 <strong>Projetos em destaque:</strong><br><br>• 📈 <strong>Dashboard de Vendas Interativo</strong> — Power BI + SQL + DAX (segmentação + KPIs)<br>• 🧠 <strong>Análise de Churn</strong> — Python + Scikit-learn + Pandas (modelo preditivo ML)<br>• ⚙️ <strong>Pipeline ETL</strong> — Python + SQLite + automação (rastreabilidade end-to-end)<br><br>Todos os projetos utilizam dados sintéticos em conformidade com <strong>LGPD</strong>.'
+            r: '📊 <strong>Projetos em destaque:</strong><br><br>• 📈 <strong>Dashboard de Vendas Interativo</strong> — Power BI + SQL + DAX (segmentação + KPIs)<br>• 🧠 <strong>Análise de Churn</strong> — Python + Scikit-learn + Pandas (modelo preditivo ML)<br>• ⚙️ <strong>Pipeline ETL</strong> — Python + SQLite + automação (rastreabilidade end-to-end)<br>• 🎮 <strong>Número Secreto</strong> — projeto de aprendizado de Git/GitHub e GitHub Pages<br><br>Os projetos de dados utilizam dados sintéticos em conformidade com <strong>LGPD</strong>.'
         },
         // --- Contato ---
         {
