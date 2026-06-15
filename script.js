@@ -289,4 +289,45 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.suggestion-chip').forEach(c =>
         c.addEventListener('click', () => handleQuery(c.dataset.question))
     );
+
+    // ==================== PROJECT MODAL ====================
+    const projectModal       = document.getElementById('projectModal');
+    const projectModalIframe = document.getElementById('projectModalIframe');
+    const projectModalTitle  = document.getElementById('projectModalTitle');
+    const projectModalClose  = document.getElementById('projectModalClose');
+
+    const COMING_SOON = 'data:text/html;charset=utf-8,' + encodeURIComponent(
+        '<!DOCTYPE html><html><head><meta charset="UTF-8"><style>' +
+        'body{margin:0;display:flex;align-items:center;justify-content:center;height:100vh;' +
+        'background:#0f172a;color:#94a3b8;font-family:system-ui,sans-serif;flex-direction:column;gap:1rem;}' +
+        '.icon{font-size:3rem;}p{margin:0;font-size:1.1rem;}</style></head>' +
+        '<body><div class="icon">🚧</div><p>Projeto em breve</p></body></html>'
+    );
+
+    function openProjectModal(title, url) {
+        projectModalTitle.textContent = title;
+        projectModalIframe.src = (!url || url === '#') ? COMING_SOON : url;
+        projectModal.classList.add('open');
+        projectModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeProjectModal() {
+        projectModal.classList.remove('open');
+        projectModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        setTimeout(() => { projectModalIframe.src = ''; }, 300);
+    }
+
+    document.querySelectorAll('.project-link').forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const title = link.closest('.project-card').querySelector('h3').textContent;
+            openProjectModal(title, link.getAttribute('href'));
+        });
+    });
+
+    projectModalClose.addEventListener('click', closeProjectModal);
+    projectModal.addEventListener('click', e => { if (e.target === projectModal) closeProjectModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeProjectModal(); });
 });

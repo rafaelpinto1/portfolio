@@ -457,6 +457,21 @@
         </button>
     </div>
 
+    <!-- Modal de Projeto -->
+    <div class="project-modal-overlay" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
+        <div class="project-modal-box">
+            <div class="project-modal-header">
+                <span class="project-modal-title" id="projectModalTitle"></span>
+                <button class="project-modal-close" id="projectModalClose" aria-label="Fechar projeto">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="project-modal-body">
+                <iframe id="projectModalIframe" class="project-modal-iframe" src="" title="Visualização do projeto"></iframe>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
