@@ -2,7 +2,13 @@
 (function () {
     function hideSplash() {
         const s = document.getElementById('splash');
-        if (s) s.classList.add('hidden');
+        if (!s) return;
+        if (document.activeElement && s.contains(document.activeElement)) {
+            document.activeElement.blur();
+        }
+        s.classList.add('hidden');
+        s.setAttribute('aria-hidden', 'true');
+        s.setAttribute('inert', '');
     }
 
     function applyAndDismiss(dark) {
@@ -304,30 +310,104 @@ document.addEventListener('DOMContentLoaded', () => {
         '<body><div class="icon">🚧</div><p>Projeto em breve</p></body></html>'
     );
 
+    const IFRAME_RENDER_WIDTH = 1280;
+
+    function scaleIframe() {
+        const body = projectModal.querySelector('.project-modal-body');
+        const W = body.clientWidth;
+        const H = body.clientHeight;
+        const scale = W / IFRAME_RENDER_WIDTH;
+        projectModalIframe.style.width  = IFRAME_RENDER_WIDTH + 'px';
+        projectModalIframe.style.height = Math.round(H / scale) + 'px';
+        // zoom preserva as coordenadas de toque (transform: scale desalinha)
+        projectModalIframe.style.zoom = scale;
+    }
+
     function openProjectModal(title, url) {
         projectModalTitle.textContent = title;
         projectModalIframe.src = (!url || url === '#') ? COMING_SOON : url;
+        projectModal.removeAttribute('inert');
         projectModal.classList.add('open');
         projectModal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
         if (chatWidget) chatWidget.style.display = 'none';
+        requestAnimationFrame(scaleIframe);
     }
 
     function closeProjectModal() {
+        if (document.activeElement && projectModal.contains(document.activeElement)) {
+            document.activeElement.blur();
+        }
         projectModal.classList.remove('open');
         projectModal.setAttribute('aria-hidden', 'true');
+        projectModal.setAttribute('inert', '');
         document.body.style.overflow = '';
         if (chatWidget) chatWidget.style.display = '';
         setTimeout(() => { projectModalIframe.src = ''; }, 350);
     }
 
+    // Impede navegação dos links e abre sempre no modal
     document.querySelectorAll('.project-link').forEach(link => {
-        link.addEventListener('click', e => {
-            e.preventDefault();
-            const title = link.closest('.project-card').querySelector('h3').textContent;
-            openProjectModal(title, link.getAttribute('href'));
+        link.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); });
+    });
+
+    // Clicar em qualquer parte do card abre o modal
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const link = card.querySelector('.project-link');
+            const href = link ? link.getAttribute('href') : '#';
+            const title = card.querySelector('h3').textContent;
+            openProjectModal(title, href);
         });
     });
+
+    // Setas de navegação do carrossel (mobile)
+    const projectsGrid = document.querySelector('.projects-grid');
+    const projectsPrev = document.getElementById('projectsPrev');
+    const projectsNext = document.getElementById('projectsNext');
+    const projectsDotsEl = document.getElementById('projectsDots');
+
+    if (projectsPrev && projectsNext && projectsGrid && projectsDotsEl) {
+        const cards = Array.from(projectsGrid.querySelectorAll('.project-card'));
+        let currentIdx = 0;
+
+        cards.forEach((_, i) => {
+            const dot = document.createElement('span');
+            dot.className = 'projects-dot' + (i === 0 ? ' active' : '');
+            projectsDotsEl.appendChild(dot);
+        });
+
+        function updateDots(idx) {
+            projectsDotsEl.querySelectorAll('.projects-dot').forEach((d, i) => {
+                d.classList.toggle('active', i === idx);
+            });
+        }
+
+        function scrollToCard(idx) {
+            currentIdx = Math.max(0, Math.min(idx, cards.length - 1));
+            const card = cards[currentIdx];
+            const gridLeft = projectsGrid.getBoundingClientRect().left;
+            const cardLeft = card.getBoundingClientRect().left;
+            // desativa snap temporariamente para o scroll programático não travar
+            projectsGrid.style.scrollSnapType = 'none';
+            projectsGrid.scrollBy({ left: cardLeft - gridLeft, behavior: 'smooth' });
+            setTimeout(() => { projectsGrid.style.scrollSnapType = ''; }, 450);
+            updateDots(currentIdx);
+        }
+
+        projectsPrev.addEventListener('click', () => scrollToCard(currentIdx - 1));
+        projectsNext.addEventListener('click', () => scrollToCard(currentIdx + 1));
+
+        projectsGrid.addEventListener('scroll', () => {
+            const gridLeft = projectsGrid.getBoundingClientRect().left;
+            let closest = 0, minDist = Infinity;
+            cards.forEach((card, i) => {
+                const dist = Math.abs(card.getBoundingClientRect().left - gridLeft);
+                if (dist < minDist) { minDist = dist; closest = i; }
+            });
+            if (closest !== currentIdx) { currentIdx = closest; updateDots(currentIdx); }
+        }, { passive: true });
+    }
 
     projectModalClose.addEventListener('click', closeProjectModal);
     projectModal.addEventListener('click', e => { if (e.target === projectModal) closeProjectModal(); });
