@@ -1,6 +1,8 @@
 %-------------------------
 % Currículo em LaTeX — Rafael Pinto
 % Baseado no template "Resume in LateX" (Sourabh Bajaj, MIT License)
+% Estrutura otimizada para ATS e leitura rápida por recrutador (ver Template.tex
+% para notas de por quê essa ordem/formatação foi escolhida).
 %------------------------
 
 \documentclass[letterpaper,11pt]{article}
@@ -101,12 +103,88 @@
   \href{https://github.com/rafaelpinto}{github.com/rafaelpinto} & Lattes: \href{http://lattes.cnpq.br/2078391939625415}{lattes.cnpq.br/2078391939625415} \\
 \end{tabular*}
 
+\begin{center}
+  \small\textit{Versão em inglês disponível para download: }\href{https://raw.githubusercontent.com/rafaelpinto1/portfolio/main/Curriculo_latEX/Rafael_Pinto_CV_EN.pdf}{Rafael\_Pinto\_CV\_EN.pdf}
+\end{center}
+
 
 %-----------RESUMO-----------------
 \section{Resumo}
   \resumeSubHeadingListStart
-    \resumeItemSimple{Profissional de Dados e Inteligência Artificial com experiência no desenvolvimento de soluções baseadas em IA Generativa, LLMs, RAG, AI Agents e Engenharia de Dados. Atuação em projetos com Microsoft Fabric, Python, SQL, integração de dados, automação de processos e construção de sistemas inteligentes orientados por dados. Pesquisador em TinyML (Tiny Machine Learning) no CEFET/RJ, com foco em otimizar modelos de Machine Learning para rodar em dispositivos com memória extremamente limitada.}
+    \resumeItemSimple{Profissional de Dados \& Inteligência Artificial com 3+ anos de experiência entregando soluções de IA Generativa (LLMs, RAG, AI Agents) e Engenharia de Dados sobre Microsoft Fabric, Python e SQL para múltiplos clientes simultaneamente. Mestrando em Ciência da Computação (linha de pesquisa: TinyML) no CEFET/RJ, unindo pesquisa aplicada e experiência de mercado para otimizar sistemas de dados e IA do laboratório à produção.}
   \resumeSubHeadingListEnd
+
+
+%-----------COMPETÊNCIAS-CHAVE-----------------
+\section{Competências-Chave}
+  \resumeSubHeadingListStart
+    \resumeItemSimple{Machine Learning \& IA Generativa (LLMs, RAG, AI Agents) $\vert$ Microsoft Fabric \& Power BI (DAX Avançado) $\vert$ Engenharia de Dados (ETL/ELT) $\vert$ Python \& SQL Avançado $\vert$ Cloud (Microsoft Azure) $\vert$ Automação de Processos (n8n) $\vert$ TinyML}
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIÊNCIA-----------------
+\section{Experiência Profissional}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Multipla Tecnologia da Informação Ltda}{Rio de Janeiro, RJ}
+      {Analista de Dados}{Fevereiro de 2023 -- Atual}
+      \resumeItemListStart
+        \resumeItem{IA Generativa}
+          {Arquitetei e implementei soluções de IA Generativa utilizando LLMs, RAG e AI Agents para automatizar a análise e consulta de dados corporativos.}
+        \resumeItem{Desenvolvimento}
+          {Desenvolvi aplicações e automações em Python, com controle de versão em Git/GitHub e integração contínua via Azure DevOps.}
+        \resumeItem{Integração de Dados}
+          {Implementei pipelines de dados e integrações críticas com Microsoft Fabric, APIs REST e Microsoft Graph API.}
+        \resumeItem{Microsoft Fabric}
+          {Administrei Capacities, Lakehouses, Data Pipelines e Semantic Models no Microsoft Fabric, garantindo performance e escalabilidade.}
+        \resumeItem{Governança}
+          {Criei soluções de monitoramento e governança para análise de consumo de ambientes Fabric, apoiando decisões de capacity planning.}
+        \resumeItem{Fontes de Dados}
+          {Integrei dados corporativos de SQL Server, Oracle e outras fontes em um ambiente analítico unificado.}
+        \resumeItem{Observabilidade}
+          {Implementei observabilidade de ambientes de dados com Zabbix e Grafana, reduzindo o tempo de diagnóstico de incidentes.}
+        \resumeItem{Gestão de Projetos}
+          {Atuei em projetos de Dados, IA e Analytics para múltiplos clientes simultaneamente, gerenciando prioridades e prazos de forma autônoma.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {LMG Bonfim Serviço e Apoio Administrativo Ltda}{Rio de Janeiro, RJ}
+      {Técnico de Suporte de TI}{Dezembro de 2017 -- Janeiro de 2023}
+      \resumeItemListStart
+        \resumeItem{Relatórios}
+          {Elaborei relatórios técnicos e acompanhei indicadores operacionais para apoiar decisões da gestão.}
+        \resumeItem{Suporte}
+          {Prestei suporte e integrei sistemas de PDV e infraestrutura remota em ambiente corporativo.}
+        \resumeItem{Atendimento}
+          {Analisei e tratei chamados técnicos, priorizando incidentes críticos.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Inbrands S.A.}{Rio de Janeiro, RJ}
+      {Auxiliar Administrativo}{Agosto de 2015 -- Dezembro de 2017}
+      \resumeItemListStart
+        \resumeItem{Inventário}
+          {Controlei inventário e emiti relatórios em sistema ERP.}
+        \resumeItem{Suporte}
+          {Apoiei a manutenção de ativos e prestei suporte básico de TI.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJETOS-----------------
+\section{Projetos}
+  \resumeSubHeadingListStart
+    \resumeSubItem{Dashboard de Vendas Interativo -- Power BI, SQL, DAX}
+      {Projetei um painel executivo com segmentação dinâmica de clientes, análise de tendências e previsão de demanda, permitindo decisões em tempo real sem dependência da área de TI.}
+    \resumeSubItem{Modelo Preditivo de Churn -- Python, Scikit-learn, Pandas}
+      {Treinei um classificador para identificar risco de evasão de clientes antes que aconteça, com análise de feature importance e métricas de negócio.}
+    \resumeSubItem{Pipeline ETL Automatizado -- Python, SQLite}
+      {Construí uma solução de ingestão, transformação e carga de logs com rastreabilidade completa, alertas de falha e logs estruturados, reduzindo a intervenção manual no pipeline de dados.}
+  \resumeSubHeadingListEnd
+
+  \textit{\small Todos os projetos utilizam dados sintéticos e anonimizados em conformidade com a LGPD.}
 
 
 %-----------EDUCAÇÃO-----------------
@@ -134,76 +212,11 @@
   \resumeSubHeadingListEnd
 
 
-%-----------EXPERIÊNCIA-----------------
-\section{Experiência Profissional}
-  \resumeSubHeadingListStart
-
-    \resumeSubheading
-      {Multipla Tecnologia da Informação Ltda}{Rio de Janeiro, RJ}
-      {Analista de Dados}{Fevereiro de 2023 -- Atual}
-      \resumeItemListStart
-        \resumeItem{IA Generativa}
-          {Desenvolvimento de soluções de IA Generativa utilizando LLMs, RAG e AI Agents.}
-        \resumeItem{Desenvolvimento}
-          {Desenvolvimento de aplicações e automações em Python com Git/GitHub e Azure DevOps.}
-        \resumeItem{Integração de Dados}
-          {Implementação de pipelines de dados e integrações utilizando Microsoft Fabric, APIs REST e Microsoft Graph API.}
-        \resumeItem{Microsoft Fabric}
-          {Administração de Capacities, Lakehouses, Data Pipelines e Semantic Models no Microsoft Fabric.}
-        \resumeItem{Governança}
-          {Desenvolvimento de soluções para monitoramento, governança e análise de consumo de ambientes Fabric.}
-        \resumeItem{Fontes de Dados}
-          {Integração de dados corporativos provenientes de SQL Server, Oracle e outras fontes.}
-        \resumeItem{Observabilidade}
-          {Monitoramento e observabilidade de ambientes de dados com Zabbix e Grafana.}
-        \resumeItem{Projetos}
-          {Participação em projetos de Dados, Inteligência Artificial e Analytics para múltiplos clientes.}
-      \resumeItemListEnd
-
-    \resumeSubheading
-      {LMG Bonfim Serviço e Apoio Administrativo Ltda}{Rio de Janeiro, RJ}
-      {Técnico de Suporte de TI}{Dezembro de 2017 -- Janeiro de 2023}
-      \resumeItemListStart
-        \resumeItem{Relatórios}
-          {Elaboração de relatórios técnicos e acompanhamento de indicadores operacionais.}
-        \resumeItem{Suporte}
-          {Suporte e integração de sistemas de PDV e infraestrutura remota.}
-        \resumeItem{Atendimento}
-          {Análise e tratamento de chamados técnicos em ambientes corporativos.}
-      \resumeItemListEnd
-
-    \resumeSubheading
-      {Inbrands S.A.}{Rio de Janeiro, RJ}
-      {Auxiliar Administrativo}{Agosto de 2015 -- Dezembro de 2017}
-      \resumeItemListStart
-        \resumeItem{Inventário}
-          {Controle de inventário e emissão de relatórios em sistema ERP.}
-        \resumeItem{Suporte}
-          {Apoio na manutenção de ativos e suporte básico de TI.}
-      \resumeItemListEnd
-
-  \resumeSubHeadingListEnd
-
-
-%-----------PROJETOS-----------------
-\section{Projetos}
-  \resumeSubHeadingListStart
-    \resumeSubItem{Dashboard de Vendas Interativo -- Power BI, SQL, DAX}
-      {Painel executivo com segmentação dinâmica de clientes, análise de tendências e previsão de demanda, permitindo decisões em tempo real sem dependência da área de TI.}
-    \resumeSubItem{Modelo Preditivo de Churn -- Python, Scikit-learn, Pandas}
-      {Classificador treinado para identificar risco de evasão de clientes antes que aconteça, com análise de feature importance e métricas de negócio.}
-    \resumeSubItem{Pipeline ETL Automatizado -- Python, SQLite}
-      {Solução de ingestão, transformação e carga de logs com rastreabilidade completa, alertas de falha e logs estruturados, reduzindo intervenção manual no pipeline de dados.}
-  \resumeSubHeadingListEnd
-
-  \textit{\small Todos os projetos utilizam dados sintéticos e anonimizados em conformidade com a LGPD.}
-
-
 %--------HABILIDADES------------
-\section{Habilidades \& Ferramentas}
+\section{Habilidades Técnicas}
   \resumeSubHeadingListStart
     \item{
-      \textbf{IA \& Engenharia de IA}{: LLMs, IA Generativa, RAG, AI Agents, Engenharia de Prompts, Visão Computacional, OCR}
+      \textbf{IA \& Engenharia de IA}{: LLMs, IA Generativa, RAG, AI Agents, Engenharia de Prompts, TinyML, Visão Computacional, OCR}
     }
     \item{
       \textbf{Dados \& Analytics}{: Microsoft Fabric, Power BI, DAX Avançado, Power Query M, Direct Lake, Lakehouse, ETL/ELT, SQL Avançado, Python}
