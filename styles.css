@@ -1342,19 +1342,6 @@ body.dark .hero-badge {
     margin: 0 auto;
 }
 
-/* ===========================
-   CHATBOT AVATAR COM FOTO
-   =========================== */
-
-.chat-avatar-img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: top center;
-    display: block;
-}
-
 
 /* ===========================
    HERO BIO
