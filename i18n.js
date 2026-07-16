@@ -12,6 +12,8 @@
             'nav.education': 'Formação',
             'nav.skills': 'Tecnologias',
             'nav.contact': 'Contato',
+            'brand.title': 'Portfólio Profissional',
+            'footer.copyright': '&copy; 2026 Rafael Pinto – Portfólio de dados. Todos os direitos reservados.',
         },
         en: {
             'nav.home': 'Home',
@@ -21,6 +23,8 @@
             'nav.education': 'Education',
             'nav.skills': 'Skills',
             'nav.contact': 'Contact',
+            'brand.title': 'Professional Portfolio',
+            'footer.copyright': '&copy; 2026 Rafael Pinto – Data portfolio. All rights reserved.',
         },
     };
 

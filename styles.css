@@ -1124,6 +1124,48 @@ body.dark .card--highlight {
 .theme-toggle-input:checked + .theme-toggle-track .theme-icon-sun { opacity: 0; }
 .theme-toggle-input:checked + .theme-toggle-track .theme-icon-moon { opacity: 1; }
 
+/* ===== LANGUAGE TOGGLE ===== */
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+}
+
+.lang-toggle {
+    display: flex;
+    background: var(--glass-bg);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-btn);
+    padding: 3px;
+    gap: 2px;
+}
+
+.lang-toggle-btn {
+    min-width: 40px;
+    min-height: 32px;
+    padding: 0.3rem 0.6rem;
+    border: none;
+    background: transparent;
+    border-radius: var(--radius-btn);
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+.lang-toggle-btn.active {
+    background: var(--accent);
+    color: #fff;
+}
+
+.lang-toggle-btn:not(.active):hover {
+    color: var(--text-primary);
+}
+
 
 /* ===========================
    HERO BADGES & STATS

@@ -1,42 +1,14 @@
-// ==================== SPLASH ====================
-(function () {
-    function hideSplash() {
-        const s = document.getElementById('splash');
-        if (!s) return;
-        if (document.activeElement && s.contains(document.activeElement)) {
-            document.activeElement.blur();
-        }
-        s.classList.add('hidden');
-        s.setAttribute('aria-hidden', 'true');
-        s.setAttribute('inert', '');
-    }
+function resolveInitialTheme(stored, prefersDarkMatches) {
+    if (stored === 'dark') return true;
+    if (stored === 'light') return false;
+    return !!prefersDarkMatches;
+}
 
-    function applyAndDismiss(dark) {
-        document.body.classList.toggle('dark', dark);
-        localStorage.setItem('theme', dark ? 'dark' : 'light');
-        hideSplash();
-    }
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { resolveInitialTheme };
+}
 
-    const splashEl = document.getElementById('splash');
-    const btnLight = document.getElementById('splashLight');
-    const btnDark  = document.getElementById('splashDark');
-
-    // Preview hover — adiciona classe no splash para o CSS reagir
-    if (btnLight && splashEl) {
-        btnLight.addEventListener('mouseenter', () => { splashEl.classList.add('preview-light'); splashEl.classList.remove('preview-dark'); });
-        btnLight.addEventListener('mouseleave', () => splashEl.classList.remove('preview-light'));
-    }
-    if (btnDark && splashEl) {
-        btnDark.addEventListener('mouseenter', () => { splashEl.classList.add('preview-dark'); splashEl.classList.remove('preview-light'); });
-        btnDark.addEventListener('mouseleave', () => splashEl.classList.remove('preview-dark'));
-    }
-
-    if (btnLight) btnLight.addEventListener('click', () => applyAndDismiss(false));
-    if (btnDark)  btnDark.addEventListener('click',  () => applyAndDismiss(true));
-
-})();
-
-document.addEventListener('DOMContentLoaded', () => {
+typeof document !== 'undefined' && document.addEventListener('DOMContentLoaded', () => {
 
     // ==================== MENU HAMBÚRGUER ====================
     const menuToggle = document.getElementById('menuToggle');
@@ -76,12 +48,23 @@ document.addEventListener('DOMContentLoaded', () => {
         if (toggle) toggle.checked = dark;
     }
 
-    applyTheme(saved === 'dark' || (!saved && prefersDark));
+    applyTheme(resolveInitialTheme(saved, prefersDark));
 
     toggle && toggle.addEventListener('change', () => {
         applyTheme(toggle.checked);
         localStorage.setItem('theme', toggle.checked ? 'dark' : 'light');
     });
+
+    // ==================== IDIOMA (PT/EN) ====================
+    const langPt = document.getElementById('langPt');
+    const langEn = document.getElementById('langEn');
+    const savedLang = localStorage.getItem('lang');
+    const initialLang = I18N.resolveInitialLanguage(savedLang);
+
+    I18N.applyLanguage(initialLang, I18N.I18N_DICT);
+
+    langPt && langPt.addEventListener('click', () => I18N.applyLanguage('pt', I18N.I18N_DICT));
+    langEn && langEn.addEventListener('click', () => I18N.applyLanguage('en', I18N.I18N_DICT));
 
     // ==================== SCROLL SPY ====================
     const sections = document.querySelectorAll('section[id]');
