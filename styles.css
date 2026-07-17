@@ -1059,6 +1059,69 @@ body.dark .card--highlight {
     box-shadow: 0 20px 48px rgba(0,0,0,0.12), 0 0 0 1px var(--border);
 }
 
+/* ===== PESQUISA ACADÊMICA ===== */
+.section-eyebrow {
+    display: block;
+    text-align: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.section-title--gold::after {
+    background: linear-gradient(90deg, var(--gold), var(--accent-deep));
+}
+
+.research-card {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    background: linear-gradient(135deg, rgba(180,135,42,0.06), rgba(29,78,216,0.05));
+    border: 0.5px solid rgba(180,135,42,0.25);
+    border-radius: var(--radius-card);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.research-card-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.research-card-body h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
+}
+
+.research-line {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
+}
+
+.research-body {
+    color: var(--text-secondary);
+    margin: 1rem 0 1.25rem;
+    line-height: 1.7;
+}
+
+.research-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+body.dark .research-card {
+    background: linear-gradient(135deg, rgba(224,180,99,0.1), rgba(91,140,255,0.08));
+    border-color: rgba(224,180,99,0.3);
+}
+
 /* ===========================
    iOS-STYLE DARK MODE TOGGLE
    =========================== */
@@ -1766,4 +1829,15 @@ body.dark .hero-badge {
     /* ---------- RESUME DOWNLOAD ---------- */
     .resume-download { gap: 0.65rem; }
     .btn-resume, .btn-lattes { font-size: 0.85rem; padding: 0.7rem 1.1rem; }
+
+    /* ---------- PESQUISA ACADÊMICA ---------- */
+    .research-card {
+        flex-direction: column;
+        padding: 1.25rem;
+        gap: 0.75rem;
+    }
+    .research-card-body .cta-button {
+        display: block;
+        text-align: center;
+    }
 }
