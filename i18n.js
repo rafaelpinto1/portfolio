@@ -64,6 +64,9 @@
             'exp3.b2': 'Apoio na manutenção de ativos e suporte básico de TI.',
             'resume.download': 'Baixar Currículo (PDF)',
             'resume.lattes': 'Currículo Lattes CNPq',
+            'projects.title': 'Projetos',
+            'projects.lgpd': '⚠️ Todos os projetos utilizam dados sintéticos e anonimizados em conformidade com a LGPD.',
+            'projects.link': 'Ver projeto →',
         },
         en: {
             'nav.home': 'Home',
@@ -125,6 +128,9 @@
             'exp3.b2': 'Support for asset maintenance and basic IT support.',
             'resume.download': 'Download Resume (PDF)',
             'resume.lattes': 'Lattes CV (CNPq)',
+            'projects.title': 'Projects',
+            'projects.lgpd': '⚠️ All projects use synthetic, anonymized data in compliance with Brazil\'s LGPD (data protection law).',
+            'projects.link': 'View project →',
         },
     };
 

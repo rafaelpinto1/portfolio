@@ -1584,18 +1584,57 @@ body.dark .hero-badge {
     background: rgba(255, 255, 255, 0.08);
 }
 
-.project-modal-body {
-    flex: 1;
-    overflow: hidden;
-    position: relative;
+.cs-block { margin-bottom: 1.5rem; }
+.cs-block:last-of-type { margin-bottom: 1rem; }
+
+.cs-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
 }
 
-.project-modal-iframe {
+.cs-approach-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cs-approach-list li {
+    padding-left: 1.1rem;
+    position: relative;
+    color: var(--text-secondary);
+    line-height: 1.55;
+}
+
+.cs-approach-list li::before {
+    content: '▸';
     position: absolute;
-    top: 0;
     left: 0;
-    border: none;
-    display: block;
+    color: var(--accent);
+}
+
+.cs-result-placeholder {
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.cs-media-placeholder {
+    border: 1.5px dashed var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.project-modal-body {
+    padding: 1.5rem;
+    overflow-y: auto;
 }
 
 /* ================================================================
