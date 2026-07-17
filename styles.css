@@ -17,11 +17,12 @@
     --gold:          #b4872a;
     --border:        rgba(20, 26, 36, 0.09);
     --card-bg:       #ffffff;
-    --glass-bg:      rgba(255, 255, 255, 0.72);
-    --shadow-sm:     0 1px 4px rgba(0,0,0,0.06), 0 0 0 0.5px rgba(0,0,0,0.06);
-    --shadow-md:     0 8px 32px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
+    --glass-bg:      rgba(255, 255, 255, 0.62);
+    --glass-border:  rgba(255, 255, 255, 0.6);
+    --shadow-sm:     0 1px 4px rgba(0,0,0,0.06), 0 0 0 0.5px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.4);
+    --shadow-md:     0 8px 32px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.5);
     --transition:    all 0.28s cubic-bezier(0.25, 0.1, 0.25, 1);
-    --radius-card:   18px;
+    --radius-card:   22px;
     --radius-btn:    980px;
 }
 
@@ -36,9 +37,10 @@ body.dark {
     --gold:          #e0b463;
     --border:        rgba(255, 255, 255, 0.1);
     --card-bg:       #131722;
-    --glass-bg:      rgba(19, 23, 34, 0.78);
-    --shadow-sm:     0 1px 4px rgba(0,0,0,0.5),  0 0 0 0.5px rgba(255,255,255,0.06);
-    --shadow-md:     0 8px 32px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.3);
+    --glass-bg:      rgba(19, 23, 34, 0.6);
+    --glass-border:  rgba(255, 255, 255, 0.14);
+    --shadow-sm:     0 1px 4px rgba(0,0,0,0.5),  0 0 0 0.5px rgba(255,255,255,0.06), inset 0 1px 0 rgba(255,255,255,0.05);
+    --shadow-md:     0 8px 32px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08);
 }
 
 body {
@@ -77,8 +79,9 @@ body {
     top: 0;
     background: var(--glass-bg);
     border-bottom: 0.5px solid var(--border);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(200%) blur(28px);
+    -webkit-backdrop-filter: saturate(200%) blur(28px);
+    box-shadow: inset 0 1px 0 var(--glass-border);
     z-index: 1000;
     padding: 0.875rem 0;
 }
@@ -304,13 +307,13 @@ body.dark .nav-link:hover {
     font-size: 0.95rem;
     letter-spacing: -0.01em;
     transition: var(--transition);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.35);
 }
 
 .cta-button:hover {
     background-color: var(--accent-hover);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,0.35);
 }
 
 /* ===== SOBRE ===== */
@@ -568,8 +571,8 @@ body.dark .nav-link:hover {
 
 .contact-btn {
     background-color: var(--glass-bg);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
     border: 0.5px solid var(--border);
     padding: 0.75rem 1.5rem;
     border-radius: var(--radius-btn);
@@ -601,8 +604,8 @@ body.dark .nav-link:hover {
     align-items: center;
     gap: 0.5rem;
     background-color: var(--glass-bg);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
     border: 0.5px solid var(--border);
     padding: 0.75rem 1.5rem;
     border-radius: var(--radius-btn);
@@ -757,8 +760,8 @@ body.dark .nav-link:hover {
 
 .cta-button--outline {
     background-color: var(--glass-bg);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
     border: 0.5px solid var(--accent);
     color: var(--accent);
 }
@@ -811,8 +814,8 @@ body.dark .nav-link:hover {
     border-radius: var(--radius-btn);
     border: 0.5px solid var(--border);
     background: var(--glass-bg);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
     font-size: 0.875rem;
     font-weight: 500;
     color: var(--text-secondary);
@@ -961,7 +964,7 @@ body.dark .hero.fullscreen::before {
 
 .card:hover {
     transform: translateY(-5px) scale(1.008);
-    box-shadow: 0 12px 32px rgba(0,0,0,0.1), 0 0 0 1px var(--border);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.1), 0 0 0 1px var(--border), inset 0 1px 0 var(--glass-border);
 }
 
 .card--highlight {
@@ -1061,7 +1064,7 @@ body.dark .badge-ongoing {
 
 .project-card:hover {
     transform: translateY(-8px) scale(1.01);
-    box-shadow: 0 20px 48px rgba(0,0,0,0.12), 0 0 0 1px var(--border);
+    box-shadow: 0 20px 48px rgba(0,0,0,0.12), 0 0 0 1px var(--border), inset 0 1px 0 var(--glass-border);
 }
 
 /* ===== PESQUISA ACADÊMICA ===== */
@@ -1228,6 +1231,9 @@ body.dark .research-card {
     border-radius: var(--radius-btn);
     padding: 3px;
     gap: 2px;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    box-shadow: inset 0 1px 0 var(--glass-border);
 }
 
 .lang-toggle-btn {
@@ -1249,6 +1255,7 @@ body.dark .research-card {
 .lang-toggle-btn.active {
     background: var(--accent);
     color: #fff;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.35);
 }
 
 .lang-toggle-btn:not(.active):hover {
@@ -1279,7 +1286,8 @@ body.dark .research-card {
     font-size: 0.76rem;
     font-weight: 600;
     letter-spacing: 0.01em;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
     transition: transform 0.2s ease, background 0.2s ease;
 }
 
@@ -1563,7 +1571,7 @@ body.dark .hero-badge {
     overflow: hidden;
     transform: scale(0.95);
     transition: transform 0.3s cubic-bezier(0.34, 1.2, 0.64, 1);
-    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.35), 0 0 0 0.5px rgba(255,255,255,0.06);
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.35), 0 0 0 0.5px rgba(255,255,255,0.06), inset 0 1px 0 var(--glass-border);
 }
 
 .project-modal-overlay.open .project-modal-box {
@@ -1578,8 +1586,9 @@ body.dark .hero-badge {
     border-bottom: 0.5px solid var(--border);
     flex-shrink: 0;
     background: var(--glass-bg);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(28px) saturate(200%);
+    -webkit-backdrop-filter: blur(28px) saturate(200%);
+    box-shadow: inset 0 1px 0 var(--glass-border);
 }
 
 .project-modal-title {
