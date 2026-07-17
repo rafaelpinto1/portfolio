@@ -89,6 +89,9 @@
             'skill.advancedDax': 'DAX Avançado',
             'skill.advancedSql': 'SQL Avançado',
             'skill.english': 'Inglês B1',
+            'contact.title': 'Contato',
+            'contact.whatsapp': 'Falar no WhatsApp',
+            'contact.lattes': 'Acesse meu Currículo Lattes CNPq',
         },
         en: {
             'nav.home': 'Home',
@@ -175,6 +178,9 @@
             'skill.advancedDax': 'Advanced DAX',
             'skill.advancedSql': 'Advanced SQL',
             'skill.english': 'English B1',
+            'contact.title': 'Contact',
+            'contact.whatsapp': 'Chat on WhatsApp',
+            'contact.lattes': 'View my Lattes CV (CNPq)',
         },
     };
 

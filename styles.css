@@ -735,15 +735,13 @@ body.dark .nav-link:hover {
     transform: translateY(0);
 }
 
-.contact-btn img {
-    width: 22px;
-    height: 22px;
-}
-
 .contact-icon {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     color: inherit;
 }
+
+.contact-icon--whatsapp { color: #25d366; }
+.contact-icon--linkedin { color: #0a66c2; }
 
 /* ===== HERO CTAS ===== */
 .hero-ctas {
@@ -1895,7 +1893,6 @@ body.dark .hero-badge {
         min-height: 72px;
         border-radius: 14px;
     }
-    .contact-btn img { width: 26px; height: 26px; }
     .contact-icon { font-size: 1.4rem; }
     .lattes-link { margin-top: 0.875rem; }
     .lattes-btn { font-size: 0.85rem; padding: 0.7rem 1.1rem; }
