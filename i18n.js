@@ -42,7 +42,7 @@
             'hero.greeting': 'Hi, I\'m',
             'hero.bio1': 'I work with Data and Artificial Intelligence, combining <strong>Microsoft Fabric</strong>, <strong>Python</strong>, and <strong>Generative AI</strong> (LLMs, RAG, AI Agents) to turn corporate data into decisions and intelligent products.',
             'hero.bio2': 'I research <strong>TinyML (Tiny Machine Learning)</strong> at CEFET/RJ, hold a postgraduate degree in Data Science & AI, and am certified in Microsoft Azure and Oracle AI.',
-            'hero.bio3': 'I\'m looking for a role where industry experience and academic research meet.',
+            'hero.bio3': 'My focus is a market role in Data & AI, with TinyML research as a competitive edge.',
             'hero.badge1': '3+ years in Data & AI',
             'hero.badge2': 'Master\'s student · CEFET/RJ',
             'hero.badge3': 'Microsoft Fabric',
