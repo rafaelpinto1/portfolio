@@ -6,7 +6,6 @@
     const I18N_DICT = {
         pt: {
             'nav.home': 'Início',
-            'nav.research': 'Pesquisa',
             'nav.experience': 'Experiência',
             'nav.projects': 'Projetos',
             'nav.education': 'Formação',
@@ -70,7 +69,6 @@
         },
         en: {
             'nav.home': 'Home',
-            'nav.research': 'Research',
             'nav.experience': 'Experience',
             'nav.projects': 'Projects',
             'nav.education': 'Education',

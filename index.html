@@ -27,7 +27,6 @@
             <nav class="nav-menu" id="navMenu" aria-label="Menu principal">
                 <ul class="nav-list">
                     <li><a href="#inicio" class="nav-link active" data-i18n="nav.home">Início</a></li>
-                    <li><a href="#pesquisa" class="nav-link" data-i18n="nav.research">Pesquisa</a></li>
                     <li><a href="#experiencia" class="nav-link" data-i18n="nav.experience">Experiência</a></li>
                     <li><a href="#projetos" class="nav-link" data-i18n="nav.projects">Projetos</a></li>
                     <li><a href="#formacao" class="nav-link" data-i18n="nav.education">Formação</a></li>
@@ -40,6 +39,7 @@
                     <button class="lang-toggle-btn active" id="langPt" data-lang="pt" aria-pressed="true">PT</button>
                     <button class="lang-toggle-btn" id="langEn" data-lang="en" aria-pressed="false">EN</button>
                 </div>
+                <div class="header-controls-divider" aria-hidden="true"></div>
                 <label class="theme-toggle" aria-label="Alternar tema claro/escuro">
                     <input type="checkbox" id="darkModeToggle" class="theme-toggle-input">
                     <span class="theme-toggle-track">
@@ -86,29 +86,6 @@
                         <div class="hero-stat"><strong data-i18n="hero.stat1Num">3+</strong><span data-i18n="hero.stat1Label">Anos de experiência</span></div>
                         <div class="hero-stat-sep"></div>
                         <div class="hero-stat"><strong data-i18n="hero.stat2Num">2</strong><span data-i18n="hero.stat2Label">Certificações</span></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="pesquisa" class="section research fullscreen">
-            <div class="container">
-                <span class="section-eyebrow" data-i18n="research.eyebrow">Pesquisa</span>
-                <h2 class="section-title section-title--gold" data-i18n="research.title">Pesquisa Acadêmica</h2>
-                <div class="research-card">
-                    <div class="research-card-icon">🎓</div>
-                    <div class="research-card-body">
-                        <h3 data-i18n="research.cardTitle">Mestrado em Ciência da Computação — CEFET/RJ</h3>
-                        <p class="research-line" data-i18n="research.cardLine">Linha de pesquisa: TinyML (Tiny Machine Learning)</p>
-                        <span class="badge-ongoing" data-i18n="research.badge">Cursando · conclusão prevista 2028</span>
-                        <p class="research-body" data-i18n="research.body">Minha pesquisa em TinyML investiga como comprimir e otimizar modelos de Machine Learning para rodar em hardware com memória extremamente limitada — microcontroladores com poucos kilobytes de RAM e sensores IoT sem GPU, sem nuvem e com baixíssimo consumo de energia. É a mesma disciplina de eficiência que aplico no mercado: pipelines de dados e modelos de IA mais leves, rápidos e baratos de operar em produção.</p>
-                        <div class="research-tags">
-                            <span class="skill-badge"><span data-i18n="research.tag1">TinyML</span></span>
-                            <span class="skill-badge"><span data-i18n="research.tag2">ML Embarcado</span></span>
-                            <span class="skill-badge"><span data-i18n="research.tag3">IoT</span></span>
-                            <span class="skill-badge"><span data-i18n="research.tag4">Aprendizado de Máquina</span></span>
-                        </div>
-                        <a href="http://lattes.cnpq.br/2078391939625415" target="_blank" rel="noopener noreferrer" class="cta-button cta-button--outline" data-i18n="research.cta">Ver Currículo Lattes →</a>
                     </div>
                 </div>
             </div>
@@ -259,6 +236,27 @@
                     <button class="projects-nav-btn" id="projectsPrev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
                     <div class="projects-dots" id="projectsDots"></div>
                     <button class="projects-nav-btn" id="projectsNext" aria-label="Próximo"><i class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <div id="pesquisa" class="projects-research-block">
+                    <span class="section-eyebrow" data-i18n="research.eyebrow">Pesquisa</span>
+                    <h3 class="section-title section-title--gold section-title--sub" data-i18n="research.title">Pesquisa Acadêmica</h3>
+                    <div class="research-card">
+                        <div class="research-card-icon">🎓</div>
+                        <div class="research-card-body">
+                            <h3 data-i18n="research.cardTitle">Mestrado em Ciência da Computação — CEFET/RJ</h3>
+                            <p class="research-line" data-i18n="research.cardLine">Linha de pesquisa: TinyML (Tiny Machine Learning)</p>
+                            <span class="badge-ongoing" data-i18n="research.badge">Cursando · conclusão prevista 2028</span>
+                            <p class="research-body" data-i18n="research.body">Minha pesquisa em TinyML investiga como comprimir e otimizar modelos de Machine Learning para rodar em hardware com memória extremamente limitada — microcontroladores com poucos kilobytes de RAM e sensores IoT sem GPU, sem nuvem e com baixíssimo consumo de energia. É a mesma disciplina de eficiência que aplico no mercado: pipelines de dados e modelos de IA mais leves, rápidos e baratos de operar em produção.</p>
+                            <div class="research-tags">
+                                <span class="skill-badge"><span data-i18n="research.tag1">TinyML</span></span>
+                                <span class="skill-badge"><span data-i18n="research.tag2">ML Embarcado</span></span>
+                                <span class="skill-badge"><span data-i18n="research.tag3">IoT</span></span>
+                                <span class="skill-badge"><span data-i18n="research.tag4">Aprendizado de Máquina</span></span>
+                            </div>
+                            <a href="http://lattes.cnpq.br/2078391939625415" target="_blank" rel="noopener noreferrer" class="cta-button cta-button--outline" data-i18n="research.cta">Ver Currículo Lattes →</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
