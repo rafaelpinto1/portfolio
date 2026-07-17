@@ -16,8 +16,14 @@
 <body>
     <header class="header" aria-label="Cabeçalho principal">
         <div class="container header-container">
-            <div class="logo">
-                <span class="logo-text" data-i18n="brand.title">Portfólio Profissional</span>
+            <div class="header-left">
+                <div class="logo">
+                    <span class="logo-text" data-i18n="brand.title">Portfólio Profissional</span>
+                </div>
+                <div class="lang-toggle" role="group" aria-label="Idioma / Language">
+                    <button class="lang-toggle-btn active" id="langPt" data-lang="pt" aria-pressed="true">PT</button>
+                    <button class="lang-toggle-btn" id="langEn" data-lang="en" aria-pressed="false">EN</button>
+                </div>
             </div>
             <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false">
                 <span class="hamburger"></span>
@@ -34,21 +40,14 @@
                     <li><a href="#contato" class="nav-link" data-i18n="nav.contact">Contato</a></li>
                 </ul>
             </nav>
-            <div class="header-controls">
-                <div class="lang-toggle" role="group" aria-label="Idioma / Language">
-                    <button class="lang-toggle-btn active" id="langPt" data-lang="pt" aria-pressed="true">PT</button>
-                    <button class="lang-toggle-btn" id="langEn" data-lang="en" aria-pressed="false">EN</button>
-                </div>
-                <div class="header-controls-divider" aria-hidden="true"></div>
-                <label class="theme-toggle" aria-label="Alternar tema claro/escuro">
-                    <input type="checkbox" id="darkModeToggle" class="theme-toggle-input">
-                    <span class="theme-toggle-track">
-                        <span class="theme-toggle-thumb"></span>
-                        <i class="fas fa-sun theme-icon-sun"></i>
-                        <i class="fas fa-moon theme-icon-moon"></i>
-                    </span>
-                </label>
-            </div>
+            <label class="theme-toggle" aria-label="Alternar tema claro/escuro">
+                <input type="checkbox" id="darkModeToggle" class="theme-toggle-input">
+                <span class="theme-toggle-track">
+                    <span class="theme-toggle-thumb"></span>
+                    <i class="fas fa-sun theme-icon-sun"></i>
+                    <i class="fas fa-moon theme-icon-moon"></i>
+                </span>
+            </label>
         </div>
     </header>
 
