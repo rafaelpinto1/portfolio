@@ -105,7 +105,20 @@ typeof document !== 'undefined' && document.addEventListener('DOMContentLoaded',
             card.querySelector('.project-card-title').textContent = content.title;
             card.querySelector('.project-card-desc').textContent = content.desc || content.context;
             card.querySelector('.project-status').textContent = lang === 'en' ? project.statusEn : project.statusPt;
+            const tagsContainer = card.querySelector('.project-tags');
+            if (tagsContainer) {
+                tagsContainer.innerHTML = project.tags
+                    .map((tag) => `<span class="project-tag">${ProjectsData.translateTag(tag, lang)}</span>`)
+                    .join('');
+            }
         });
+        const modalCloseBtn = document.getElementById('projectModalClose');
+        const prevBtn = document.getElementById('projectsPrev');
+        const nextBtn = document.getElementById('projectsNext');
+        const isEn = lang === 'en';
+        if (modalCloseBtn) modalCloseBtn.setAttribute('aria-label', isEn ? 'Close project' : 'Fechar projeto');
+        if (prevBtn) prevBtn.setAttribute('aria-label', isEn ? 'Previous' : 'Anterior');
+        if (nextBtn) nextBtn.setAttribute('aria-label', isEn ? 'Next' : 'Próximo');
     }
     renderProjectCardsText(I18N.resolveInitialLanguage(localStorage.getItem('lang')));
     langPt && langPt.addEventListener('click', () => renderProjectCardsText('pt'));

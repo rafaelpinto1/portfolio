@@ -35,3 +35,23 @@ test('renderCaseStudyHTML: inclui contexto, bullets de abordagem e tags no idiom
 function escapeRegExp(s) {
     return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
+
+test('translateTag: traduz tags conhecidas para EN, mantém termos técnicos intactos', () => {
+    const { translateTag } = require('../projects-data.js');
+    assert.equal(translateTag('DAX Avançado', 'en'), 'Advanced DAX');
+    assert.equal(translateTag('Automação', 'en'), 'Automation');
+    assert.equal(translateTag('DAX Avançado', 'pt'), 'DAX Avançado');
+    assert.equal(translateTag('Power BI', 'en'), 'Power BI');
+});
+
+test('renderCaseStudyHTML: tags traduzidas aparecem no HTML em inglês, não em português', () => {
+    const dashboard = PROJECTS.find((p) => p.id === 'dashboard-vendas');
+    const htmlEn = renderCaseStudyHTML(dashboard, 'en');
+    assert.match(htmlEn, /Advanced DAX/);
+    assert.doesNotMatch(htmlEn, /DAX Avançado/);
+
+    const etl = PROJECTS.find((p) => p.id === 'etl-pipeline');
+    const htmlEnEtl = renderCaseStudyHTML(etl, 'en');
+    assert.match(htmlEnEtl, /Automation/);
+    assert.doesNotMatch(htmlEnEtl, /Automação/);
+});

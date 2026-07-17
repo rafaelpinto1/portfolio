@@ -8,6 +8,18 @@
         en: { context: 'Context', approach: 'Approach', result: 'Result', stack: 'Stack', mediaPlaceholder: 'Screenshots coming soon' },
     };
 
+    const TAG_LABELS_EN = {
+        'DAX Avançado': 'Advanced DAX',
+        'Automação': 'Automation',
+    };
+
+    function translateTag(tag, lang) {
+        if (lang === 'en' && Object.prototype.hasOwnProperty.call(TAG_LABELS_EN, tag)) {
+            return TAG_LABELS_EN[tag];
+        }
+        return tag;
+    }
+
     const PROJECTS = [
         {
             id: 'numero-secreto',
@@ -124,7 +136,7 @@
         const l = CASE_STUDY_LABELS[lang] || CASE_STUDY_LABELS.pt;
         const content = project[lang] || project.pt;
         const approachItems = content.approach.map((step) => `<li>${step}</li>`).join('');
-        const tagItems = project.tags.map((tag) => `<span class="project-tag">${tag}</span>`).join('');
+        const tagItems = project.tags.map((tag) => `<span class="project-tag">${translateTag(tag, lang)}</span>`).join('');
         return `
             <div class="case-study">
                 <section class="cs-block">
@@ -148,7 +160,7 @@
         `.trim();
     }
 
-    const api = { PROJECTS, CASE_STUDY_LABELS, renderCaseStudyHTML };
+    const api = { PROJECTS, CASE_STUDY_LABELS, renderCaseStudyHTML, translateTag };
 
     if (typeof module !== 'undefined' && module.exports) {
         module.exports = api;
