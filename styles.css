@@ -1911,4 +1911,21 @@ body.dark .hero-badge {
         display: block;
         text-align: center;
     }
+
+    /* ---------- HEADER: logo fit + touch targets ---------- */
+    .header-container { gap: 0.5rem; }
+    .header-left { gap: 0.5rem; }
+    .logo-text {
+        font-size: 1.05rem;
+        display: inline-block;
+        max-width: 110px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .lang-toggle-btn { min-height: 40px; }
+
+    /* ---------- MODAL: case-study padding ---------- */
+    .project-modal-body { padding: 1.1rem; }
+    .cs-media-placeholder { padding: 1.25rem; font-size: 0.85rem; }
 }
