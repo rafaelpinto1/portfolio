@@ -93,6 +93,7 @@
             'contact.emailLabel': 'E-mail',
             'contact.whatsapp': 'Falar no WhatsApp',
             'contact.lattes': 'Acesse meu Currículo Lattes CNPq',
+            'project.openNewTab': 'Abrir em nova aba',
         },
         en: {
             'nav.home': 'Home',
@@ -183,6 +184,7 @@
             'contact.emailLabel': 'Email',
             'contact.whatsapp': 'Chat on WhatsApp',
             'contact.lattes': 'View my Lattes CV (CNPq)',
+            'project.openNewTab': 'Open in new tab',
         },
     };
 
