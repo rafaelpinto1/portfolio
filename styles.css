@@ -14,7 +14,7 @@
     --accent:        #1d4ed8;
     --accent-deep:   #0b2a63;
     --accent-hover:  #2f5fe0;
-    --gold:          #7a5818;
+    --gold:          #704e13;
     --border:        rgba(20, 26, 36, 0.09);
     --card-bg:       #ffffff;
     --glass-bg:      rgba(255, 255, 255, 0.62);
@@ -983,9 +983,9 @@ body.dark .card--highlight {
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.04em;
-    background: linear-gradient(135deg, rgba(122,88,24,0.16), rgba(122,88,24,0.08));
+    background: linear-gradient(135deg, rgba(112,78,19,0.16), rgba(112,78,19,0.08));
     color: var(--gold);
-    border: 1px solid rgba(122,88,24,0.35);
+    border: 1px solid rgba(112,78,19,0.35);
 }
 
 body.dark .badge-ongoing {
