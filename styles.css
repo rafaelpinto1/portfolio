@@ -1726,6 +1726,8 @@ body.dark .hero-badge {
 }
 
 .project-modal-body {
+    flex: 1;
+    min-height: 0;
     padding: 1.5rem;
     overflow-y: auto;
 }
