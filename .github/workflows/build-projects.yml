@@ -1,0 +1,38 @@
+name: Build projects data
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'projetos/**'
+      - 'scripts/build-projects.js'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build projects-data.js
+        run: node scripts/build-projects.js
+
+      - name: Commit se houve mudança
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet -- projects-data.js; then
+            git add projects-data.js
+            git commit -m "chore: regenera projects-data.js [skip ci]"
+            git push
+          else
+            echo "projects-data.js não mudou, nada para commitar."
+          fi
