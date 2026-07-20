@@ -1,0 +1,9 @@
+{
+  "id": "demo-local-ok",
+  "type": "demo-local",
+  "order": 1,
+  "icon": "fab fa-git-alt",
+  "thumbClass": "project-thumbnail--git",
+  "pt": { "title": "Demo Local", "status": "Git · Teste", "desc": "Descrição de teste.", "tags": ["Git"] },
+  "en": { "title": "Local Demo", "status": "Git · Test", "desc": "Test description.", "tags": ["Git"] }
+}

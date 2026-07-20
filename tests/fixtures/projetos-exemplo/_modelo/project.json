@@ -1,0 +1,8 @@
+{
+  "id": "_modelo",
+  "type": "case-study",
+  "icon": "fas fa-question",
+  "thumbClass": "project-thumbnail--bi",
+  "pt": { "title": "X", "status": "X", "context": "X", "approach": ["X"], "result": "X", "tags": ["X"] },
+  "en": { "title": "X", "status": "X", "context": "X", "approach": ["X"], "result": "X", "tags": ["X"] }
+}

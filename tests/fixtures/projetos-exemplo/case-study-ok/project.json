@@ -1,0 +1,23 @@
+{
+  "id": "case-study-ok",
+  "type": "case-study",
+  "order": 2,
+  "icon": "fas fa-chart-bar",
+  "thumbClass": "project-thumbnail--bi",
+  "pt": {
+    "title": "Projeto Case Study",
+    "status": "Python · Teste",
+    "context": "Contexto de teste em português.",
+    "approach": ["Passo 1", "Passo 2"],
+    "result": "[Resultado de teste]",
+    "tags": ["Python", "Teste"]
+  },
+  "en": {
+    "title": "Case Study Project",
+    "status": "Python · Test",
+    "context": "Test context in English.",
+    "approach": ["Step 1", "Step 2"],
+    "result": "[Test result]",
+    "tags": ["Python", "Test"]
+  }
+}
