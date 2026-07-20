@@ -358,7 +358,11 @@ body.dark .nav-link:hover {
 }
 
 .card-badge-link {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
     margin-bottom: 1rem;
     transition: transform 0.2s ease;
 }
@@ -368,8 +372,10 @@ body.dark .nav-link:hover {
 }
 
 .card-badge-img {
-    height: 56px;
+    max-width: 100%;
+    max-height: 100%;
     width: auto;
+    height: auto;
     display: block;
     border-radius: 8px;
 }
@@ -1322,6 +1328,10 @@ body.dark .hero-badge {
 /* Faixa de certificações */
 .hero-cert-badge {
     display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: 130px;
     line-height: 0;
     transition: transform 0.2s ease;
 }
@@ -1331,8 +1341,10 @@ body.dark .hero-badge {
 }
 
 .hero-cert-badge img {
-    height: 130px;
+    max-width: 100%;
+    max-height: 100%;
     width: auto;
+    height: auto;
     display: block;
     border-radius: 8px;
 }
@@ -1350,7 +1362,7 @@ body.dark .hero-badge {
 @media (max-width: 768px) {
     .hero-badges { justify-content: center; }
     .hero-certifications { justify-content: center; }
-    .hero-cert-badge img { height: 70px; }
+    .hero-cert-badge { width: 70px; height: 70px; }
 }
 
 /* ===========================
@@ -1758,6 +1770,8 @@ body.dark .hero-badge {
     .formation .card-badge-link {
         grid-column: 1;
         grid-row: 1 / 3;
+        width: 36px;
+        height: 36px;
         align-self: center;
         margin: 0;
     }
