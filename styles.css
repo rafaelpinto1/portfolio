@@ -1090,16 +1090,6 @@ body.dark .badge-ongoing {
 }
 
 /* ===== PESQUISA ACADÊMICA ===== */
-.section-eyebrow {
-    display: block;
-    text-align: center;
-    font-size: 0.78rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--accent);
-    margin-bottom: 0.5rem;
-}
 
 .section-title--gold::after {
     background: linear-gradient(90deg, var(--gold), var(--accent-deep));
