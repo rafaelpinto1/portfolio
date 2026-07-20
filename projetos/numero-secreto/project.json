@@ -1,0 +1,20 @@
+{
+  "id": "numero-secreto",
+  "type": "demo-external",
+  "order": 4,
+  "icon": "fab fa-git-alt",
+  "thumbClass": "project-thumbnail--git",
+  "demoUrl": "https://rafaelpinto1.github.io/numero-secreto/",
+  "pt": {
+    "title": "Número Secreto",
+    "status": "Git · Aprendizado",
+    "desc": "Jogo simples de adivinhar número utilizado como repositório de prática de versionamento com Git e GitHub. O projeto em si veio pronto — o foco foi o fluxo de commits, branches e publicação via GitHub Pages.",
+    "tags": ["Git", "GitHub", "GitHub Pages"]
+  },
+  "en": {
+    "title": "Secret Number Game",
+    "status": "Git · Learning",
+    "desc": "A simple number-guessing game used as a practice repository for Git and GitHub versioning. The project itself was provided — the focus was the commit/branch workflow and publishing via GitHub Pages.",
+    "tags": ["Git", "GitHub", "GitHub Pages"]
+  }
+}

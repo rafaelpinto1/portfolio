@@ -1,0 +1,33 @@
+{
+  "id": "churn-model",
+  "type": "case-study",
+  "order": 2,
+  "icon": "fas fa-brain",
+  "thumbClass": "project-thumbnail--ml",
+  "pt": {
+    "title": "Modelo Preditivo de Churn",
+    "status": "Python · ML",
+    "context": "Alta rotatividade de clientes sem sinal de alerta antecipado para a equipe comercial.",
+    "approach": [
+      "Pré-processamento e engenharia de atributos com Pandas",
+      "Treinamento de classificador com Scikit-learn",
+      "Análise de importância de variáveis (feature importance)",
+      "Validação com métricas de negócio, não só técnicas"
+    ],
+    "result": "[Métrica a confirmar — ex.: identificou X% dos casos de risco de evasão antes do cancelamento]",
+    "tags": ["Python", "Scikit-learn", "Pandas", "Machine Learning", "LGPD"]
+  },
+  "en": {
+    "title": "Customer Churn Prediction Model",
+    "status": "Python · ML",
+    "context": "High customer turnover with no early warning signal for the sales team.",
+    "approach": [
+      "Preprocessing and feature engineering with Pandas",
+      "Classifier training with Scikit-learn",
+      "Feature importance analysis",
+      "Validation against business metrics, not just technical ones"
+    ],
+    "result": "[Metric to confirm — e.g., identified X% of at-risk customers before cancellation]",
+    "tags": ["Python", "Scikit-learn", "Pandas", "Machine Learning", "LGPD"]
+  }
+}

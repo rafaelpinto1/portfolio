@@ -1,0 +1,31 @@
+{
+  "id": "etl-pipeline",
+  "type": "case-study",
+  "order": 3,
+  "icon": "fas fa-cogs",
+  "thumbClass": "project-thumbnail--etl",
+  "pt": {
+    "title": "Pipeline ETL Automatizado",
+    "status": "Python · SQLite",
+    "context": "Ingestão de logs feita manualmente, sem rastreabilidade nem alerta de falha.",
+    "approach": [
+      "Ingestão, transformação e carga estruturada em SQLite",
+      "Logs estruturados com rastreabilidade ponta a ponta",
+      "Alertas automáticos de falha no pipeline"
+    ],
+    "result": "[Métrica a confirmar — ex.: reduziu em X% a intervenção manual no pipeline]",
+    "tags": ["Python", "SQLite", "ETL", "Automação", "LGPD"]
+  },
+  "en": {
+    "title": "Automated ETL Pipeline",
+    "status": "Python · SQLite",
+    "context": "Log ingestion done manually, with no traceability or failure alerts.",
+    "approach": [
+      "Structured ingestion, transformation, and load into SQLite",
+      "Structured logs with end-to-end traceability",
+      "Automatic pipeline failure alerts"
+    ],
+    "result": "[Metric to confirm — e.g., reduced manual pipeline intervention by X%]",
+    "tags": ["Python", "SQLite", "ETL", "Automation", "LGPD"]
+  }
+}

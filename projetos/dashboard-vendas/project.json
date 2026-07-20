@@ -1,0 +1,33 @@
+{
+  "id": "dashboard-vendas",
+  "type": "case-study",
+  "order": 1,
+  "icon": "fas fa-chart-bar",
+  "thumbClass": "project-thumbnail--bi",
+  "pt": {
+    "title": "Dashboard de Vendas Interativo",
+    "status": "Power BI · DAX",
+    "context": "Times comerciais dependiam da área de TI para relatórios de vendas atualizados, atrasando decisões.",
+    "approach": [
+      "Modelagem de dados em estrela com DAX avançado",
+      "Segmentação dinâmica de clientes via Power Query M",
+      "Análise de tendências e previsão de demanda",
+      "Controle de acesso por linha (RLS)"
+    ],
+    "result": "[Métrica a confirmar — ex.: reduziu em X% o tempo de geração de relatórios]",
+    "tags": ["Power BI", "SQL", "DAX Avançado", "KPIs", "LGPD"]
+  },
+  "en": {
+    "title": "Interactive Sales Dashboard",
+    "status": "Power BI · DAX",
+    "context": "Sales teams depended on the IT department for updated sales reports, delaying decisions.",
+    "approach": [
+      "Star-schema data modeling with advanced DAX",
+      "Dynamic customer segmentation via Power Query M",
+      "Trend analysis and demand forecasting",
+      "Row-level security (RLS) access control"
+    ],
+    "result": "[Metric to confirm — e.g., reduced report turnaround time by X%]",
+    "tags": ["Power BI", "SQL", "Advanced DAX", "KPIs", "LGPD"]
+  }
+}
