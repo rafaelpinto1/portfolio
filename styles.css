@@ -1330,10 +1330,10 @@ body.dark .hero-badge {
 }
 
 .hero-cert-badge img {
-    height: 42px;
+    height: 92px;
     width: auto;
     display: block;
-    border-radius: 6px;
+    border-radius: 8px;
 }
 
 .hero-certifications {
@@ -1349,6 +1349,7 @@ body.dark .hero-badge {
 @media (max-width: 768px) {
     .hero-badges { justify-content: center; }
     .hero-certifications { justify-content: center; }
+    .hero-cert-badge img { height: 68px; }
 }
 
 /* ===========================
