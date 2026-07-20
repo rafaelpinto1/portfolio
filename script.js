@@ -103,8 +103,14 @@ typeof document !== 'undefined' && document.addEventListener('DOMContentLoaded',
     });
 
 
-    // ==================== PROJECTS: título/descrição/status por idioma ====================
-    function renderProjectCardsText(lang) {
+    // ==================== PROJECTS: grid montado dinamicamente a partir de ProjectsData ====================
+    function buildProjectCards(lang) {
+        const grid = document.getElementById('projectsGrid');
+        if (!grid) return;
+        grid.innerHTML = ProjectsData.PROJECTS.map((p) => ProjectsData.renderProjectCardHTML(p, lang)).join('');
+    }
+
+    function updateProjectCardsText(lang) {
         document.querySelectorAll('.project-card').forEach((card) => {
             const id = card.dataset.projectId;
             const project = ProjectsData.PROJECTS.find((p) => p.id === id);
@@ -112,13 +118,13 @@ typeof document !== 'undefined' && document.addEventListener('DOMContentLoaded',
             const content = project[lang] || project.pt;
             card.querySelector('.project-card-title').textContent = content.title;
             card.querySelector('.project-card-desc').textContent = content.desc || content.context;
-            card.querySelector('.project-status').textContent = lang === 'en' ? project.statusEn : project.statusPt;
+            card.querySelector('.project-status').textContent = content.status;
             const tagsContainer = card.querySelector('.project-tags');
             if (tagsContainer) {
-                tagsContainer.innerHTML = project.tags
-                    .map((tag) => `<span class="project-tag">${ProjectsData.translateTag(tag, lang)}</span>`)
-                    .join('');
+                tagsContainer.innerHTML = content.tags.map((tag) => `<span class="project-tag">${tag}</span>`).join('');
             }
+            const link = card.querySelector('.project-link');
+            if (link) link.textContent = lang === 'en' ? 'View project →' : 'Ver projeto →';
         });
         const modalCloseBtn = document.getElementById('projectModalClose');
         const prevBtn = document.getElementById('projectsPrev');
@@ -128,9 +134,11 @@ typeof document !== 'undefined' && document.addEventListener('DOMContentLoaded',
         if (prevBtn) prevBtn.setAttribute('aria-label', isEn ? 'Previous' : 'Anterior');
         if (nextBtn) nextBtn.setAttribute('aria-label', isEn ? 'Next' : 'Próximo');
     }
-    renderProjectCardsText(I18N.resolveInitialLanguage(localStorage.getItem('lang')));
-    langPt && langPt.addEventListener('click', () => renderProjectCardsText('pt'));
-    langEn && langEn.addEventListener('click', () => renderProjectCardsText('en'));
+
+    const initialProjectsLang = I18N.resolveInitialLanguage(localStorage.getItem('lang'));
+    buildProjectCards(initialProjectsLang);
+    langPt && langPt.addEventListener('click', () => updateProjectCardsText('pt'));
+    langEn && langEn.addEventListener('click', () => updateProjectCardsText('en'));
 
     // ==================== PROJECT MODAL (case study nativo, sem iframe) ====================
     const projectModal     = document.getElementById('projectModal');
