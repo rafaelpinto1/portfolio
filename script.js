@@ -150,11 +150,38 @@ typeof document !== 'undefined' && document.addEventListener('DOMContentLoaded',
         return document.getElementById('langEn')?.classList.contains('active') ? 'en' : 'pt';
     }
 
-    function openProjectModal(project) {
-        const lang = currentLang();
+    function renderCaseStudyModalContent(project, lang) {
         const content = project[lang] || project.pt;
         projectModalTitle.textContent = content.title;
+        projectModalBody.classList.remove('project-modal-body--iframe');
         projectModalBody.innerHTML = ProjectsData.renderCaseStudyHTML(project, lang);
+    }
+
+    function renderDemoViewerModalContent(project, lang) {
+        const content = project[lang] || project.pt;
+        const demoUrl = ProjectsData.getDemoUrl(project);
+        const openLabel = I18N.getText(I18N.I18N_DICT, lang, 'project.openNewTab');
+        projectModalTitle.textContent = content.title;
+        projectModalBody.classList.add('project-modal-body--iframe');
+        projectModalBody.innerHTML = `
+            <div class="browser-chrome">
+                <span class="browser-chrome-dot browser-chrome-dot--red"></span>
+                <span class="browser-chrome-dot browser-chrome-dot--yellow"></span>
+                <span class="browser-chrome-dot browser-chrome-dot--green"></span>
+                <span class="browser-chrome-url">${demoUrl}</span>
+                <a href="${demoUrl}" target="_blank" rel="noopener noreferrer" class="browser-chrome-open-link">${openLabel}</a>
+            </div>
+            <iframe class="demo-viewer-iframe" src="${demoUrl}" title="${content.title}"></iframe>
+        `;
+    }
+
+    function openProjectModal(project) {
+        const lang = currentLang();
+        if (project.type === 'case-study') {
+            renderCaseStudyModalContent(project, lang);
+        } else {
+            renderDemoViewerModalContent(project, lang);
+        }
         projectModal.removeAttribute('inert');
         projectModal.classList.add('open');
         projectModal.setAttribute('aria-hidden', 'false');
@@ -175,11 +202,6 @@ typeof document !== 'undefined' && document.addEventListener('DOMContentLoaded',
         const id = card.dataset.projectId;
         const project = ProjectsData.PROJECTS.find((p) => p.id === id);
         if (!project) return;
-
-        if (project.type === 'external') {
-            // Projeto real: o link já abre em nova aba via href/target no HTML; não usa modal.
-            return;
-        }
 
         card.addEventListener('click', (e) => {
             e.preventDefault();
