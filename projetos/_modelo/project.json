@@ -1,0 +1,29 @@
+{
+  "id": "_modelo",
+  "type": "case-study",
+  "order": 99,
+  "icon": "fas fa-lightbulb",
+  "thumbClass": "project-thumbnail--bi",
+  "pt": {
+    "title": "Nome do Projeto",
+    "status": "Tecnologia · Categoria",
+    "context": "1-2 frases sobre o problema que o projeto resolve.",
+    "approach": [
+      "Bullet técnico 1 sobre a abordagem",
+      "Bullet técnico 2 sobre a abordagem"
+    ],
+    "result": "[Métrica a confirmar — ex.: reduziu em X% o tempo de Y]",
+    "tags": ["Tag1", "Tag2"]
+  },
+  "en": {
+    "title": "Project Name",
+    "status": "Technology · Category",
+    "context": "1-2 sentences about the problem the project solves.",
+    "approach": [
+      "Technical bullet 1 about the approach",
+      "Technical bullet 2 about the approach"
+    ],
+    "result": "[Metric to confirm — e.g., reduced Y time by X%]",
+    "tags": ["Tag1", "Tag2"]
+  }
+}
