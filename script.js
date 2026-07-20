@@ -61,10 +61,18 @@ typeof document !== 'undefined' && document.addEventListener('DOMContentLoaded',
     const savedLang = localStorage.getItem('lang');
     const initialLang = I18N.resolveInitialLanguage(savedLang);
 
-    I18N.applyLanguage(initialLang, I18N.I18N_DICT);
+    function updateContactAriaLabels(lang) {
+        const phoneLink = document.getElementById('contactPhone');
+        const emailLink = document.getElementById('contactEmail');
+        if (phoneLink) phoneLink.setAttribute('aria-label', I18N.getText(I18N.I18N_DICT, lang, 'contact.phoneLabel'));
+        if (emailLink) emailLink.setAttribute('aria-label', I18N.getText(I18N.I18N_DICT, lang, 'contact.emailLabel'));
+    }
 
-    langPt && langPt.addEventListener('click', () => I18N.applyLanguage('pt', I18N.I18N_DICT));
-    langEn && langEn.addEventListener('click', () => I18N.applyLanguage('en', I18N.I18N_DICT));
+    I18N.applyLanguage(initialLang, I18N.I18N_DICT);
+    updateContactAriaLabels(initialLang);
+
+    langPt && langPt.addEventListener('click', () => { I18N.applyLanguage('pt', I18N.I18N_DICT); updateContactAriaLabels('pt'); });
+    langEn && langEn.addEventListener('click', () => { I18N.applyLanguage('en', I18N.I18N_DICT); updateContactAriaLabels('en'); });
 
     // ==================== SCROLL SPY ====================
     const sections = document.querySelectorAll('section[id]');
