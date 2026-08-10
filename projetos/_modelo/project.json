@@ -7,7 +7,8 @@
   "pt": {
     "title": "Nome do Projeto",
     "status": "Tecnologia · Categoria",
-    "context": "1-2 frases sobre o problema que o projeto resolve.",
+    "desc": "1 frase curta exibida no card (resumo, não o texto completo).",
+    "context": "1-2 frases sobre o problema que o projeto resolve. Exibido ao clicar 'ver projeto'.",
     "approach": [
       "Bullet técnico 1 sobre a abordagem",
       "Bullet técnico 2 sobre a abordagem"
@@ -18,7 +19,8 @@
   "en": {
     "title": "Project Name",
     "status": "Technology · Category",
-    "context": "1-2 sentences about the problem the project solves.",
+    "desc": "1 short sentence shown on the card (summary, not the full text).",
+    "context": "1-2 sentences about the problem the project solves. Shown when clicking 'view project'.",
     "approach": [
       "Technical bullet 1 about the approach",
       "Technical bullet 2 about the approach"

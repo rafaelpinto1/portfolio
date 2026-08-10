@@ -4,6 +4,6 @@
   "icon": "fas fa-cogs",
   "thumbClass": "project-thumbnail--etl",
   "demoUrl": "https://example.com/demo-externa",
-  "pt": { "title": "Demo Externa", "status": "Node · Teste", "desc": "Descrição de teste.", "tags": ["Node"] },
-  "en": { "title": "External Demo", "status": "Node · Test", "desc": "Test description.", "tags": ["Node"] }
+  "pt": { "title": "Demo Externa", "status": "Node · Teste", "desc": "Descrição de teste.", "tags": ["Node"], "context": "Contexto de teste.", "approach": ["Passo de teste"], "result": "Resultado de teste." },
+  "en": { "title": "External Demo", "status": "Node · Test", "desc": "Test description.", "tags": ["Node"], "context": "Test context.", "approach": ["Test step"], "result": "Test result." }
 }

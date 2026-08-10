@@ -1664,6 +1664,27 @@ body.dark .hero-badge {
     font-size: 0.9rem;
 }
 
+.cs-open-demo-btn {
+    display: inline-block;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0.72rem 1.75rem;
+    border-radius: var(--radius-btn);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.35);
+}
+
+.cs-open-demo-btn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,0.35);
+}
+
 /* ===== VISUALIZADOR "NAVEGADOR INTERNO" (demo-local / demo-external) ===== */
 .project-modal-body--iframe {
     padding: 0;

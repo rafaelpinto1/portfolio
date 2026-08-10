@@ -1,12 +1,12 @@
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { PROJECTS, renderCaseStudyHTML, renderProjectCardHTML, getDemoUrl } = require('../projects-data.js');
+const { PROJECTS, renderCaseStudyHTML, renderDemoIntroHTML, renderProjectCardHTML, getDemoUrl } = require('../projects-data.js');
 
-test('PROJECTS: cada case study tem conteúdo pt e en completo', () => {
-    const caseStudies = PROJECTS.filter((p) => p.type === 'case-study');
-    assert.ok(caseStudies.length === 3, 'espera 3 case studies');
-    caseStudies.forEach((p) => {
+test('PROJECTS: todo projeto (case-study ou demo) tem conteúdo pt e en completo', () => {
+    assert.ok(PROJECTS.length >= 4);
+    PROJECTS.forEach((p) => {
         ['pt', 'en'].forEach((lang) => {
+            assert.ok(p[lang].desc.length > 0, `${p.id} ${lang} desc vazio`);
             assert.ok(p[lang].context.length > 0, `${p.id} ${lang} context vazio`);
             assert.ok(Array.isArray(p[lang].approach) && p[lang].approach.length > 0, `${p.id} ${lang} approach vazio`);
             assert.ok(p[lang].result.length > 0, `${p.id} ${lang} result vazio`);
@@ -46,6 +46,17 @@ test('renderProjectCardHTML: case-study usa href "#" e nenhum target; demo-exter
     assert.match(extHtml, new RegExp(`href="${escapeRegExp(external.demoUrl)}"`));
     assert.match(extHtml, /target="_blank" rel="noopener noreferrer"/);
     assert.match(extHtml, /View project/);
+});
+
+test('renderDemoIntroHTML: mostra contexto/abordagem/resultado e botão para abrir a demo, no idioma pedido', () => {
+    const project = PROJECTS.find((p) => p.id === 'numero-secreto');
+    const htmlPt = renderDemoIntroHTML(project, 'pt');
+    assert.match(htmlPt, new RegExp(escapeRegExp(project.pt.context)));
+    assert.match(htmlPt, /class="cs-open-demo-btn">Ver demo ao vivo/);
+
+    const htmlEn = renderDemoIntroHTML(project, 'en');
+    assert.match(htmlEn, new RegExp(escapeRegExp(project.en.context)));
+    assert.match(htmlEn, /class="cs-open-demo-btn">View live demo/);
 });
 
 test('renderProjectCardHTML: usa o thumbClass e o icon do projeto', () => {

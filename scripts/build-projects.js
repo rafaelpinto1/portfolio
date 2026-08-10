@@ -48,18 +48,15 @@ function validateProject(id, data, projectsDir) {
         }
         if (!content.title) errors.push(`"${lang}.title" é obrigatório`);
         if (!content.status) errors.push(`"${lang}.status" é obrigatório`);
+        if (!content.desc) errors.push(`"${lang}.desc" é obrigatório (resumo curto exibido no card)`);
         if (!Array.isArray(content.tags) || content.tags.length === 0) {
             errors.push(`"${lang}.tags" deve ser uma lista não vazia`);
         }
-        if (data.type === 'case-study') {
-            if (!content.context) errors.push(`"${lang}.context" é obrigatório para type "case-study"`);
-            if (!Array.isArray(content.approach) || content.approach.length === 0) {
-                errors.push(`"${lang}.approach" deve ser uma lista não vazia para type "case-study"`);
-            }
-            if (!content.result) errors.push(`"${lang}.result" é obrigatório para type "case-study"`);
-        } else if (!content.desc) {
-            errors.push(`"${lang}.desc" é obrigatório para type "${data.type}"`);
+        if (!content.context) errors.push(`"${lang}.context" é obrigatório (texto exibido ao abrir o projeto)`);
+        if (!Array.isArray(content.approach) || content.approach.length === 0) {
+            errors.push(`"${lang}.approach" deve ser uma lista não vazia`);
         }
+        if (!content.result) errors.push(`"${lang}.result" é obrigatório`);
     });
 
     if (data.type === 'demo-external' && !data.demoUrl) {
@@ -132,7 +129,7 @@ function generateFileContent(projects) {
         return null;
     }
 
-    function renderCaseStudyHTML(project, lang) {
+    function renderProjectDetailHTML(project, lang, footerHtml) {
         const l = CASE_STUDY_LABELS[lang] || CASE_STUDY_LABELS.pt;
         const content = project[lang] || project.pt;
         const approachItems = content.approach.map((step) => '<li>' + step + '</li>').join('');
@@ -155,16 +152,26 @@ function generateFileContent(projects) {
                     <h4 class="cs-label">\${l.stack}</h4>
                     <div class="project-tags">\${tagItems}</div>
                 </section>
-                <div class="cs-media-placeholder">📷 \${l.mediaPlaceholder}</div>
+                \${footerHtml}
             </div>
         \`.trim();
+    }
+
+    function renderCaseStudyHTML(project, lang) {
+        const l = CASE_STUDY_LABELS[lang] || CASE_STUDY_LABELS.pt;
+        return renderProjectDetailHTML(project, lang, '<div class="cs-media-placeholder">📷 ' + l.mediaPlaceholder + '</div>');
+    }
+
+    function renderDemoIntroHTML(project, lang) {
+        const label = lang === 'en' ? 'View live demo →' : 'Ver demo ao vivo →';
+        return renderProjectDetailHTML(project, lang, '<button type="button" class="cs-open-demo-btn">' + label + '</button>');
     }
 
     function renderProjectCardHTML(project, lang) {
         const content = project[lang] || project.pt;
         const tagItems = content.tags.map((tag) => '<span class="project-tag">' + tag + '</span>').join('');
         const linkLabel = lang === 'en' ? 'View project →' : 'Ver projeto →';
-        const desc = content.desc || content.context || '';
+        const desc = content.desc;
         let linkHref = '#';
         let linkAttrs = '';
         if (project.type !== 'case-study') {
@@ -187,7 +194,7 @@ function generateFileContent(projects) {
         \`.trim();
     }
 
-    const api = { PROJECTS, CASE_STUDY_LABELS, renderCaseStudyHTML, renderProjectCardHTML, getDemoUrl };
+    const api = { PROJECTS, CASE_STUDY_LABELS, renderCaseStudyHTML, renderDemoIntroHTML, renderProjectCardHTML, getDemoUrl };
 
     if (typeof module !== 'undefined' && module.exports) {
         module.exports = api;

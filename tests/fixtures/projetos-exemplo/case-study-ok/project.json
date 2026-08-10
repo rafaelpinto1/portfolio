@@ -7,6 +7,7 @@
   "pt": {
     "title": "Projeto Case Study",
     "status": "Python · Teste",
+    "desc": "Descrição de teste.",
     "context": "Contexto de teste em português.",
     "approach": ["Passo 1", "Passo 2"],
     "result": "[Resultado de teste]",
@@ -15,6 +16,7 @@
   "en": {
     "title": "Case Study Project",
     "status": "Python · Test",
+    "desc": "Test description.",
     "context": "Test context in English.",
     "approach": ["Step 1", "Step 2"],
     "result": "[Test result]",

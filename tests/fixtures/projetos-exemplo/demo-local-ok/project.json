@@ -4,6 +4,6 @@
   "order": 1,
   "icon": "fab fa-git-alt",
   "thumbClass": "project-thumbnail--git",
-  "pt": { "title": "Demo Local", "status": "Git · Teste", "desc": "Descrição de teste.", "tags": ["Git"] },
-  "en": { "title": "Local Demo", "status": "Git · Test", "desc": "Test description.", "tags": ["Git"] }
+  "pt": { "title": "Demo Local", "status": "Git · Teste", "desc": "Descrição de teste.", "tags": ["Git"], "context": "Contexto de teste.", "approach": ["Passo de teste"], "result": "Resultado de teste." },
+  "en": { "title": "Local Demo", "status": "Git · Test", "desc": "Test description.", "tags": ["Git"], "context": "Test context.", "approach": ["Test step"], "result": "Test result." }
 }

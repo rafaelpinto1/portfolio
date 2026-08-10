@@ -14,8 +14,8 @@ const FIXTURES_DIR = path.join(__dirname, 'fixtures', 'projetos-exemplo');
 test('validateProject: aceita um projeto case-study completo', () => {
     const data = {
         id: 'ok', type: 'case-study', icon: 'fas fa-x', thumbClass: 'project-thumbnail--bi',
-        pt: { title: 'T', status: 'S', context: 'C', approach: ['A'], result: 'R', tags: ['X'] },
-        en: { title: 'T', status: 'S', context: 'C', approach: ['A'], result: 'R', tags: ['X'] },
+        pt: { title: 'T', status: 'S', desc: 'D', context: 'C', approach: ['A'], result: 'R', tags: ['X'] },
+        en: { title: 'T', status: 'S', desc: 'D', context: 'C', approach: ['A'], result: 'R', tags: ['X'] },
     };
     assert.deepEqual(validateProject('ok', data, FIXTURES_DIR), []);
 });
@@ -69,6 +69,18 @@ test('validateProject: demo-local sem o arquivo demo/index.html é inválido', (
     // pasta "invalido" existe nas fixtures mas não tem subpasta demo/
     const errors = validateProject('invalido', data, FIXTURES_DIR);
     assert.ok(errors.some((e) => e.includes('demo/index.html')));
+});
+
+test('validateProject: demo-external sem context/approach/result é inválido (agora exigido para todos os tipos)', () => {
+    const data = {
+        id: 'ok', type: 'demo-external', demoUrl: 'https://x.com', icon: 'fas fa-x', thumbClass: 'project-thumbnail--bi',
+        pt: { title: 'T', status: 'S', desc: 'D', tags: ['X'] },
+        en: { title: 'T', status: 'S', desc: 'D', tags: ['X'] },
+    };
+    const errors = validateProject('ok', data, FIXTURES_DIR);
+    assert.ok(errors.some((e) => e.includes('context')));
+    assert.ok(errors.some((e) => e.includes('approach')));
+    assert.ok(errors.some((e) => e.includes('result')));
 });
 
 test('validateProject: case-study sem approach é inválido', () => {
