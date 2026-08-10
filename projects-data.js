@@ -171,6 +171,36 @@
                 "GitHub Pages"
             ]
         }
+    },
+    {
+        "id": "cefet-robotica",
+        "type": "demo-external",
+        "order": 5,
+        "icon": "fas fa-robot",
+        "thumbClass": "project-thumbnail--ml",
+        "demoUrl": "https://rafaelpinto1.github.io/cefet-robotica/",
+        "pt": {
+            "title": "Robô Terrestre Híbrido — Simulação 3D",
+            "status": "Robótica · Mestrado CEFET/RJ",
+            "desc": "Simulação interativa em Three.js de um robô móvel terrestre projetado para a disciplina de Aplicações de Robótica do mestrado. Arquitetura híbrida (planejamento + controle reativo) baseada no modelo AuRA: o robô segue um alvo fixo em linha reta usando dead reckoning por encoders, e desvia de obstáculos detectados por 4 sensores ultrassônicos. Circuito com Arduino Uno, driver de motor L293D e motores DC com encoder, todo modelado e simulado sem kits prontos.",
+            "tags": [
+                "Robótica",
+                "Arduino",
+                "Three.js",
+                "Controle Híbrido"
+            ]
+        },
+        "en": {
+            "title": "Hybrid Ground Robot — 3D Simulation",
+            "status": "Robotics · CEFET/RJ Master's",
+            "desc": "Interactive Three.js simulation of a mobile ground robot built for the Robotics Applications course of my master's program. Hybrid architecture (deliberative planning + reactive control) based on the AuRA model: the robot follows a straight-line target using encoder-based dead reckoning and avoids obstacles detected by 4 ultrasonic sensors. Built from an Arduino Uno, an L293D motor driver, and encoded DC motors — no pre-made robotics kit.",
+            "tags": [
+                "Robotics",
+                "Arduino",
+                "Three.js",
+                "Hybrid Control"
+            ]
+        }
     }
 ];
 
