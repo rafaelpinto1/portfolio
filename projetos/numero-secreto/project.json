@@ -8,13 +8,27 @@
   "pt": {
     "title": "Número Secreto",
     "status": "Git · Aprendizado",
-    "desc": "Jogo simples de adivinhar número utilizado como repositório de prática de versionamento com Git e GitHub. O projeto em si veio pronto — o foco foi o fluxo de commits, branches e publicação via GitHub Pages.",
+    "desc": "Jogo de adivinhar número usado como repositório de prática de Git e GitHub.",
+    "context": "Repositório de prática para consolidar o fluxo de versionamento com Git e GitHub. O jogo em si (adivinhar um número) veio pronto — o foco não era a lógica da aplicação, e sim o processo de trabalho em volta dela.",
+    "approach": [
+      "Organização do histórico em commits pequenos e descritivos",
+      "Uso de branches para isolar mudanças antes de integrar",
+      "Publicação do resultado via GitHub Pages"
+    ],
+    "result": "Repositório publicado e funcional, servindo como referência prática do fluxo de commits/branches/deploy usado nos demais projetos.",
     "tags": ["Git", "GitHub", "GitHub Pages"]
   },
   "en": {
     "title": "Secret Number Game",
     "status": "Git · Learning",
-    "desc": "A simple number-guessing game used as a practice repository for Git and GitHub versioning. The project itself was provided — the focus was the commit/branch workflow and publishing via GitHub Pages.",
+    "desc": "A number-guessing game used as a Git/GitHub practice repository.",
+    "context": "A practice repository for consolidating the Git and GitHub versioning workflow. The game itself (guess a number) was provided — the focus wasn't the app logic, but the working process around it.",
+    "approach": [
+      "Organized history into small, descriptive commits",
+      "Used branches to isolate changes before merging",
+      "Published the result via GitHub Pages"
+    ],
+    "result": "Published, working repository that serves as a practical reference for the commit/branch/deploy workflow used across other projects.",
     "tags": ["Git", "GitHub", "GitHub Pages"]
   }
 }

@@ -7,14 +7,32 @@
   "demoUrl": "https://rafaelpinto1.github.io/cefet-robotica/",
   "pt": {
     "title": "Robô Terrestre Híbrido — Simulação 3D",
-    "status": "Robótica · Mestrado CEFET/RJ",
-    "desc": "Simulação interativa em Three.js de um robô móvel terrestre projetado para a disciplina de Aplicações de Robótica do mestrado. Arquitetura híbrida (planejamento + controle reativo) baseada no modelo AuRA: o robô segue um alvo fixo em linha reta usando dead reckoning por encoders, e desvia de obstáculos detectados por 4 sensores ultrassônicos. Circuito com Arduino Uno, driver de motor L293D e motores DC com encoder, todo modelado e simulado sem kits prontos.",
+    "status": "Robótica · Arduino",
+    "desc": "Simulação 3D de um robô terrestre com arquitetura híbrida de planejamento e desvio de obstáculos.",
+    "context": "Trabalho final da disciplina de Aplicações de Robótica do mestrado: projetar um robô móvel terrestre que chegue a um ponto fixo em linha reta, mas também reaja a obstáculos que apareçam no caminho — o paradigma híbrido (planejamento + controle reativo) da disciplina. Nenhum kit pronto de robótica foi usado; todos os componentes foram escolhidos e conectados individualmente.",
+    "approach": [
+      "Arquitetura híbrida baseada no modelo AuRA: planejamento do alvo (3m em linha reta) + controle reativo a obstáculos",
+      "Dead reckoning por encoders óticos nas 2 rodas motorizadas para estimar a distância percorrida",
+      "4 sensores ultrassônicos (HC-SR04), um por face do chassi, para detectar obstáculos em qualquer direção",
+      "Circuito com Arduino Uno, driver de motor L293D e motores DC com encoder",
+      "Modelo 3D procedural em Three.js, rodando direto no navegador"
+    ],
+    "result": "Simulação interativa publicada, com o robô completando o trajeto de 3 metros e desviando de obstáculos detectados em tempo real.",
     "tags": ["Robótica", "Arduino", "Three.js", "Controle Híbrido"]
   },
   "en": {
     "title": "Hybrid Ground Robot — 3D Simulation",
-    "status": "Robotics · CEFET/RJ Master's",
-    "desc": "Interactive Three.js simulation of a mobile ground robot built for the Robotics Applications course of my master's program. Hybrid architecture (deliberative planning + reactive control) based on the AuRA model: the robot follows a straight-line target using encoder-based dead reckoning and avoids obstacles detected by 4 ultrasonic sensors. Built from an Arduino Uno, an L293D motor driver, and encoded DC motors — no pre-made robotics kit.",
+    "status": "Robotics · Arduino",
+    "desc": "3D simulation of a ground robot with a hybrid planning and obstacle-avoidance architecture.",
+    "context": "Final project for the Robotics Applications course of my master's program: design a mobile ground robot that reaches a fixed point in a straight line while also reacting to obstacles that appear along the way — the course's hybrid paradigm (deliberative planning + reactive control). No pre-made robotics kit was used; every component was chosen and wired individually.",
+    "approach": [
+      "Hybrid architecture based on the AuRA model: target planning (3m straight line) + reactive obstacle avoidance",
+      "Encoder-based dead reckoning on both driven wheels to estimate distance traveled",
+      "4 ultrasonic sensors (HC-SR04), one per chassis face, to detect obstacles from any direction",
+      "Circuit built from an Arduino Uno, an L293D motor driver, and encoded DC motors",
+      "Procedural 3D model in Three.js, running directly in the browser"
+    ],
+    "result": "Published interactive simulation, with the robot completing the 3-meter path and avoiding obstacles detected in real time.",
     "tags": ["Robotics", "Arduino", "Three.js", "Hybrid Control"]
   }
 }

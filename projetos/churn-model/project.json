@@ -7,6 +7,7 @@
   "pt": {
     "title": "Modelo Preditivo de Churn",
     "status": "Python · ML",
+    "desc": "Modelo de Machine Learning para prever risco de evasão de clientes com Scikit-learn.",
     "context": "Alta rotatividade de clientes sem sinal de alerta antecipado para a equipe comercial.",
     "approach": [
       "Pré-processamento e engenharia de atributos com Pandas",
@@ -20,6 +21,7 @@
   "en": {
     "title": "Customer Churn Prediction Model",
     "status": "Python · ML",
+    "desc": "Machine Learning model to predict customer churn risk using Scikit-learn.",
     "context": "High customer turnover with no early warning signal for the sales team.",
     "approach": [
       "Preprocessing and feature engineering with Pandas",

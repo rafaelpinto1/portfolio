@@ -7,6 +7,7 @@
   "pt": {
     "title": "Pipeline ETL Automatizado",
     "status": "Python · SQLite",
+    "desc": "Pipeline ETL em Python com logs estruturados e alertas automáticos de falha.",
     "context": "Ingestão de logs feita manualmente, sem rastreabilidade nem alerta de falha.",
     "approach": [
       "Ingestão, transformação e carga estruturada em SQLite",
@@ -19,6 +20,7 @@
   "en": {
     "title": "Automated ETL Pipeline",
     "status": "Python · SQLite",
+    "desc": "Python ETL pipeline with structured logs and automatic failure alerts.",
     "context": "Log ingestion done manually, with no traceability or failure alerts.",
     "approach": [
       "Structured ingestion, transformation, and load into SQLite",

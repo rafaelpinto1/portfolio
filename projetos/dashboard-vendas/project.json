@@ -7,6 +7,7 @@
   "pt": {
     "title": "Dashboard de Vendas Interativo",
     "status": "Power BI · DAX",
+    "desc": "Dashboard em Power BI com DAX avançado, segmentação dinâmica e controle de acesso por linha.",
     "context": "Times comerciais dependiam da área de TI para relatórios de vendas atualizados, atrasando decisões.",
     "approach": [
       "Modelagem de dados em estrela com DAX avançado",
@@ -20,6 +21,7 @@
   "en": {
     "title": "Interactive Sales Dashboard",
     "status": "Power BI · DAX",
+    "desc": "Power BI dashboard with advanced DAX, dynamic segmentation, and row-level security.",
     "context": "Sales teams depended on the IT department for updated sales reports, delaying decisions.",
     "approach": [
       "Star-schema data modeling with advanced DAX",
