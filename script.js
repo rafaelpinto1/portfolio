@@ -1,7 +1,5 @@
-function resolveInitialTheme(stored, prefersDarkMatches) {
-    if (stored === 'dark') return true;
-    if (stored === 'light') return false;
-    return !!prefersDarkMatches;
+function resolveInitialTheme(stored) {
+    return stored !== 'light';
 }
 
 if (typeof module !== 'undefined' && module.exports) {
@@ -39,16 +37,15 @@ typeof document !== 'undefined' && document.addEventListener('DOMContentLoaded',
     });
 
     // ==================== DARK MODE ====================
-    const toggle     = document.getElementById('darkModeToggle');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const saved      = localStorage.getItem('theme');
+    const toggle = document.getElementById('darkModeToggle');
+    const saved  = localStorage.getItem('theme');
 
     function applyTheme(dark) {
         document.body.classList.toggle('dark', dark);
         if (toggle) toggle.checked = dark;
     }
 
-    applyTheme(resolveInitialTheme(saved, prefersDark));
+    applyTheme(resolveInitialTheme(saved));
 
     toggle && toggle.addEventListener('change', () => {
         applyTheme(toggle.checked);
@@ -157,6 +154,17 @@ typeof document !== 'undefined' && document.addEventListener('DOMContentLoaded',
         projectModalBody.innerHTML = ProjectsData.renderCaseStudyHTML(project, lang);
     }
 
+    function renderDemoIntroModalContent(project, lang) {
+        const content = project[lang] || project.pt;
+        projectModalTitle.textContent = content.title;
+        projectModalBody.classList.remove('project-modal-body--iframe');
+        projectModalBody.innerHTML = ProjectsData.renderDemoIntroHTML(project, lang);
+        const demoBtn = projectModalBody.querySelector('.cs-open-demo-btn');
+        if (demoBtn) {
+            demoBtn.addEventListener('click', () => renderDemoViewerModalContent(project, lang));
+        }
+    }
+
     function renderDemoViewerModalContent(project, lang) {
         const content = project[lang] || project.pt;
         const demoUrl = ProjectsData.getDemoUrl(project);
@@ -180,7 +188,7 @@ typeof document !== 'undefined' && document.addEventListener('DOMContentLoaded',
         if (project.type === 'case-study') {
             renderCaseStudyModalContent(project, lang);
         } else {
-            renderDemoViewerModalContent(project, lang);
+            renderDemoIntroModalContent(project, lang);
         }
         projectModal.removeAttribute('inert');
         projectModal.classList.add('open');
