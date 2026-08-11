@@ -957,8 +957,20 @@ body.dark .nav-link:hover {
     background: linear-gradient(135deg, #0a1220, #17233f, #1d4ed8);
 }
 
+.project-card {
+    display: flex;
+    flex-direction: column;
+}
+
 .project-body {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.project-link {
+    margin-top: auto;
 }
 
 .project-body h3 {
