@@ -27,9 +27,9 @@
             return [c.r, c.g, c.b];
         }
 
-        const STAR_COUNT = isMobile ? 160 : 340;
-        const LINK_DISTANCE = isMobile ? 95 : 115;
-        const MAX_LINKS = Math.round(STAR_COUNT * 1.4);
+        const STAR_COUNT = isMobile ? 200 : 420;
+        const LINK_DISTANCE = isMobile ? 105 : 130;
+        const MAX_LINKS = Math.round(STAR_COUNT * 1.6);
 
         let width = heroSection.clientWidth;
         let height = heroSection.clientHeight;
@@ -61,7 +61,7 @@
                 z: (Math.random() - 0.5) * 0.04,
             });
             phases[i] = Math.random() * Math.PI * 2;
-            sizes[i] = (isMobile ? 2.6 : 3.2) + Math.random() * (isMobile ? 2.4 : 3.4);
+            sizes[i] = (isMobile ? 4.2 : 5.2) + Math.random() * (isMobile ? 3.6 : 5.2);
         }
 
         const starGeo = new THREE.BufferGeometry();
@@ -89,7 +89,7 @@
                 void main() {
                     vTwinkle = 0.5 + 0.5 * sin(uTime * 1.6 + aPhase);
                     vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
-                    gl_PointSize = aSize * (0.55 + vTwinkle * 0.65) * (340.0 / -mvPosition.z);
+                    gl_PointSize = aSize * (0.75 + vTwinkle * 0.55) * (420.0 / -mvPosition.z);
                     gl_Position = projectionMatrix * mvPosition;
                 }
             `,
@@ -101,7 +101,7 @@
                     vec2 uv = gl_PointCoord - vec2(0.5);
                     float d = length(uv);
                     float alpha = smoothstep(0.5, 0.0, d);
-                    alpha *= (0.45 + vTwinkle * 0.55) * uAlphaMul;
+                    alpha *= (0.7 + vTwinkle * 0.3) * uAlphaMul;
                     gl_FragColor = vec4(uColor, alpha);
                 }
             `,
@@ -114,7 +114,7 @@
         const lineMat = new THREE.LineBasicMaterial({
             color: accentColor,
             transparent: true,
-            opacity: isDarkTheme() ? 0.13 : 0.22,
+            opacity: isDarkTheme() ? 0.30 : 0.24,
             blending: isDarkTheme() ? THREE.AdditiveBlending : THREE.NormalBlending,
             depthWrite: false,
         });
@@ -130,7 +130,7 @@
             starMat.blending = dark ? THREE.AdditiveBlending : THREE.NormalBlending;
             starMat.needsUpdate = true;
             lineMat.color.set(accentColor);
-            lineMat.opacity = dark ? 0.13 : 0.22;
+            lineMat.opacity = dark ? 0.30 : 0.24;
             lineMat.blending = dark ? THREE.AdditiveBlending : THREE.NormalBlending;
             lineMat.needsUpdate = true;
         }

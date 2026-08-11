@@ -292,8 +292,10 @@ typeof document !== 'undefined' && document.addEventListener('DOMContentLoaded',
         const dateLabel = t.date ? new Date(t.date + 'T00:00:00').toLocaleDateString(lang === 'en' ? 'en-US' : 'pt-BR', { year: 'numeric', month: 'long' }) : '';
         return `
             <div class="testimonial-card">
-                <span class="testimonial-quote-mark">&ldquo;</span>
-                <p class="testimonial-quote">${quote}</p>
+                <div class="testimonial-quote-col">
+                    <span class="testimonial-quote-mark">&ldquo;</span>
+                    <p class="testimonial-quote">${quote}</p>
+                </div>
                 <div class="testimonial-author">
                     <div class="testimonial-name">${t.name}</div>
                     <div class="testimonial-role">${role}</div>
@@ -307,6 +309,7 @@ typeof document !== 'undefined' && document.addEventListener('DOMContentLoaded',
     }
 
     let testimonialsIdx = 0;
+    let testimonialsAutoplayId = null;
 
     function buildTestimonialCards(lang) {
         const track = document.getElementById('testimonialsTrack');
@@ -333,10 +336,24 @@ typeof document !== 'undefined' && document.addEventListener('DOMContentLoaded',
             dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === testimonialsIdx));
         }
 
-        if (prevBtn) prevBtn.onclick = () => showSlide(testimonialsIdx - 1);
-        if (nextBtn) nextBtn.onclick = () => showSlide(testimonialsIdx + 1);
+        function stopAutoplay() {
+            if (testimonialsAutoplayId) { clearInterval(testimonialsAutoplayId); testimonialsAutoplayId = null; }
+        }
+
+        function startAutoplay() {
+            stopAutoplay();
+            if (cards.length < 2) return;
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            testimonialsAutoplayId = setInterval(() => showSlide(testimonialsIdx + 1), 6000);
+        }
+
+        if (prevBtn) prevBtn.onclick = () => { showSlide(testimonialsIdx - 1); startAutoplay(); };
+        if (nextBtn) nextBtn.onclick = () => { showSlide(testimonialsIdx + 1); startAutoplay(); };
+        track.addEventListener('mouseenter', stopAutoplay);
+        track.addEventListener('mouseleave', startAutoplay);
 
         showSlide(Math.min(testimonialsIdx, cards.length - 1));
+        startAutoplay();
     }
 
     buildTestimonialCards(initialProjectsLang);
