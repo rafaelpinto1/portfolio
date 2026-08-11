@@ -1,6 +1,6 @@
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { PROJECTS, renderCaseStudyHTML, renderDemoIntroHTML, renderProjectCardHTML, getDemoUrl } = require('../projects-data.js');
+const { PROJECTS, renderCaseStudyHTML, renderDemoIntroHTML, renderDemoFooterHTML, renderProjectCardHTML, getDemoUrl } = require('../projects-data.js');
 
 test('PROJECTS: todo projeto (case-study ou demo) tem conteúdo pt e en completo', () => {
     assert.ok(PROJECTS.length >= 2);
@@ -52,22 +52,35 @@ test('renderProjectCardHTML: case-study usa href "#" e nenhum target; demo-exter
     assert.match(extHtml, /View project/);
 });
 
-test('renderDemoIntroHTML: mostra contexto/abordagem/resultado e botão para abrir a demo, no idioma pedido', () => {
+test('renderDemoIntroHTML: mostra contexto/abordagem/resultado no idioma pedido (botão fica fora, no rodapé fixo)', () => {
     const project = PROJECTS.find((p) => p.id === 'numero-secreto');
     const htmlPt = renderDemoIntroHTML(project, 'pt');
     assert.match(htmlPt, new RegExp(escapeRegExp(project.pt.context)));
-    assert.match(htmlPt, /class="cs-open-demo-btn">Ver demo ao vivo/);
+    assert.doesNotMatch(htmlPt, /cs-open-demo-btn/);
 
     const htmlEn = renderDemoIntroHTML(project, 'en');
     assert.match(htmlEn, new RegExp(escapeRegExp(project.en.context)));
-    assert.match(htmlEn, /class="cs-open-demo-btn">View live demo/);
 });
 
-test('renderProjectCardHTML: usa o thumbClass e o icon do projeto', () => {
-    const project = PROJECTS.find((p) => p.id === 'cefet-robotica');
+test('renderDemoFooterHTML: botão fixo de abrir demo com dica, no idioma pedido', () => {
+    assert.match(renderDemoFooterHTML('pt'), /class="cs-open-demo-btn">Abrir demonstração/);
+    assert.match(renderDemoFooterHTML('pt'), /class="cs-demo-hint"/);
+    assert.match(renderDemoFooterHTML('en'), /class="cs-open-demo-btn">Open demo/);
+});
+
+test('renderProjectCardHTML: usa o thumbClass e o icon do projeto quando não há thumbnailImg', () => {
+    const project = { id: 'x', type: 'demo-external', demoUrl: 'https://x.com', icon: 'fas fa-x', thumbClass: 'project-thumbnail--bi',
+        pt: { title: 'T', status: 'S', desc: 'D', tags: ['X'] }, en: { title: 'T', status: 'S', desc: 'D', tags: ['X'] } };
     const html = renderProjectCardHTML(project, 'pt');
     assert.match(html, new RegExp(`project-thumbnail ${escapeRegExp(project.thumbClass)}`));
     assert.match(html, new RegExp(escapeRegExp(project.icon)));
+});
+
+test('renderProjectCardHTML: usa <img> quando o projeto tem thumbnailImg', () => {
+    const project = PROJECTS.find((p) => p.id === 'cefet-robotica');
+    const html = renderProjectCardHTML(project, 'pt');
+    assert.match(html, new RegExp(`src="projetos/${project.id}/${escapeRegExp(project.thumbnailImg)}"`));
+    assert.doesNotMatch(html, new RegExp(escapeRegExp(project.icon)));
 });
 
 function escapeRegExp(s) {

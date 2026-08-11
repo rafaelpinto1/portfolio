@@ -924,6 +924,14 @@ body.dark .nav-link:hover {
     font-size: 3.5rem;
     color: rgba(255, 255, 255, 0.9);
     transition: transform 0.4s ease;
+    overflow: hidden;
+}
+
+.project-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
 .project-card:hover .project-thumbnail {
@@ -1760,6 +1768,7 @@ body.dark .hero-badge {
     display: inline-block;
     background-color: var(--accent);
     color: white;
+    text-decoration: none;
     border: none;
     cursor: pointer;
     padding: 0.72rem 1.75rem;
@@ -1843,6 +1852,35 @@ body.dark .hero-badge {
     min-height: 0;
     padding: 1.5rem;
     overflow-y: auto;
+}
+
+/* Rodapé fixo do modal — mantém o botão de abrir a demo sempre visível,
+   fora da área que rola. */
+.project-modal-footer {
+    display: none;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    border-top: 0.5px solid var(--border);
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+.project-modal-footer.active {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.project-modal-footer .cs-open-demo-btn {
+    flex-shrink: 0;
+}
+
+.cs-demo-hint {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
 }
 
 /* ================================================================
@@ -2080,6 +2118,7 @@ body.dark .hero-badge {
 
     /* ---------- MODAL: case-study padding ---------- */
     .project-modal-body { padding: 1.1rem; }
+    .project-modal-footer { padding: 0.85rem 1.1rem; }
     .cs-media-placeholder { padding: 1.25rem; font-size: 0.85rem; }
 
     /* ---------- VISUALIZADOR NAVEGADOR INTERNO (mobile) ---------- */

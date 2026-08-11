@@ -4,6 +4,7 @@
   "order": 1,
   "icon": "fab fa-git-alt",
   "thumbClass": "project-thumbnail--git",
+  "thumbnailImg": "assets/thumbnail.png",
   "demoUrl": "https://rafaelpinto1.github.io/numero-secreto/",
   "pt": {
     "title": "Número Secreto",

@@ -17,6 +17,7 @@
         "order": 1,
         "icon": "fab fa-git-alt",
         "thumbClass": "project-thumbnail--git",
+        "thumbnailImg": "assets/thumbnail.png",
         "demoUrl": "https://rafaelpinto1.github.io/numero-secreto/",
         "pt": {
             "title": "Número Secreto",
@@ -59,6 +60,7 @@
         "order": 2,
         "icon": "fas fa-robot",
         "thumbClass": "project-thumbnail--ml",
+        "thumbnailImg": "assets/thumbnail.png",
         "demoUrl": "https://rafaelpinto1.github.io/cefet-robotica/",
         "pt": {
             "title": "Robô Terrestre Híbrido — Simulação 3D",
@@ -143,8 +145,16 @@
     }
 
     function renderDemoIntroHTML(project, lang) {
-        const label = lang === 'en' ? 'View live demo →' : 'Ver demo ao vivo →';
-        return renderProjectDetailHTML(project, lang, '<button type="button" class="cs-open-demo-btn">' + label + '</button>');
+        return renderProjectDetailHTML(project, lang, '');
+    }
+
+    function renderDemoFooterHTML(lang) {
+        const label = lang === 'en' ? 'Open demo →' : 'Abrir demonstração →';
+        const hint = lang === 'en'
+            ? '💡 Tip: opening in a new tab gives the best experience.'
+            : '💡 Dica: abrir em uma nova aba dá a melhor experiência.';
+        return '<button type="button" class="cs-open-demo-btn">' + label + '</button>'
+            + '<p class="cs-demo-hint">' + hint + '</p>';
     }
 
     function renderProjectCardHTML(project, lang) {
@@ -158,9 +168,12 @@
             linkHref = getDemoUrl(project);
             linkAttrs = ' target="_blank" rel="noopener noreferrer"';
         }
+        const thumbInner = project.thumbnailImg
+            ? `<img src="projetos/${project.id}/${project.thumbnailImg}" alt="" loading="lazy">`
+            : `<i class="${project.icon}"></i>`;
         return `
             <div class="project-card" data-project-id="${project.id}">
-                <div class="project-thumbnail ${project.thumbClass}"><i class="${project.icon}"></i></div>
+                <div class="project-thumbnail ${project.thumbClass}">${thumbInner}</div>
                 <div class="project-body">
                     <div class="project-header">
                         <h3 class="project-card-title">${content.title}</h3>
@@ -174,7 +187,7 @@
         `.trim();
     }
 
-    const api = { PROJECTS, CASE_STUDY_LABELS, renderCaseStudyHTML, renderDemoIntroHTML, renderProjectCardHTML, getDemoUrl };
+    const api = { PROJECTS, CASE_STUDY_LABELS, renderCaseStudyHTML, renderDemoIntroHTML, renderDemoFooterHTML, renderProjectCardHTML, getDemoUrl };
 
     if (typeof module !== 'undefined' && module.exports) {
         module.exports = api;

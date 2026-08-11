@@ -4,6 +4,7 @@
   "order": 2,
   "icon": "fas fa-robot",
   "thumbClass": "project-thumbnail--ml",
+  "thumbnailImg": "assets/thumbnail.png",
   "demoUrl": "https://rafaelpinto1.github.io/cefet-robotica/",
   "pt": {
     "title": "Robô Terrestre Híbrido — Simulação 3D",

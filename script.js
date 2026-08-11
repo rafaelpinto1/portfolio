@@ -149,6 +149,7 @@ typeof document !== 'undefined' && document.addEventListener('DOMContentLoaded',
     // ==================== PROJECT MODAL (case study nativo, sem iframe) ====================
     const projectModal     = document.getElementById('projectModal');
     const projectModalBody = document.getElementById('projectModalBody');
+    const projectModalFooter = document.getElementById('projectModalFooter');
     const projectModalTitle = document.getElementById('projectModalTitle');
     const projectModalClose = document.getElementById('projectModalClose');
 
@@ -156,11 +157,18 @@ typeof document !== 'undefined' && document.addEventListener('DOMContentLoaded',
         return document.getElementById('langEn')?.classList.contains('active') ? 'en' : 'pt';
     }
 
+    function clearModalFooter() {
+        if (!projectModalFooter) return;
+        projectModalFooter.innerHTML = '';
+        projectModalFooter.classList.remove('active');
+    }
+
     function renderCaseStudyModalContent(project, lang) {
         const content = project[lang] || project.pt;
         projectModalTitle.textContent = content.title;
         projectModalBody.classList.remove('project-modal-body--iframe');
         projectModalBody.innerHTML = ProjectsData.renderCaseStudyHTML(project, lang);
+        clearModalFooter();
     }
 
     function renderDemoIntroModalContent(project, lang) {
@@ -168,9 +176,15 @@ typeof document !== 'undefined' && document.addEventListener('DOMContentLoaded',
         projectModalTitle.textContent = content.title;
         projectModalBody.classList.remove('project-modal-body--iframe');
         projectModalBody.innerHTML = ProjectsData.renderDemoIntroHTML(project, lang);
-        const demoBtn = projectModalBody.querySelector('.cs-open-demo-btn');
-        if (demoBtn) {
-            demoBtn.addEventListener('click', () => renderDemoViewerModalContent(project, lang));
+        // Botão de abrir a demo fica fixo no rodapé do modal (fora da área
+        // que rola), então nunca fica escondido atrás de scroll.
+        if (projectModalFooter) {
+            projectModalFooter.innerHTML = ProjectsData.renderDemoFooterHTML(lang);
+            projectModalFooter.classList.add('active');
+            const demoBtn = projectModalFooter.querySelector('.cs-open-demo-btn');
+            if (demoBtn) {
+                demoBtn.addEventListener('click', () => renderDemoViewerModalContent(project, lang));
+            }
         }
     }
 
@@ -190,6 +204,7 @@ typeof document !== 'undefined' && document.addEventListener('DOMContentLoaded',
             </div>
             <iframe class="demo-viewer-iframe" src="${demoUrl}" title="${content.title}"></iframe>
         `;
+        clearModalFooter();
     }
 
     function openProjectModal(project) {
