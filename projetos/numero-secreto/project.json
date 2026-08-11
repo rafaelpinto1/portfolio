@@ -1,7 +1,7 @@
 {
   "id": "numero-secreto",
   "type": "demo-external",
-  "order": 4,
+  "order": 1,
   "icon": "fab fa-git-alt",
   "thumbClass": "project-thumbnail--git",
   "demoUrl": "https://rafaelpinto1.github.io/numero-secreto/",
@@ -9,7 +9,7 @@
     "title": "Número Secreto",
     "status": "Git · Aprendizado",
     "desc": "Jogo de adivinhar número usado como repositório de prática de Git e GitHub.",
-    "context": "Repositório de prática para consolidar o fluxo de versionamento com Git e GitHub. O jogo em si (adivinhar um número) veio pronto — o foco não era a lógica da aplicação, e sim o processo de trabalho em volta dela.",
+    "context": "Repositório de prática para consolidar o fluxo de versionamento com Git e GitHub. O jogo em si (adivinhar um número) já veio pronto; o trabalho foi no processo em volta dele: organização de commits, branches e deploy.",
     "approach": [
       "Organização do histórico em commits pequenos e descritivos",
       "Uso de branches para isolar mudanças antes de integrar",
@@ -22,7 +22,7 @@
     "title": "Secret Number Game",
     "status": "Git · Learning",
     "desc": "A number-guessing game used as a Git/GitHub practice repository.",
-    "context": "A practice repository for consolidating the Git and GitHub versioning workflow. The game itself (guess a number) was provided — the focus wasn't the app logic, but the working process around it.",
+    "context": "A practice repository for consolidating the Git and GitHub versioning workflow. The game itself (guess a number) was already provided; the work was in the process around it: commit organization, branches, and deploy.",
     "approach": [
       "Organized history into small, descriptive commits",
       "Used branches to isolate changes before merging",

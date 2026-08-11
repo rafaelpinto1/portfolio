@@ -1,7 +1,7 @@
 {
   "id": "cefet-robotica",
   "type": "demo-external",
-  "order": 5,
+  "order": 2,
   "icon": "fas fa-robot",
   "thumbClass": "project-thumbnail--ml",
   "demoUrl": "https://rafaelpinto1.github.io/cefet-robotica/",

@@ -10,6 +10,7 @@
     <meta property="og:description" content="Especialista em dados, IA e Microsoft Fabric. Pesquisador em TinyML (Tiny Machine Learning) no CEFET/RJ.">
     <meta property="og:type" content="website">
     <title>Rafael Pinto | Dados & IA</title>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -37,6 +38,7 @@
                     <li><a href="#projetos" class="nav-link" data-i18n="nav.projects">Projetos</a></li>
                     <li><a href="#formacao" class="nav-link" data-i18n="nav.education">Formação</a></li>
                     <li><a href="#habilidades" class="nav-link" data-i18n="nav.skills">Tecnologias</a></li>
+                    <li><a href="#depoimentos" class="nav-link" data-i18n="nav.testimonials">Depoimentos</a></li>
                     <li><a href="#contato" class="nav-link" data-i18n="nav.contact">Contato</a></li>
                 </ul>
             </nav>
@@ -53,10 +55,11 @@
 
     <main>
         <section id="inicio" class="section hero fullscreen">
+            <canvas id="hero-canvas" class="hero-canvas" aria-hidden="true"></canvas>
             <div class="container hero-container">
                 <div class="hero-image-wrapper">
                     <div class="hero-image">
-                        <img src="perfil.jpg" alt="Rafael Pinto" class="profile-photo">
+                        <img src="perfil.jpg" alt="Rafael Pinto" class="profile-photo" fetchpriority="high">
                     </div>
                 </div>
                 <div class="hero-content">
@@ -170,9 +173,9 @@
                 <p class="lgpd-notice" data-i18n="projects.lgpd">⚠️ Todos os projetos utilizam dados sintéticos...</p>
                 <div class="projects-grid" id="projectsGrid"></div>
                 <div class="projects-nav" id="projectsNav">
-                    <button class="projects-nav-btn" id="projectsPrev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
-                    <div class="projects-dots" id="projectsDots"></div>
-                    <button class="projects-nav-btn" id="projectsNext" aria-label="Próximo"><i class="fas fa-chevron-right"></i></button>
+                    <button class="carousel-nav-btn" id="projectsPrev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                    <div class="carousel-dots" id="projectsDots"></div>
+                    <button class="carousel-nav-btn" id="projectsNext" aria-label="Próximo"><i class="fas fa-chevron-right"></i></button>
                 </div>
 
                 <div id="pesquisa" class="projects-research-block">
@@ -219,28 +222,28 @@
                     </div>
                     <div class="card">
                         <a class="card-badge-link" href="https://learn.microsoft.com/api/credentials/share/pt-br/RafaelPinto-9846/8ABA6AFAF796174A?sharingId=AFE4EF86F853803C" target="_blank" rel="noopener noreferrer">
-                            <img class="card-badge-img" src="badges/azure-az-900.svg" alt="Microsoft Certified: Azure Fundamentals (AZ-900)">
+                            <img class="card-badge-img" src="badges/azure-az-900.svg" alt="Microsoft Certified: Azure Fundamentals (AZ-900)" loading="lazy">
                         </a>
                         <h3 data-i18n="edu4.title">Certificação Microsoft Azure AZ-900</h3>
                         <p data-i18n="edu4.subtitle" data-i18n-html>Microsoft Corporation<br>(Concluído, 2026)</p>
                     </div>
                     <div class="card">
                         <a class="card-badge-link" href="https://www.credly.com/users/rafael-pinto.68204342/badges/other" target="_blank" rel="noopener noreferrer">
-                            <img class="card-badge-img" src="badges/oracle-data-platform-2025-foundations-associate.png" alt="Oracle Data Platform 2025 Certified Foundations Associate">
+                            <img class="card-badge-img" src="badges/oracle-data-platform-2025-foundations-associate.png" alt="Oracle Data Platform 2025 Certified Foundations Associate" loading="lazy">
                         </a>
                         <h3 data-i18n="edu5.title">Oracle Data Platform 2025 Certified Foundations Associate</h3>
                         <p data-i18n="edu5.subtitle" data-i18n-html>Oracle<br>(Concluído, 2025)</p>
                     </div>
                     <div class="card">
                         <a class="card-badge-link" href="https://www.credly.com/badges/5d178aff-b1bb-4d0a-888e-3151827cee38" target="_blank" rel="noopener noreferrer">
-                            <img class="card-badge-img" src="badges/aws-academy-cloud-foundations.png" alt="AWS Academy Graduate — Cloud Foundations">
+                            <img class="card-badge-img" src="badges/aws-academy-cloud-foundations.png" alt="AWS Academy Graduate — Cloud Foundations" loading="lazy">
                         </a>
                         <h3 data-i18n="edu6.title">AWS Academy Graduate — Cloud Foundations</h3>
                         <p data-i18n="edu6.subtitle">AWS Academy</p>
                     </div>
                     <div class="card">
                         <a class="card-badge-link" href="https://www.credly.com/badges/0364c0ea-d1f7-47d7-adcf-db3d30b5b501" target="_blank" rel="noopener noreferrer">
-                            <img class="card-badge-img" src="badges/cisco-introduction-to-cybersecurity.png" alt="Cisco Introduction to Cybersecurity">
+                            <img class="card-badge-img" src="badges/cisco-introduction-to-cybersecurity.png" alt="Cisco Introduction to Cybersecurity" loading="lazy">
                         </a>
                         <h3 data-i18n="edu7.title">Introduction to Cybersecurity</h3>
                         <p data-i18n="edu7.subtitle">Cisco Networking Academy</p>
@@ -321,6 +324,18 @@
             </div>
         </section>
 
+        <section id="depoimentos" class="section testimonials fullscreen">
+            <div class="container">
+                <h2 class="section-title" data-i18n="testimonials.title">O que dizem sobre mim</h2>
+                <div class="testimonials-track" id="testimonialsTrack"></div>
+                <div class="testimonials-nav" id="testimonialsNav">
+                    <button class="carousel-nav-btn" id="testimonialsPrev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                    <div class="carousel-dots" id="testimonialsDots"></div>
+                    <button class="carousel-nav-btn" id="testimonialsNext" aria-label="Próximo"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
         <section id="contato" class="section contact fullscreen">
             <div class="container">
                 <h2 class="section-title" data-i18n="contact.title">Contato</h2>
@@ -381,6 +396,9 @@
 
     <script src="i18n.js"></script>
     <script src="projects-data.js"></script>
+    <script src="testimonials-data.js"></script>
     <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="hero-3d.js"></script>
 </body>
 </html>

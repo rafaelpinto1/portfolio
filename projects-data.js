@@ -12,148 +12,9 @@
 
     const PROJECTS = [
     {
-        "id": "dashboard-vendas",
-        "type": "case-study",
-        "order": 1,
-        "icon": "fas fa-chart-bar",
-        "thumbClass": "project-thumbnail--bi",
-        "pt": {
-            "title": "Dashboard de Vendas Interativo",
-            "status": "Power BI · DAX",
-            "desc": "Dashboard em Power BI com DAX avançado, segmentação dinâmica e controle de acesso por linha.",
-            "context": "Times comerciais dependiam da área de TI para relatórios de vendas atualizados, atrasando decisões.",
-            "approach": [
-                "Modelagem de dados em estrela com DAX avançado",
-                "Segmentação dinâmica de clientes via Power Query M",
-                "Análise de tendências e previsão de demanda",
-                "Controle de acesso por linha (RLS)"
-            ],
-            "result": "[Métrica a confirmar — ex.: reduziu em X% o tempo de geração de relatórios]",
-            "tags": [
-                "Power BI",
-                "SQL",
-                "DAX Avançado",
-                "KPIs",
-                "LGPD"
-            ]
-        },
-        "en": {
-            "title": "Interactive Sales Dashboard",
-            "status": "Power BI · DAX",
-            "desc": "Power BI dashboard with advanced DAX, dynamic segmentation, and row-level security.",
-            "context": "Sales teams depended on the IT department for updated sales reports, delaying decisions.",
-            "approach": [
-                "Star-schema data modeling with advanced DAX",
-                "Dynamic customer segmentation via Power Query M",
-                "Trend analysis and demand forecasting",
-                "Row-level security (RLS) access control"
-            ],
-            "result": "[Metric to confirm — e.g., reduced report turnaround time by X%]",
-            "tags": [
-                "Power BI",
-                "SQL",
-                "Advanced DAX",
-                "KPIs",
-                "LGPD"
-            ]
-        }
-    },
-    {
-        "id": "churn-model",
-        "type": "case-study",
-        "order": 2,
-        "icon": "fas fa-brain",
-        "thumbClass": "project-thumbnail--ml",
-        "pt": {
-            "title": "Modelo Preditivo de Churn",
-            "status": "Python · ML",
-            "desc": "Modelo de Machine Learning para prever risco de evasão de clientes com Scikit-learn.",
-            "context": "Alta rotatividade de clientes sem sinal de alerta antecipado para a equipe comercial.",
-            "approach": [
-                "Pré-processamento e engenharia de atributos com Pandas",
-                "Treinamento de classificador com Scikit-learn",
-                "Análise de importância de variáveis (feature importance)",
-                "Validação com métricas de negócio, não só técnicas"
-            ],
-            "result": "[Métrica a confirmar — ex.: identificou X% dos casos de risco de evasão antes do cancelamento]",
-            "tags": [
-                "Python",
-                "Scikit-learn",
-                "Pandas",
-                "Machine Learning",
-                "LGPD"
-            ]
-        },
-        "en": {
-            "title": "Customer Churn Prediction Model",
-            "status": "Python · ML",
-            "desc": "Machine Learning model to predict customer churn risk using Scikit-learn.",
-            "context": "High customer turnover with no early warning signal for the sales team.",
-            "approach": [
-                "Preprocessing and feature engineering with Pandas",
-                "Classifier training with Scikit-learn",
-                "Feature importance analysis",
-                "Validation against business metrics, not just technical ones"
-            ],
-            "result": "[Metric to confirm — e.g., identified X% of at-risk customers before cancellation]",
-            "tags": [
-                "Python",
-                "Scikit-learn",
-                "Pandas",
-                "Machine Learning",
-                "LGPD"
-            ]
-        }
-    },
-    {
-        "id": "etl-pipeline",
-        "type": "case-study",
-        "order": 3,
-        "icon": "fas fa-cogs",
-        "thumbClass": "project-thumbnail--etl",
-        "pt": {
-            "title": "Pipeline ETL Automatizado",
-            "status": "Python · SQLite",
-            "desc": "Pipeline ETL em Python com logs estruturados e alertas automáticos de falha.",
-            "context": "Ingestão de logs feita manualmente, sem rastreabilidade nem alerta de falha.",
-            "approach": [
-                "Ingestão, transformação e carga estruturada em SQLite",
-                "Logs estruturados com rastreabilidade ponta a ponta",
-                "Alertas automáticos de falha no pipeline"
-            ],
-            "result": "[Métrica a confirmar — ex.: reduziu em X% a intervenção manual no pipeline]",
-            "tags": [
-                "Python",
-                "SQLite",
-                "ETL",
-                "Automação",
-                "LGPD"
-            ]
-        },
-        "en": {
-            "title": "Automated ETL Pipeline",
-            "status": "Python · SQLite",
-            "desc": "Python ETL pipeline with structured logs and automatic failure alerts.",
-            "context": "Log ingestion done manually, with no traceability or failure alerts.",
-            "approach": [
-                "Structured ingestion, transformation, and load into SQLite",
-                "Structured logs with end-to-end traceability",
-                "Automatic pipeline failure alerts"
-            ],
-            "result": "[Metric to confirm — e.g., reduced manual pipeline intervention by X%]",
-            "tags": [
-                "Python",
-                "SQLite",
-                "ETL",
-                "Automation",
-                "LGPD"
-            ]
-        }
-    },
-    {
         "id": "numero-secreto",
         "type": "demo-external",
-        "order": 4,
+        "order": 1,
         "icon": "fab fa-git-alt",
         "thumbClass": "project-thumbnail--git",
         "demoUrl": "https://rafaelpinto1.github.io/numero-secreto/",
@@ -161,7 +22,7 @@
             "title": "Número Secreto",
             "status": "Git · Aprendizado",
             "desc": "Jogo de adivinhar número usado como repositório de prática de Git e GitHub.",
-            "context": "Repositório de prática para consolidar o fluxo de versionamento com Git e GitHub. O jogo em si (adivinhar um número) veio pronto — o foco não era a lógica da aplicação, e sim o processo de trabalho em volta dela.",
+            "context": "Repositório de prática para consolidar o fluxo de versionamento com Git e GitHub. O jogo em si (adivinhar um número) já veio pronto; o trabalho foi no processo em volta dele: organização de commits, branches e deploy.",
             "approach": [
                 "Organização do histórico em commits pequenos e descritivos",
                 "Uso de branches para isolar mudanças antes de integrar",
@@ -178,7 +39,7 @@
             "title": "Secret Number Game",
             "status": "Git · Learning",
             "desc": "A number-guessing game used as a Git/GitHub practice repository.",
-            "context": "A practice repository for consolidating the Git and GitHub versioning workflow. The game itself (guess a number) was provided — the focus wasn't the app logic, but the working process around it.",
+            "context": "A practice repository for consolidating the Git and GitHub versioning workflow. The game itself (guess a number) was already provided; the work was in the process around it: commit organization, branches, and deploy.",
             "approach": [
                 "Organized history into small, descriptive commits",
                 "Used branches to isolate changes before merging",
@@ -195,7 +56,7 @@
     {
         "id": "cefet-robotica",
         "type": "demo-external",
-        "order": 5,
+        "order": 2,
         "icon": "fas fa-robot",
         "thumbClass": "project-thumbnail--ml",
         "demoUrl": "https://rafaelpinto1.github.io/cefet-robotica/",

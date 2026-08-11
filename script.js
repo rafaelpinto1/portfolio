@@ -87,17 +87,25 @@ typeof document !== 'undefined' && document.addEventListener('DOMContentLoaded',
     window.addEventListener('scroll', spy, { passive: true });
     spy();
 
-    // ==================== SCROLL REVEAL ====================
-    document.querySelectorAll(
-        '.card, .project-card, .timeline-item, .about-text, .hero-content, .skill-badge, .skills-category'
-    ).forEach(el => {
-        el.classList.add('fade-up');
-        new IntersectionObserver((entries, obs) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-            });
-        }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' }).observe(el);
-    });
+    // ==================== SCROLL REVEAL (com stagger por grupo) ====================
+    const revealGroupCounts = new Map();
+    function applyScrollReveal(elements) {
+        elements.forEach(el => {
+            if (el.classList.contains('fade-up')) return;
+            const groupIdx = revealGroupCounts.get(el.parentElement) || 0;
+            revealGroupCounts.set(el.parentElement, groupIdx + 1);
+            el.classList.add('fade-up');
+            el.style.transitionDelay = `${Math.min(groupIdx, 8) * 45}ms`;
+            new IntersectionObserver((entries, obs) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+                });
+            }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' }).observe(el);
+        });
+    }
+    applyScrollReveal(document.querySelectorAll(
+        '.card, .timeline-item, .about-text, .hero-content, .skill-badge, .skills-category'
+    ));
 
 
     // ==================== PROJECTS: grid montado dinamicamente a partir de ProjectsData ====================
@@ -105,6 +113,7 @@ typeof document !== 'undefined' && document.addEventListener('DOMContentLoaded',
         const grid = document.getElementById('projectsGrid');
         if (!grid) return;
         grid.innerHTML = ProjectsData.PROJECTS.map((p) => ProjectsData.renderProjectCardHTML(p, lang)).join('');
+        applyScrollReveal(grid.querySelectorAll('.project-card'));
     }
 
     function updateProjectCardsText(lang) {
@@ -221,48 +230,116 @@ typeof document !== 'undefined' && document.addEventListener('DOMContentLoaded',
     projectModal.addEventListener('click', (e) => { if (e.target === projectModal) closeProjectModal(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeProjectModal(); });
 
-    // ==================== CARROSSEL DE PROJETOS (mobile) ====================
-    const projectsGrid   = document.querySelector('.projects-grid');
-    const projectsPrev   = document.getElementById('projectsPrev');
-    const projectsNext   = document.getElementById('projectsNext');
-    const projectsDotsEl = document.getElementById('projectsDots');
-
-    if (projectsPrev && projectsNext && projectsGrid && projectsDotsEl) {
-        const cards = Array.from(projectsGrid.querySelectorAll('.project-card'));
+    // ==================== CARROSSEL GENÉRICO (Projetos mobile + Depoimentos) ====================
+    function initCarousel({ track, prevBtn, nextBtn, dotsEl, cardSelector }) {
+        if (!track || !prevBtn || !nextBtn || !dotsEl) return null;
+        const cards = Array.from(track.querySelectorAll(cardSelector));
+        if (cards.length === 0) return null;
         let currentIdx = 0;
 
+        dotsEl.innerHTML = '';
         cards.forEach((_, i) => {
             const dot = document.createElement('span');
-            dot.className = 'projects-dot' + (i === 0 ? ' active' : '');
-            projectsDotsEl.appendChild(dot);
+            dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+            dotsEl.appendChild(dot);
         });
 
         function updateDots(idx) {
-            projectsDotsEl.querySelectorAll('.projects-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+            dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
         }
 
         function scrollToCard(idx) {
             currentIdx = Math.max(0, Math.min(idx, cards.length - 1));
             const card = cards[currentIdx];
-            const gridLeft = projectsGrid.getBoundingClientRect().left;
+            const trackLeft = track.getBoundingClientRect().left;
             const cardLeft = card.getBoundingClientRect().left;
-            projectsGrid.style.scrollSnapType = 'none';
-            projectsGrid.scrollBy({ left: cardLeft - gridLeft, behavior: 'smooth' });
-            setTimeout(() => { projectsGrid.style.scrollSnapType = ''; }, 450);
+            track.style.scrollSnapType = 'none';
+            track.scrollBy({ left: cardLeft - trackLeft, behavior: 'smooth' });
+            setTimeout(() => { track.style.scrollSnapType = ''; }, 450);
             updateDots(currentIdx);
         }
 
-        projectsPrev.addEventListener('click', () => scrollToCard(currentIdx - 1));
-        projectsNext.addEventListener('click', () => scrollToCard(currentIdx + 1));
+        prevBtn.addEventListener('click', () => scrollToCard(currentIdx - 1));
+        nextBtn.addEventListener('click', () => scrollToCard(currentIdx + 1));
 
-        projectsGrid.addEventListener('scroll', () => {
-            const gridLeft = projectsGrid.getBoundingClientRect().left;
+        track.addEventListener('scroll', () => {
+            const trackLeft = track.getBoundingClientRect().left;
             let closest = 0, minDist = Infinity;
             cards.forEach((card, i) => {
-                const dist = Math.abs(card.getBoundingClientRect().left - gridLeft);
+                const dist = Math.abs(card.getBoundingClientRect().left - trackLeft);
                 if (dist < minDist) { minDist = dist; closest = i; }
             });
             if (closest !== currentIdx) { currentIdx = closest; updateDots(currentIdx); }
         }, { passive: true });
+
+        return { scrollToCard };
     }
+
+    initCarousel({
+        track: document.querySelector('.projects-grid'),
+        prevBtn: document.getElementById('projectsPrev'),
+        nextBtn: document.getElementById('projectsNext'),
+        dotsEl: document.getElementById('projectsDots'),
+        cardSelector: '.project-card',
+    });
+
+    // ==================== DEPOIMENTOS: carrossel montado a partir de TestimonialsData ====================
+    function renderTestimonialCardHTML(t, lang) {
+        const role = (t.role && (t.role[lang] || t.role.pt)) || '';
+        const relationship = (t.relationship && (t.relationship[lang] || t.relationship.pt)) || '';
+        const quote = (t.quote && (t.quote[lang] || t.quote.pt)) || '';
+        const linkedinLabel = I18N.getText(I18N.I18N_DICT, lang, 'testimonials.linkedinCta');
+        const dateLabel = t.date ? new Date(t.date + 'T00:00:00').toLocaleDateString(lang === 'en' ? 'en-US' : 'pt-BR', { year: 'numeric', month: 'long' }) : '';
+        return `
+            <div class="testimonial-card">
+                <span class="testimonial-quote-mark">&ldquo;</span>
+                <p class="testimonial-quote">${quote}</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-name">${t.name}</div>
+                    <div class="testimonial-role">${role}</div>
+                    <div class="testimonial-meta">${relationship}${dateLabel ? ' · ' + dateLabel : ''}</div>
+                    <a href="${t.linkedinUrl}" target="_blank" rel="noopener noreferrer" class="testimonial-linkedin">
+                        <i class="fab fa-linkedin"></i> ${linkedinLabel}
+                    </a>
+                </div>
+            </div>
+        `.trim();
+    }
+
+    let testimonialsIdx = 0;
+
+    function buildTestimonialCards(lang) {
+        const track = document.getElementById('testimonialsTrack');
+        const dotsEl = document.getElementById('testimonialsDots');
+        const prevBtn = document.getElementById('testimonialsPrev');
+        const nextBtn = document.getElementById('testimonialsNext');
+        if (!track || !dotsEl || typeof TestimonialsData === 'undefined') return;
+        const items = TestimonialsData.TESTIMONIALS;
+
+        track.innerHTML = items.map((t) => renderTestimonialCardHTML(t, lang)).join('');
+        applyScrollReveal([track]);
+        const cards = Array.from(track.querySelectorAll('.testimonial-card'));
+
+        dotsEl.innerHTML = '';
+        cards.forEach((_, i) => {
+            const dot = document.createElement('span');
+            dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+            dotsEl.appendChild(dot);
+        });
+
+        function showSlide(idx) {
+            testimonialsIdx = ((idx % cards.length) + cards.length) % cards.length;
+            cards.forEach((c, i) => c.classList.toggle('active', i === testimonialsIdx));
+            dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === testimonialsIdx));
+        }
+
+        if (prevBtn) prevBtn.onclick = () => showSlide(testimonialsIdx - 1);
+        if (nextBtn) nextBtn.onclick = () => showSlide(testimonialsIdx + 1);
+
+        showSlide(Math.min(testimonialsIdx, cards.length - 1));
+    }
+
+    buildTestimonialCards(initialProjectsLang);
+    langPt && langPt.addEventListener('click', () => buildTestimonialCards('pt'));
+    langEn && langEn.addEventListener('click', () => buildTestimonialCards('en'));
 });
