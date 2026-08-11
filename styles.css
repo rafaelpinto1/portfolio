@@ -714,6 +714,38 @@ body.dark .nav-link:hover {
 }
 
 /* ===== RESPONSIVIDADE ===== */
+/* Menu hambúrguer também ativo entre 769-1130px: o nav completo (6 itens +
+   logo + idioma + tema) não cabe nessa faixa e vaza pra fora da tela. */
+@media (max-width: 1130px) and (min-width: 769px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: calc(100vh - 70px);
+        background-color: var(--bg-primary);
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        transition: left 0.3s ease;
+        z-index: 999;
+        padding: 2rem 1rem;
+        border-right: 0.5px solid var(--border);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+
 @media (max-width: 768px) {
     .menu-toggle {
         display: flex;
@@ -750,6 +782,14 @@ body.dark .nav-link:hover {
     .hero-container {
         flex-direction: column;
         text-align: center;
+    }
+
+    .hero-content,
+    .hero-badges,
+    .hero-ctas,
+    .hero-bio {
+        width: 100%;
+        min-width: 0;
     }
 
     .profile-photo {
@@ -917,7 +957,7 @@ body.dark .nav-link:hover {
 /* ===== PROJECT THUMBNAILS ===== */
 .project-thumbnail {
     width: 100%;
-    height: 160px;
+    aspect-ratio: 1280 / 900;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -930,7 +970,8 @@ body.dark .nav-link:hover {
 .project-thumbnail img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    object-position: top center;
     display: block;
 }
 
@@ -983,6 +1024,14 @@ body.dark .nav-link:hover {
     font-size: 0.9rem;
     margin-bottom: 0.75rem;
     line-height: 1.5;
+}
+
+.project-card-desc {
+    min-height: 4.05rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 /* ===== PROJECT TAGS ===== */
@@ -1483,6 +1532,11 @@ body.dark .hero-badge {
     font-size: 1rem;
     margin: 0;
     line-height: 1.3;
+    min-height: 2.6em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .project-status {
@@ -2033,31 +2087,22 @@ body.dark .hero-badge {
     }
     .timeline-dot { width: 10px; height: 10px; }
 
-    /* ---------- PROJETOS: carrossel ---------- */
+    /* ---------- PROJETOS: um card por vez (igual Depoimentos) ---------- */
     .lgpd-notice { font-size: 0.78rem; text-align: center; line-height: 1.5; }
     .projects-grid {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        scroll-snap-type: x proximity;
-        -webkit-overflow-scrolling: touch;
-        touch-action: pan-x;
-        width: 100vw;
-        margin-left: -1.5rem;
-        padding: 0.5rem 1.5rem 1.25rem;
-        gap: 1rem;
-        box-sizing: border-box;
-        scrollbar-width: none;
+        display: block;
+        width: 100%;
         margin-top: 0.75rem;
     }
-    .projects-grid::-webkit-scrollbar { display: none; }
     .project-card {
-        flex: 0 0 80vw;
-        max-width: 290px;
-        scroll-snap-align: start;
-        flex-shrink: 0;
+        display: none;
+        width: 100%;
+        max-width: 100%;
     }
-    .project-thumbnail { height: 130px; font-size: 2.8rem; }
+    .project-card.active {
+        display: flex;
+    }
+    .project-thumbnail { font-size: 2.8rem; }
     .project-body { padding: 1rem; }
     .project-body h3 { font-size: 0.95rem; }
     .project-body p { font-size: 0.82rem; }

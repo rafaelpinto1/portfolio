@@ -245,12 +245,41 @@ typeof document !== 'undefined' && document.addEventListener('DOMContentLoaded',
     projectModal.addEventListener('click', (e) => { if (e.target === projectModal) closeProjectModal(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeProjectModal(); });
 
-    // ==================== CARROSSEL GENÉRICO (Projetos mobile + Depoimentos) ====================
-    function initCarousel({ track, prevBtn, nextBtn, dotsEl, cardSelector }) {
-        if (!track || !prevBtn || !nextBtn || !dotsEl) return null;
-        const cards = Array.from(track.querySelectorAll(cardSelector));
-        if (cards.length === 0) return null;
-        let currentIdx = 0;
+    // Arrastar/swipe (touch) para trocar de slide — usado no carrossel de
+    // projetos (mobile) e no de depoimentos.
+    function addSwipeNav(el, onSwipeLeft, onSwipeRight) {
+        let startX = 0;
+        let startY = 0;
+        let tracking = false;
+        el.addEventListener('touchstart', (e) => {
+            if (e.touches.length !== 1) return;
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+            tracking = true;
+        }, { passive: true });
+        el.addEventListener('touchend', (e) => {
+            if (!tracking) return;
+            tracking = false;
+            const dx = e.changedTouches[0].clientX - startX;
+            const dy = e.changedTouches[0].clientY - startY;
+            if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+            if (dx < 0) onSwipeLeft(); else onSwipeRight();
+        }, { passive: true });
+    }
+
+    // No mobile só um card fica visível por vez (a mesma ideia dos
+    // Depoimentos); no desktop os cards aparecem lado a lado normalmente
+    // e essa navegação por dots/setas fica sem efeito visual (CSS não usa
+    // .active pra layout acima de 768px).
+    function initProjectsSingleView() {
+        const grid = document.getElementById('projectsGrid');
+        const dotsEl = document.getElementById('projectsDots');
+        const prevBtn = document.getElementById('projectsPrev');
+        const nextBtn = document.getElementById('projectsNext');
+        if (!grid || !dotsEl) return;
+        const cards = Array.from(grid.querySelectorAll('.project-card'));
+        if (cards.length === 0) return;
+        let idx = 0;
 
         dotsEl.innerHTML = '';
         cards.forEach((_, i) => {
@@ -259,44 +288,18 @@ typeof document !== 'undefined' && document.addEventListener('DOMContentLoaded',
             dotsEl.appendChild(dot);
         });
 
-        function updateDots(idx) {
-            dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+        function show(i) {
+            idx = ((i % cards.length) + cards.length) % cards.length;
+            cards.forEach((c, ci) => c.classList.toggle('active', ci === idx));
+            dotsEl.querySelectorAll('.carousel-dot').forEach((d, di) => d.classList.toggle('active', di === idx));
         }
 
-        function scrollToCard(idx) {
-            currentIdx = Math.max(0, Math.min(idx, cards.length - 1));
-            const card = cards[currentIdx];
-            const trackLeft = track.getBoundingClientRect().left;
-            const cardLeft = card.getBoundingClientRect().left;
-            track.style.scrollSnapType = 'none';
-            track.scrollBy({ left: cardLeft - trackLeft, behavior: 'smooth' });
-            setTimeout(() => { track.style.scrollSnapType = ''; }, 450);
-            updateDots(currentIdx);
-        }
-
-        prevBtn.addEventListener('click', () => scrollToCard(currentIdx - 1));
-        nextBtn.addEventListener('click', () => scrollToCard(currentIdx + 1));
-
-        track.addEventListener('scroll', () => {
-            const trackLeft = track.getBoundingClientRect().left;
-            let closest = 0, minDist = Infinity;
-            cards.forEach((card, i) => {
-                const dist = Math.abs(card.getBoundingClientRect().left - trackLeft);
-                if (dist < minDist) { minDist = dist; closest = i; }
-            });
-            if (closest !== currentIdx) { currentIdx = closest; updateDots(currentIdx); }
-        }, { passive: true });
-
-        return { scrollToCard };
+        if (prevBtn) prevBtn.onclick = () => show(idx - 1);
+        if (nextBtn) nextBtn.onclick = () => show(idx + 1);
+        addSwipeNav(grid, () => show(idx + 1), () => show(idx - 1));
+        show(0);
     }
-
-    initCarousel({
-        track: document.querySelector('.projects-grid'),
-        prevBtn: document.getElementById('projectsPrev'),
-        nextBtn: document.getElementById('projectsNext'),
-        dotsEl: document.getElementById('projectsDots'),
-        cardSelector: '.project-card',
-    });
+    initProjectsSingleView();
 
     // ==================== DEPOIMENTOS: carrossel montado a partir de TestimonialsData ====================
     function renderTestimonialCardHTML(t, lang) {
@@ -364,6 +367,7 @@ typeof document !== 'undefined' && document.addEventListener('DOMContentLoaded',
 
         if (prevBtn) prevBtn.onclick = () => { showSlide(testimonialsIdx - 1); startAutoplay(); };
         if (nextBtn) nextBtn.onclick = () => { showSlide(testimonialsIdx + 1); startAutoplay(); };
+        addSwipeNav(track, () => { showSlide(testimonialsIdx + 1); startAutoplay(); }, () => { showSlide(testimonialsIdx - 1); startAutoplay(); });
         track.addEventListener('mouseenter', stopAutoplay);
         track.addEventListener('mouseleave', startAutoplay);
 
