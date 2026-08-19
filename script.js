@@ -207,7 +207,72 @@ typeof document !== 'undefined' && document.addEventListener('DOMContentLoaded',
         clearModalFooter();
     }
 
+    // ==================== RESUME VIEWER (reaproveita o modal de projetos) ====================
+    let modalShowingResume = false;
+
+    function getResumeUrl(lang) {
+        return lang === 'en'
+            ? 'Rafael%20A.%20S.%20Pinto%20(EN).pdf'
+            : 'Rafael%20A.%20S.%20Pinto.pdf';
+    }
+
+    function updateResumeDownloadLink(lang) {
+        const link = document.getElementById('resumeDownloadLink');
+        if (!link) return;
+        link.setAttribute('href', getResumeUrl(lang));
+        link.setAttribute('download', lang === 'en' ? 'Rafael_Pinto_Resume_EN.pdf' : 'Rafael_Pinto_Curriculo.pdf');
+    }
+
+    function renderResumeViewerModalContent(lang) {
+        const resumeUrl = getResumeUrl(lang);
+        const viewUrl = resumeUrl + '#view=FitV';
+        const title = lang === 'en' ? 'Resume' : 'Currículo';
+        const openLabel = I18N.getText(I18N.I18N_DICT, lang, 'project.openNewTab');
+        const downloadName = lang === 'en' ? 'Rafael_Pinto_Resume_EN.pdf' : 'Rafael_Pinto_Curriculo.pdf';
+        const downloadLabel = lang === 'en' ? 'Download PDF' : 'Baixar PDF';
+        projectModalTitle.textContent = title;
+        projectModalBody.classList.add('project-modal-body--iframe');
+        projectModalBody.innerHTML = `
+            <div class="browser-chrome">
+                <span class="browser-chrome-dot browser-chrome-dot--red"></span>
+                <span class="browser-chrome-dot browser-chrome-dot--yellow"></span>
+                <span class="browser-chrome-dot browser-chrome-dot--green"></span>
+                <span class="browser-chrome-url">${resumeUrl}</span>
+                <a href="${viewUrl}" target="_blank" rel="noopener noreferrer" class="browser-chrome-open-link">${openLabel}</a>
+            </div>
+            <iframe class="demo-viewer-iframe" src="${viewUrl}" title="${title}"></iframe>
+        `;
+        if (projectModalFooter) {
+            projectModalFooter.innerHTML = `<a href="${resumeUrl}" download="${downloadName}" class="cs-open-demo-btn"><i class="fas fa-file-pdf"></i> ${downloadLabel}</a>`;
+            projectModalFooter.classList.add('active');
+        }
+    }
+
+    function openResumeModal() {
+        modalShowingResume = true;
+        renderResumeViewerModalContent(currentLang());
+        document.getElementById('projectModalBox')?.classList.add('project-modal-box--fullscreen');
+        projectModal.removeAttribute('inert');
+        projectModal.classList.add('open');
+        projectModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    const btnViewResume = document.getElementById('btnViewResume');
+    if (btnViewResume) btnViewResume.addEventListener('click', openResumeModal);
+
+    updateResumeDownloadLink(initialProjectsLang);
+    langPt && langPt.addEventListener('click', () => {
+        updateResumeDownloadLink('pt');
+        if (modalShowingResume && projectModal.classList.contains('open')) renderResumeViewerModalContent('pt');
+    });
+    langEn && langEn.addEventListener('click', () => {
+        updateResumeDownloadLink('en');
+        if (modalShowingResume && projectModal.classList.contains('open')) renderResumeViewerModalContent('en');
+    });
+
     function openProjectModal(project) {
+        modalShowingResume = false;
         const lang = currentLang();
         if (project.type === 'case-study') {
             renderCaseStudyModalContent(project, lang);

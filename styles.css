@@ -489,6 +489,20 @@ body.dark .nav-link:hover {
     transform: translateY(-2px);
 }
 
+.btn-resume--outline {
+    background-color: transparent;
+    border: 0.5px solid var(--accent);
+    color: var(--accent);
+    cursor: pointer;
+    font: inherit;
+}
+
+.btn-resume--outline:hover {
+    background-color: var(--accent);
+    color: white;
+    transform: translateY(-2px);
+}
+
 .btn-lattes {
     background-color: transparent;
     border: 0.5px solid var(--accent);
@@ -1746,6 +1760,11 @@ body.dark .hero-badge {
     transform: scale(1);
 }
 
+.project-modal-box--fullscreen {
+    max-width: 98vw;
+    height: 96vh;
+}
+
 .project-modal-header {
     display: flex;
     align-items: center;
@@ -1766,20 +1785,25 @@ body.dark .hero-badge {
 }
 
 .project-modal-close {
-    background: none;
+    background: #ff5f57;
     border: none;
-    color: var(--text-secondary, #94a3b8);
+    color: white;
     cursor: pointer;
-    padding: 0.4rem 0.6rem;
-    border-radius: 6px;
-    font-size: 1.1rem;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 8px;
+    font-size: 1rem;
     line-height: 1;
-    transition: color 0.2s, background 0.2s;
+    transition: background 0.2s, transform 0.2s;
 }
 
 .project-modal-close:hover {
-    color: var(--text-primary, #f1f5f9);
-    background: rgba(255, 255, 255, 0.08);
+    background: #e0443c;
+    transform: scale(1.06);
 }
 
 .cs-block { margin-bottom: 1.5rem; }
