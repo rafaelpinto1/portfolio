@@ -15,6 +15,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <script>(function () {
+        try {
+            if (localStorage.getItem('theme') !== 'light') document.body.classList.add('dark');
+        } catch (e) {}
+    })();</script>
     <header class="header" aria-label="Cabeçalho principal">
         <div class="container header-container">
             <div class="header-left">
