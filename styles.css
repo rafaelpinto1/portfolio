@@ -1854,6 +1854,12 @@ body.dark .hero-badge {
     font-size: 0.9rem;
 }
 
+.cs-media-video {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+}
+
 .cs-open-demo-btn {
     display: inline-block;
     background-color: var(--accent);

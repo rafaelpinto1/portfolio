@@ -1,0 +1,39 @@
+{
+  "id": "power-bi-people-analytics",
+  "type": "case-study",
+  "order": 3,
+  "icon": "fas fa-user-graduate",
+  "thumbClass": "project-thumbnail--bi",
+  "thumbnailImg": "assets/thumbnail.png",
+  "video": "assets/video.mp4",
+  "pt": {
+    "title": "People Analytics — Previsão e Simulação de Turnover",
+    "status": "Power BI · People Analytics",
+    "desc": "Painel que estima o risco de saída de cada funcionário e simula o retorno financeiro de ações de retenção antes da decisão ser tomada.",
+    "context": "Modelagem calibrada contra o mercado de trabalho real, não \"bola de cristal\". Indicadores econômicos (Selic, IPCA, taxa de desemprego) vêm direto da API do Banco Central, atualizando a cada refresh, e o risco de saída de cada funcionário reage à taxa de desemprego real do mês.",
+    "approach": [
+      "Indicadores do Banco Central via API (SGS), atualizados a cada refresh do relatório",
+      "Score de risco por funcionário com pesos calibrados por sinal (nota do gestor, tempo sem promoção, troca recente de gestor), calibrados por busca binária contra metas realistas de desligamento",
+      "Simulador what-if: escolhe funcionário + ação (promoção, treinamento, aumento, férias) e recalcula risco antes/depois e a economia esperada (redução de risco × custo de reposição, menos custo da ação)",
+      "Tela de Mercado & Risco com correlação de Pearson mês a mês validando a calibração",
+      "Visão Geral com headcount, folha, desempenho médio e custo de reposição (heurística de 6 meses de salário)"
+    ],
+    "result": "Em teste real, uma funcionária com 41% de risco recebendo aumento de mérito teve o risco reduzido a quase zero, com economia esperada de ~R$ 7.500. Correlações validadas: -0,59 entre turnover e desemprego, +0,44 entre turnover voluntário e aquecimento de mercado.",
+    "tags": ["Power BI", "DAX", "People Analytics", "API Banco Central", "Modelagem Estatística"]
+  },
+  "en": {
+    "title": "People Analytics — Turnover Forecasting & Simulation",
+    "status": "Power BI · People Analytics",
+    "desc": "A dashboard that estimates each employee's flight risk and simulates the financial return of retention actions before any decision is made.",
+    "context": "Data modeling calibrated against the real labor market, not a crystal ball. Economic indicators (Selic rate, IPCA inflation, unemployment rate) come straight from the Brazilian Central Bank API, refreshing live, and each employee's exit risk reacts to the actual unemployment rate for the month.",
+    "approach": [
+      "Central Bank economic indicators via API (SGS), refreshed live with the report",
+      "Per-employee risk score with calibrated weights per signal (last manager review score, time since promotion, recent manager change), calibrated via binary search against realistic attrition targets",
+      "What-if simulator: pick an employee + an action (promotion, training, raise, vacation) and instantly recompute the before/after risk score plus the expected savings (risk reduction × replacement cost, minus the action's cost)",
+      "Market & Risk screen with month-by-month Pearson correlation validating the calibration",
+      "Overview screen with headcount, payroll, average performance, and replacement cost (a 6-months-of-salary heuristic)"
+    ],
+    "result": "In a real test run, an employee with a 41% risk score who received a merit raise had her risk reduced to nearly zero, with an expected savings of ~R$7,500. Validated correlations: -0.59 between turnover and unemployment, +0.44 between voluntary turnover and the market-heat index.",
+    "tags": ["Power BI", "DAX", "People Analytics", "Central Bank API", "Statistical Modeling"]
+  }
+}

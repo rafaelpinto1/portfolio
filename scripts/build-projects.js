@@ -71,6 +71,13 @@ function validateProject(id, data, projectsDir) {
         }
     }
 
+    if (data.video) {
+        const videoPath = path.join(projectsDir, id, data.video);
+        if (!fs.existsSync(videoPath)) {
+            errors.push(`"video" aponta para "${data.video}", mas o arquivo não existe dentro da pasta do projeto`);
+        }
+    }
+
     return errors;
 }
 
@@ -159,7 +166,10 @@ function generateFileContent(projects) {
 
     function renderCaseStudyHTML(project, lang) {
         const l = CASE_STUDY_LABELS[lang] || CASE_STUDY_LABELS.pt;
-        return renderProjectDetailHTML(project, lang, '<div class="cs-media-placeholder">📷 ' + l.mediaPlaceholder + '</div>');
+        const media = project.video
+            ? '<video class="cs-media-video" src="projetos/' + project.id + '/' + project.video + '" controls autoplay muted loop playsinline preload="auto"></video>'
+            : '<div class="cs-media-placeholder">📷 ' + l.mediaPlaceholder + '</div>';
+        return renderProjectDetailHTML(project, lang, media);
     }
 
     function renderDemoIntroHTML(project, lang) {
