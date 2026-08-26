@@ -153,6 +153,57 @@
                 "Statistical Modeling"
             ]
         }
+    },
+    {
+        "id": "analisador-capacidade",
+        "type": "case-study",
+        "order": 4,
+        "icon": "fas fa-gauge-high",
+        "thumbClass": "project-thumbnail--etl",
+        "thumbnailImg": "assets/thumbnail.png",
+        "video": "assets/video.mp4",
+        "pt": {
+            "title": "Analisador de Capacidade — Consumo de CU e Dimensionamento de SKU (Fabric & Embedded)",
+            "status": "Web App · Microsoft Fabric",
+            "desc": "Ferramenta que analisa os logs de consumo de capacidade do Microsoft Fabric e recomenda o SKU ideal, com relatório executivo em PDF gerado automaticamente.",
+            "context": "Dimensionar corretamente uma capacidade Microsoft Fabric (Power BI Premium/Embedded) é um equilíbrio difícil: subdimensionar gera throttling em produção, superdimensionar desperdiça orçamento. Construí essa ferramenta pra consumir os arquivos de Capacity Metrics e Dataset Size exportados do próprio Fabric e transformar isso em uma recomendação de dimensionamento, sem precisar vasculhar planilha manualmente.",
+            "approach": [
+                "Parsing de CSV/XLSX exportados dos apps Capacity Metrics e Dataset Size do Fabric, com visões por Operação, Dia, Período, Hora, 30min e 10min",
+                "Cálculo da ocupação estimada do pool de memória por SKU (F2 a F2048) e detecção de conflitos de refresh simultâneo que estourariam a capacidade contratada",
+                "Geração automática de relatório executivo em PDF (panorama geral, perfil de consumo, dimensionamento, inventário de workspaces e artefatos) pronto para apresentar ao cliente",
+                "Agente de chat analítico com IA generativa que responde perguntas em linguagem natural sobre os dados carregados (refreshes, consumo de CU, SKU ideal)",
+                "Front-end estático em JavaScript puro, com proxy Node.js local para geração de PDF (Puppeteer) e integrações opcionais com SharePoint"
+            ],
+            "result": "Usado internamente para diagnosticar a capacidade Fabric de múltiplos clientes, substituindo horas de análise manual em planilha por um relatório completo gerado em minutos.",
+            "tags": [
+                "Microsoft Fabric",
+                "JavaScript",
+                "Node.js",
+                "IA Generativa",
+                "Análise de Capacidade"
+            ]
+        },
+        "en": {
+            "title": "Capacity Analyzer — CU Consumption & SKU Sizing (Fabric & Embedded)",
+            "status": "Web App · Microsoft Fabric",
+            "desc": "A tool that analyzes Microsoft Fabric capacity consumption logs and recommends the right SKU, with an executive PDF report generated automatically.",
+            "context": "Correctly sizing a Microsoft Fabric capacity (Power BI Premium/Embedded) is a tricky balance: undersizing causes throttling in production, oversizing wastes budget. I built this tool to consume the Capacity Metrics and Dataset Size files exported from Fabric itself and turn that into a sizing recommendation, without having to dig through spreadsheets by hand.",
+            "approach": [
+                "Parses CSV/XLSX exports from Fabric's Capacity Metrics and Dataset Size apps, with views by Operation, Day, Period, Hour, 30-min, and 10-min windows",
+                "Calculates estimated memory pool occupancy per SKU (F2 through F2048) and flags simultaneous-refresh conflicts that would exceed the contracted capacity",
+                "Automatically generates an executive PDF report (overview, consumption profile, sizing, workspace/artifact inventory) ready to hand to the client",
+                "Generative-AI analytical chat agent that answers natural-language questions about the loaded data (refreshes, CU consumption, ideal SKU)",
+                "Static vanilla-JS front-end with a local Node.js proxy for PDF generation (Puppeteer) and optional SharePoint integrations"
+            ],
+            "result": "Used internally to diagnose Fabric capacity for multiple clients, replacing hours of manual spreadsheet analysis with a full report generated in minutes.",
+            "tags": [
+                "Microsoft Fabric",
+                "JavaScript",
+                "Node.js",
+                "Generative AI",
+                "Capacity Analysis"
+            ]
+        }
     }
 ];
 
