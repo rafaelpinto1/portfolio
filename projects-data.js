@@ -256,6 +256,56 @@
                 "CEFET/RJ"
             ]
         }
+    },
+    {
+        "id": "automacao-alertas",
+        "type": "demo-local",
+        "order": 6,
+        "icon": "fas fa-bell",
+        "thumbClass": "project-thumbnail--etl",
+        "thumbnailImg": "assets/thumbnail.png",
+        "pt": {
+            "title": "Automação de Alertas de Monitoramento",
+            "status": "n8n · Automação",
+            "desc": "Automação que cruza alertas genéricos de monitoramento com os logs internos do sistema, descobre a causa provável e já notifica a equipe, sem investigação manual.",
+            "context": "Um alerta de monitoramento genérico normalmente só diz \"algo está errado\", sem dizer o quê: número de erros, capacidade ligada há muito tempo, sem contexto nenhum. O time precisava abrir o banco manualmente pra entender o que tinha acontecido antes de agir. Construí uma automação (n8n) que consulta o monitoramento e os logs da aplicação em paralelo, cruza os dois automaticamente e já entrega o alerta com a causa provável.",
+            "approach": [
+                "Gatilho agendado que consulta o monitoramento e os logs da aplicação em paralelo, sem depender só do texto genérico do alerta original",
+                "Escalonamento por lote, processando um grupo de clientes por vez, pra nunca sobrecarregar o banco consultando tudo de uma vez",
+                "Cruzamento automático entre o alerta e o log de erro mais recente do mesmo cliente, identificando a causa provável (ex.: refresh em andamento, erro de autenticação)",
+                "Mensagem de alerta enriquecida montada automaticamente e enviada no chat da equipe, já com o contexto necessário pra agir",
+                "Fallback de confirmação: se não achar uma causa clara, ainda assim avisa a equipe em vez de falhar silenciosamente"
+            ],
+            "result": "A equipe passou a receber o alerta já com o motivo provável, sem precisar abrir o banco manualmente pra investigar cada caso. A demonstração abaixo simula o fluxo com dados fictícios, sem consultar nenhum sistema real.",
+            "tags": [
+                "n8n",
+                "Automação",
+                "Observabilidade",
+                "Integração de Sistemas",
+                "DevOps"
+            ]
+        },
+        "en": {
+            "title": "Monitoring Alert Automation",
+            "status": "n8n · Automation",
+            "desc": "An automation that cross-references generic monitoring alerts with the system's internal logs, finds the likely root cause, and notifies the team automatically, no manual digging required.",
+            "context": "A generic monitoring alert usually just says \"something's wrong\" without saying what: an error count, a capacity running too long, no context at all. The team had to manually open the database to understand what happened before acting. I built an automation (n8n) that queries monitoring and application logs in parallel, cross-references them automatically, and delivers the alert with the likely cause already attached.",
+            "approach": [
+                "Scheduled trigger that queries monitoring and application logs in parallel, instead of relying only on the original alert's generic text",
+                "Batch scheduling that processes one client group at a time, so the database is never hit with a full query all at once",
+                "Automatic cross-referencing between the alert and the most recent error log for the same client, identifying the likely cause (e.g., refresh in progress, authentication error)",
+                "An enriched alert message is assembled automatically and posted to the team's chat, already with the context needed to act",
+                "Confirmation fallback: if no clear cause is found, the team is still notified instead of the automation failing silently"
+            ],
+            "result": "The team now receives the alert with the likely cause already attached, without manually opening the database to investigate each case. The demo below simulates the flow with fictional data, without querying any real system.",
+            "tags": [
+                "n8n",
+                "Automation",
+                "Observability",
+                "Systems Integration",
+                "DevOps"
+            ]
+        }
     }
 ];
 
