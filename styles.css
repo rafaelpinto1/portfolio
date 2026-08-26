@@ -1869,17 +1869,32 @@ body.dark .hero-badge {
 }
 
 .cs-report-link {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
+    gap: 0.6rem;
     margin-top: 1rem;
-    color: var(--accent);
-    font-weight: 600;
+    width: 100%;
+    background-color: var(--accent);
+    color: white;
     text-decoration: none;
+    padding: 0.72rem 1.75rem;
+    border-radius: var(--radius-btn);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.35);
+}
+
+.cs-report-link i {
+    font-size: 1.05em;
 }
 
 .cs-report-link:hover {
-    text-decoration: underline;
+    background-color: var(--accent-hover);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,0.35);
 }
 
 .cs-open-demo-btn {
