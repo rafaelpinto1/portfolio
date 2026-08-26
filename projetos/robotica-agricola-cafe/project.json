@@ -4,6 +4,7 @@
   "order": 5,
   "icon": "fas fa-seedling",
   "thumbClass": "project-thumbnail--ml",
+  "thumbnailImg": "assets/thumbnail.png",
   "report": "assets/artigo.pdf",
   "pt": {
     "title": "Robótica Agrícola com Visão Computacional para Lavouras de Café",
