@@ -4,6 +4,24 @@
 
     const TESTIMONIALS = [
         {
+            id: 'ana-vasconcellos',
+            name: 'Ana Vasconcellos',
+            linkedinUrl: 'https://www.linkedin.com/in/ana-vasconcellos-39238916/',
+            date: '2026-08-25',
+            role: {
+                pt: 'Diretora Executiva · Visa',
+                en: 'Executive Director · Visa',
+            },
+            relationship: {
+                pt: 'Mentora de Rafael',
+                en: "Rafael's mentor",
+            },
+            quote: {
+                pt: 'Conheço o Rafael desde que ele nasceu. Ele se tornou um excelente profissional e um ser humano maravilhoso. Tenho orgulho de ver como sua curiosidade foi somando graduação, pós-graduação e certificações. Com mais de 20 anos trabalhando com consultoria de negócios/estratégica e tecnologia, eu recomendo o Rafa para qualquer projeto, para que continue explorando seus limites.',
+                en: "I've known Rafael since he was born. He became an excellent professional and a wonderful human being. I'm proud of how his curiosity kept adding degrees, postgraduate studies, and certifications. With over 20 years working in business/strategy consulting and technology, I recommend Rafa for any project, so he keeps exploring his limits.",
+            },
+        },
+        {
             id: 'mayara-borges',
             name: 'Mayara Borges',
             linkedinUrl: 'https://www.linkedin.com/in/mayaradacostaborges/',
