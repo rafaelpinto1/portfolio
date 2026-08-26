@@ -1868,6 +1868,20 @@ body.dark .hero-badge {
     display: block;
 }
 
+.cs-report-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.cs-report-link:hover {
+    text-decoration: underline;
+}
+
 .cs-open-demo-btn {
     display: inline-block;
     background-color: var(--accent);

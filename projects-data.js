@@ -6,8 +6,8 @@
     'use strict';
 
     const CASE_STUDY_LABELS = {
-        pt: { context: 'Contexto', approach: 'Abordagem', result: 'Resultado', stack: 'Stack', mediaPlaceholder: 'Prints em breve' },
-        en: { context: 'Context', approach: 'Approach', result: 'Result', stack: 'Stack', mediaPlaceholder: 'Screenshots coming soon' },
+        pt: { context: 'Contexto', approach: 'Abordagem', result: 'Resultado', stack: 'Stack', mediaPlaceholder: 'Prints em breve', reportLink: 'Ver relatório de exemplo (PDF)' },
+        en: { context: 'Context', approach: 'Approach', result: 'Result', stack: 'Stack', mediaPlaceholder: 'Screenshots coming soon', reportLink: 'View sample report (PDF)' },
     };
 
     const PROJECTS = [
@@ -162,6 +162,7 @@
         "thumbClass": "project-thumbnail--etl",
         "thumbnailImg": "assets/thumbnail.png",
         "video": "assets/video.mp4",
+        "report": "assets/relatorio-exemplo.pdf",
         "pt": {
             "title": "Analisador de Capacidade — Consumo de CU e Dimensionamento de SKU (Fabric & Embedded)",
             "status": "Web App · Microsoft Fabric",
@@ -246,7 +247,10 @@
         const media = project.video
             ? '<video class="cs-media-video" src="projetos/' + project.id + '/' + project.video + '" controls autoplay muted loop playsinline preload="auto"></video>'
             : '<div class="cs-media-placeholder">📷 ' + l.mediaPlaceholder + '</div>';
-        return renderProjectDetailHTML(project, lang, media);
+        const reportLink = project.report
+            ? '<a class="cs-report-link" href="projetos/' + project.id + '/' + project.report + '" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf"></i> ' + l.reportLink + '</a>'
+            : '';
+        return renderProjectDetailHTML(project, lang, media + reportLink);
     }
 
     function renderDemoIntroHTML(project, lang) {

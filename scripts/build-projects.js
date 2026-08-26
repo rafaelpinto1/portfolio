@@ -78,6 +78,13 @@ function validateProject(id, data, projectsDir) {
         }
     }
 
+    if (data.report) {
+        const reportPath = path.join(projectsDir, id, data.report);
+        if (!fs.existsSync(reportPath)) {
+            errors.push(`"report" aponta para "${data.report}", mas o arquivo não existe dentro da pasta do projeto`);
+        }
+    }
+
     return errors;
 }
 
@@ -124,8 +131,8 @@ function generateFileContent(projects) {
     'use strict';
 
     const CASE_STUDY_LABELS = {
-        pt: { context: 'Contexto', approach: 'Abordagem', result: 'Resultado', stack: 'Stack', mediaPlaceholder: 'Prints em breve' },
-        en: { context: 'Context', approach: 'Approach', result: 'Result', stack: 'Stack', mediaPlaceholder: 'Screenshots coming soon' },
+        pt: { context: 'Contexto', approach: 'Abordagem', result: 'Resultado', stack: 'Stack', mediaPlaceholder: 'Prints em breve', reportLink: 'Ver relatório de exemplo (PDF)' },
+        en: { context: 'Context', approach: 'Approach', result: 'Result', stack: 'Stack', mediaPlaceholder: 'Screenshots coming soon', reportLink: 'View sample report (PDF)' },
     };
 
     const PROJECTS = ${projectsJson};
@@ -169,7 +176,10 @@ function generateFileContent(projects) {
         const media = project.video
             ? '<video class="cs-media-video" src="projetos/' + project.id + '/' + project.video + '" controls autoplay muted loop playsinline preload="auto"></video>'
             : '<div class="cs-media-placeholder">📷 ' + l.mediaPlaceholder + '</div>';
-        return renderProjectDetailHTML(project, lang, media);
+        const reportLink = project.report
+            ? '<a class="cs-report-link" href="projetos/' + project.id + '/' + project.report + '" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf"></i> ' + l.reportLink + '</a>'
+            : '';
+        return renderProjectDetailHTML(project, lang, media + reportLink);
     }
 
     function renderDemoIntroHTML(project, lang) {

@@ -6,6 +6,7 @@
   "thumbClass": "project-thumbnail--etl",
   "thumbnailImg": "assets/thumbnail.png",
   "video": "assets/video.mp4",
+  "report": "assets/relatorio-exemplo.pdf",
   "pt": {
     "title": "Analisador de Capacidade — Consumo de CU e Dimensionamento de SKU (Fabric & Embedded)",
     "status": "Web App · Microsoft Fabric",
