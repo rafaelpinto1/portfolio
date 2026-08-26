@@ -8,7 +8,7 @@
   "video": "assets/video.mp4",
   "report": "assets/relatorio-exemplo.pdf",
   "pt": {
-    "title": "Microsoft Fabric — Analisador de Capacidade e Dimensionamento de SKU",
+    "title": "Microsoft Fabric: Analisador de Capacidade",
     "status": "Web App · Microsoft Fabric",
     "desc": "Transforma os logs brutos de consumo do Microsoft Fabric em um diagnóstico completo de capacidade — SKU ideal, riscos de throttling e relatório executivo em PDF, prontos em minutos.",
     "context": "Dimensionar uma capacidade Microsoft Fabric (Power BI Premium/Embedded) costuma ser decisão no escuro: contratar SKU de menos derruba refresh em produção por throttling, contratar de mais é orçamento jogado fora todo mês. Construí essa ferramenta para ler os arquivos de Capacity Metrics e Dataset Size que o próprio Fabric exporta e transformá-los automaticamente numa recomendação de dimensionamento — sem precisar cruzar planilha hora por hora.",
@@ -23,7 +23,7 @@
     "tags": ["Microsoft Fabric", "JavaScript", "Node.js", "IA Generativa", "Análise de Capacidade"]
   },
   "en": {
-    "title": "Microsoft Fabric — Capacity Analyzer & SKU Sizing",
+    "title": "Microsoft Fabric: Capacity Analyzer",
     "status": "Web App · Microsoft Fabric",
     "desc": "Turns raw Microsoft Fabric consumption logs into a full capacity diagnosis — ideal SKU, throttling risks, and an executive PDF report, ready in minutes.",
     "context": "Sizing a Microsoft Fabric capacity (Power BI Premium/Embedded) is usually a decision made in the dark: undersizing crashes production refreshes with throttling, oversizing burns budget every month. I built this tool to read the Capacity Metrics and Dataset Size files Fabric itself exports and turn them automatically into a sizing recommendation — no need to cross-reference spreadsheets hour by hour.",

@@ -112,7 +112,7 @@
         "thumbnailImg": "assets/thumbnail.png",
         "video": "assets/video.mp4",
         "pt": {
-            "title": "People Analytics — Previsão e Simulação de Turnover",
+            "title": "People Analytics: Previsão de Turnover",
             "status": "Power BI · People Analytics",
             "desc": "Painel que estima o risco de saída de cada funcionário e simula o retorno financeiro de ações de retenção antes da decisão ser tomada.",
             "context": "Modelagem calibrada contra o mercado de trabalho real, não \"bola de cristal\". Indicadores econômicos (Selic, IPCA, taxa de desemprego) vêm direto da API do Banco Central, atualizando a cada refresh, e o risco de saída de cada funcionário reage à taxa de desemprego real do mês.",
@@ -133,7 +133,7 @@
             ]
         },
         "en": {
-            "title": "People Analytics — Turnover Forecasting & Simulation",
+            "title": "People Analytics: Turnover Forecasting",
             "status": "Power BI · People Analytics",
             "desc": "A dashboard that estimates each employee's flight risk and simulates the financial return of retention actions before any decision is made.",
             "context": "Data modeling calibrated against the real labor market, not a crystal ball. Economic indicators (Selic rate, IPCA inflation, unemployment rate) come straight from the Brazilian Central Bank API, refreshing live, and each employee's exit risk reacts to the actual unemployment rate for the month.",
@@ -164,7 +164,7 @@
         "video": "assets/video.mp4",
         "report": "assets/relatorio-exemplo.pdf",
         "pt": {
-            "title": "Microsoft Fabric — Analisador de Capacidade e Dimensionamento de SKU",
+            "title": "Microsoft Fabric: Analisador de Capacidade",
             "status": "Web App · Microsoft Fabric",
             "desc": "Transforma os logs brutos de consumo do Microsoft Fabric em um diagnóstico completo de capacidade — SKU ideal, riscos de throttling e relatório executivo em PDF, prontos em minutos.",
             "context": "Dimensionar uma capacidade Microsoft Fabric (Power BI Premium/Embedded) costuma ser decisão no escuro: contratar SKU de menos derruba refresh em produção por throttling, contratar de mais é orçamento jogado fora todo mês. Construí essa ferramenta para ler os arquivos de Capacity Metrics e Dataset Size que o próprio Fabric exporta e transformá-los automaticamente numa recomendação de dimensionamento — sem precisar cruzar planilha hora por hora.",
@@ -185,7 +185,7 @@
             ]
         },
         "en": {
-            "title": "Microsoft Fabric — Capacity Analyzer & SKU Sizing",
+            "title": "Microsoft Fabric: Capacity Analyzer",
             "status": "Web App · Microsoft Fabric",
             "desc": "Turns raw Microsoft Fabric consumption logs into a full capacity diagnosis — ideal SKU, throttling risks, and an executive PDF report, ready in minutes.",
             "context": "Sizing a Microsoft Fabric capacity (Power BI Premium/Embedded) is usually a decision made in the dark: undersizing crashes production refreshes with throttling, oversizing burns budget every month. I built this tool to read the Capacity Metrics and Dataset Size files Fabric itself exports and turn them automatically into a sizing recommendation — no need to cross-reference spreadsheets hour by hour.",

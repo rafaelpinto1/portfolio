@@ -7,7 +7,7 @@
   "thumbnailImg": "assets/thumbnail.png",
   "video": "assets/video.mp4",
   "pt": {
-    "title": "People Analytics — Previsão e Simulação de Turnover",
+    "title": "People Analytics: Previsão de Turnover",
     "status": "Power BI · People Analytics",
     "desc": "Painel que estima o risco de saída de cada funcionário e simula o retorno financeiro de ações de retenção antes da decisão ser tomada.",
     "context": "Modelagem calibrada contra o mercado de trabalho real, não \"bola de cristal\". Indicadores econômicos (Selic, IPCA, taxa de desemprego) vêm direto da API do Banco Central, atualizando a cada refresh, e o risco de saída de cada funcionário reage à taxa de desemprego real do mês.",
@@ -22,7 +22,7 @@
     "tags": ["Power BI", "DAX", "People Analytics", "API Banco Central", "Modelagem Estatística"]
   },
   "en": {
-    "title": "People Analytics — Turnover Forecasting & Simulation",
+    "title": "People Analytics: Turnover Forecasting",
     "status": "Power BI · People Analytics",
     "desc": "A dashboard that estimates each employee's flight risk and simulates the financial return of retention actions before any decision is made.",
     "context": "Data modeling calibrated against the real labor market, not a crystal ball. Economic indicators (Selic rate, IPCA inflation, unemployment rate) come straight from the Brazilian Central Bank API, refreshing live, and each employee's exit risk reacts to the actual unemployment rate for the month.",
