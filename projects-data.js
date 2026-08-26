@@ -297,9 +297,12 @@
         const l = CASE_STUDY_LABELS[lang] || CASE_STUDY_LABELS.pt;
         const content = project[lang] || project.pt;
         const reportLabel = content.reportLabel || l.reportLink;
-        const media = project.video
-            ? '<video class="cs-media-video" src="projetos/' + project.id + '/' + project.video + '" controls autoplay muted loop playsinline preload="auto"></video>'
-            : '<div class="cs-media-placeholder">📷 ' + l.mediaPlaceholder + '</div>';
+        let media = '';
+        if (project.video) {
+            media = '<video class="cs-media-video" src="projetos/' + project.id + '/' + project.video + '" controls autoplay muted loop playsinline preload="auto"></video>';
+        } else if (!project.report) {
+            media = '<div class="cs-media-placeholder">📷 ' + l.mediaPlaceholder + '</div>';
+        }
         const reportLink = project.report
             ? '<a class="cs-report-link" href="projetos/' + project.id + '/' + project.report + '" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf"></i> ' + reportLabel + '</a>'
             : '';
