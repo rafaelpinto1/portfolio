@@ -1,0 +1,38 @@
+{
+  "id": "robotica-agricola-cafe",
+  "type": "case-study",
+  "order": 5,
+  "icon": "fas fa-seedling",
+  "thumbClass": "project-thumbnail--ml",
+  "report": "assets/artigo.pdf",
+  "pt": {
+    "title": "Robótica Agrícola com Visão Computacional para Lavouras de Café",
+    "status": "Revisão Bibliográfica · Mestrado CEFET/RJ",
+    "desc": "Revisão bibliográfica que mapeia o estado da arte em robótica e visão computacional aplicadas ao monitoramento de lavouras de café, feita para a disciplina de Metodologia Científica do mestrado.",
+    "context": "O Brasil é o maior produtor mundial de café e o setor enfrenta escassez crescente de mão de obra no monitoramento das lavouras. A pergunta de partida era simples: existe uma plataforma autônoma que percorra a lavoura antes da colheita para ajudar a decidir quando e onde colher? Este trabalho, feito em parceria com Helga Balbi para a disciplina de Metodologia Científica do mestrado no CEFET/RJ, testou essa hipótese com uma revisão sistemática da literatura.",
+    "approach": [
+      "Levantamento da fundamentação teórica: características espectrais do café por estágio fenológico e as arquiteturas de detecção por visão computacional (YOLO, Faster R-CNN)",
+      "Busca complementar com string de busca estruturada, combinando termos de plataforma terrestre, maturação e produtividade, para checar se a lacuna hipotetizada já tinha sido preenchida",
+      "Comparação sistemática dos trabalhos relacionados por plataforma (terrestre vs. aérea), autonomia e momento de operação (antes ou durante a colheita)",
+      "Revisão crítica da própria hipótese inicial à luz da nova busca, em vez de forçar os resultados para confirmá-la"
+    ],
+    "result": "A hipótese inicial não se sustentou por completo: um grupo da ESALQ/USP já combina classificação de maturação com mapeamento de produtividade (84% de mAP, 81% de variância explicada), mas acoplado à colhedora mecânica, gerando um diagnóstico só depois da colheita. A lacuna real é mais estreita: falta juntar essa classificação com navegação autônoma independente da colhedora, para gerar o diagnóstico antes da decisão de colher.",
+    "reportLabel": "Ler o artigo completo (PDF)",
+    "tags": ["Revisão Bibliográfica", "Visão Computacional", "Robótica Agrícola", "Metodologia Científica", "CEFET/RJ"]
+  },
+  "en": {
+    "title": "Agricultural Robotics with Computer Vision for Coffee Farms",
+    "status": "Literature Review · CEFET/RJ Master's",
+    "desc": "A literature review mapping the state of the art in robotics and computer vision applied to coffee farm monitoring, written for the master's Scientific Methodology course.",
+    "context": "Brazil is the world's largest coffee producer, and the sector faces growing labor shortages in farm monitoring. The starting question was simple: is there an autonomous platform that surveys the field before harvest to help decide when and where to pick? This work, done with Helga Balbi for the Scientific Methodology course of my master's at CEFET/RJ, tested that hypothesis with a systematic literature review.",
+    "approach": [
+      "Theoretical grounding: coffee's spectral characteristics by phenological stage and computer vision detection architectures (YOLO, Faster R-CNN)",
+      "A complementary search with a structured query combining terrestrial-platform, maturity, and yield terms, to check whether the hypothesized gap had already been filled",
+      "Systematic comparison of related work by platform (terrestrial vs. aerial), autonomy, and timing of operation (before or during harvest)",
+      "Critical review of the original hypothesis in light of the new search, instead of forcing the results to confirm it"
+    ],
+    "result": "The initial hypothesis didn't fully hold up: a group from ESALQ/USP already combines maturity classification with yield mapping (84% mAP, 81% of variance explained), but coupled to the mechanical harvester, producing a diagnosis only after harvest. The real gap is narrower: it still needs to combine that classification with autonomous navigation independent of the harvester, to produce the diagnosis before the harvest decision.",
+    "reportLabel": "Read the full paper (PDF)",
+    "tags": ["Literature Review", "Computer Vision", "Agricultural Robotics", "Scientific Methodology", "CEFET/RJ"]
+  }
+}
